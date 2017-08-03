@@ -107,7 +107,7 @@
     }
     function addEntry($submittedEvent){
 
-      $eventManager= new eventManager;
+      $eventManager= new eventManager();
       isAvailable=$eventManager->checkAvailabilty($date);
 
       if (isAvailable==true){
