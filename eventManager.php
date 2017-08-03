@@ -14,8 +14,9 @@
 
     }
 
-    function placeInQueue(){
-        $queryEvents = ;//INSERT INTO events_queue (`fullName`,`emailAddress`,`phoneNumber`,`eventDate`,`movie`,`eventTime`,`rate`,`numOfPeople`,`specialAttention`,`eventType`,`depositAmt`,`receivedDeposit`,`partyRoomBook`,`childName`,`isApproved`,`theater`) WHERE (`fullName`,`emailAddress`,`phoneNumber`,`eventDate`,`movie`,`eventTime`,`rate`,`numOfPeople`,`specialAttention`,`eventType`,`depositAmt`,`receivedDeposit`,`partyRoomBook`,`childName`,`isApproved`,`theater`)
+    function placeInQueue($submittedEvent){
+        
+        $queryEvents = ;//INSERT INTO events_queue ($submittedEvent['fullName'],$submittedEvent['emailAddress'],$submittedEvent['phoneNumber'],$submittedEvent['eventDate'],$submittedEvent['movie'],$submittedEvent['eventTime'],$submittedEvent['rate'],$submittedEvent['numOfPeople'],$submittedEvent['specialAttention'],$submittedEvent['eventType'],`depositAmt`,`receivedDeposit`,`partyRoomBook`,`childName`,`isApproved`,`theater`) WHERE (`fullName`,`emailAddress`,`phoneNumber`,`eventDate`,`movie`,`eventTime`,`rate`,`numOfPeople`,`specialAttention`,`eventType`,`depositAmt`,`receivedDeposit`,`partyRoomBook`,`childName`,`isApproved`,`theater`)
         $result = $db->prepare($queryEvents);
         $result->execute(); 
     }
