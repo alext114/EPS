@@ -8,7 +8,7 @@
 		function verifyLogin($inputUsername, $inputPassword){
 		//receives user input for login from form in employeelogin.php
 		 $username = $inputUsername;
-		
+
 		 $password =  hashPassword($inputPassword);
 		 //query the employee table
 		 $query = mysqli_query($db, "SELECT * FROM user WHERE username='$username'");
@@ -53,7 +53,7 @@
 		   print '<script>alert("Incorrect Username!");</script>';
 		   //redirects to employeelogin.php
 		   print '<script>window.location.assign("loginPage.php");</script>';
-		 }		
+		 }
 		}
 
 		function hashPassword($inputPassword){
@@ -70,4 +70,4 @@
 
 
 
-?> 
+?>
