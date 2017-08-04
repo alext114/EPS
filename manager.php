@@ -108,7 +108,7 @@
     function addEntry($submittedEvent){
 
       $eventManager= new eventManager();
-      isAvailable=$eventManager->checkAvailabilty($date);
+      $isAvailable=$eventManager->checkAvailabilty($date);
 
       if (isAvailable==true){
         $queryEvents = ;//INSERT INTO events (`fullName`,`emailAddress`,`phoneNumber`,`eventDate`,`movie`,`eventTime`,`rate`,`numOfPeople`,`specialAttention`,`eventType`,`depositAmt`,`receivedDeposit`,`partyRoomBook`,`childName`,`isApproved`,`theater`) WHERE (`fullName`,`emailAddress`,`phoneNumber`,`eventDate`,`movie`,`eventTime`,`rate`,`numOfPeople`,`specialAttention`,`eventType`,`depositAmt`,`receivedDeposit`,`partyRoomBook`,`childName`,`isApproved`,`theater`)
