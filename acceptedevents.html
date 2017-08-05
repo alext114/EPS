@@ -4,14 +4,87 @@
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <title>acceptedeventsPage</title>
   </head>
-  <body><button name="previousButton">Previous Party</button>&nbsp;&nbsp;<button
-      name="nextButton">Next Party</button>
-    <p><br>
-    </p>
-    <p><br>
-    </p>
-    <p><br>
-    </p>
+  <body>
+    <div style="text-align: right;"><button name="logoutButton">Logout</button></div>
+    <button name="previousButton">Previous Party</button>&nbsp;&nbsp;<button name="nextButton">Next
+      Party</button>
+    <div style="text-align: left;"><br>
+      <div style="text-align: right;">Deposit Paid <input name="depositCheckBox"
+          type="checkbox"></div>
+      <br>
+      <fieldset name="personalInfoFieldSet"> Name:&nbsp;&nbsp; &nbsp;&nbsp;
+        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+        &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label form="nameLabel">-name-</label>
+        <p style="text-align: left;">E-Mail: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+          &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; <label form="emailLabel">-email-</label> &nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp; <br>
+        </p>
+        <p style="text-align: left;">Phone Number:&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <label form="phoneLabel">XXX-XXX-XXXX</label></p>
+        <div style="text-align: left;">Child's Name (If Applicable):&nbsp; <label
+            form="childnameLabel">-billy-</label> &nbsp; </div>
+        <legend>Personal Information</legend></fieldset>
+      <legend></legend></div>
+    <br>
+    <fieldset name="theaterFieldSet"><legend>Theater Information</legend>Theater:&nbsp;&nbsp;
+      &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <label form="theaterNameLabel">-theater
+        name-</label>
+      <p>Movie: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label form="movieNameLabel">dat
+          movie son</label> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <br>
+      </p>
+      <p>Date Desired:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label form="dateLabel">XX/XX/XXXX</label><label></label></p>
+      Time: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; <label form="timeLabel">11:11 PM</label>
+      &nbsp; <legend></legend></fieldset>
+    &nbsp; &nbsp; <br>
+    <fieldset name="eventinfoFieldSet"><legend>Event Information</legend>Event
+      Type:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <label form="eventTypeLabel">-event
+        type-</label>
+      <p>People Attending: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label form="numberAttendingLabel">XXX</label><br>
+      </p>
+      <p>Party Room:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label form="partyRoomConfirmationLabel">Yes/No</label><label></label></p>
+      Party Room Time: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <label form="partyRoomTimeLabel">11:12
+        PM</label> &nbsp; </fieldset>
+    <br>
+    Brief Description:<br>
+    <br>
+    <textarea rows="3" cols="80" name="briefdescriptionTextField"></textarea><br>
+    <br>
+    Special Attention:<br>
+    <br>
+    <textarea rows="3" cols="80" name="attentionTextField"></textarea><br>
+    <br>
+    <br>
+    <button name="editButton">Edit Information</button> <button name="backButton">Back</button>
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button name="deleteEventButton">Delete
+      Event</button><br>
+    <p></p>
+    <p> </p>
     <p><br>
     </p>
   </body>

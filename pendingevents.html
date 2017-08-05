@@ -13,96 +13,65 @@
       <div style="text-align: right;">Deposit Paid <input name="depositCheckBox"
           type="checkbox"></div>
       <p style="text-align: left;">Personal Information </p>
-      <table style="width: 381px; height: 174px;" border="1">
-        <tbody>
-          <tr>
-            <td style="text-align: left; vertical-align: top; background-color: white;">
-              <p>Name:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label form="nameLabel">-name-</label></p>
-              <p>E-Mail: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <label
-                  form="emailLabel">-email-</label> &nbsp; &nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <br>
-              </p>
-              <p>Phone Number:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp; <label form="numberLabel">XXX-XXX-XXXX</label></p>
-              <p>Child's Name (If Applicable):&nbsp; <label form="childLabel">-billy-</label>
-                &nbsp; </p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <br>
+      <fieldset name="personalInfoFieldSet"><legend>Personal Information</legend>
+        <div style="text-align: left;">Name:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label form="nameLabel">-name-</label></div>
+        <p style="text-align: left;">E-Mail: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+          &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; <label form="emailLabel">-email-</label> &nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp; <br>
+        </p>
+        <p style="text-align: left;">Phone Number:&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <label form="numberLabel">XXX-XXX-XXXX</label></p>
+        <div style="text-align: left;">Child's Name (If Applicable):&nbsp; <label
+            form="childNameLabel">-billy-</label> &nbsp; <legend></legend></div>
+      </fieldset>
       <div style="text-align: left;"><br>
-        Theater Information<br>
-        <br>
-        <table style="width: 381px; height: 174px;" border="1">
-          <tbody>
-            <tr>
-              <td>
-                <p>Theater:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <label form="theaterLabel">-theater
-                    name-</label></p>
-                <p>Movie: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label form="movieLabel">dat
-                    movie son</label> &nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <br>
-                </p>
-                <p>Date Desired:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label
-                    form="eventdateLabel">whenever</label></p>
-                <p>Time: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; <label form="timeLabel">11:11
-                    PM</label> &nbsp; </p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <fieldset name="theaterFieldSet"><legend>Theater Information</legend>Theater:&nbsp;&nbsp;
+          &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <label form="theaterNameLabel">-theater
+            name-</label>
+          <p>Movie: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label form="movieNameLabel">dat
+              movie son</label> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <br>
+          </p>
+          <p>Date Desired:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label form="eventdateLabel">XX/XX/XXXX</label></p>
+          Time: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; <label form="timeLabel">11:11 PM</label>
+          &nbsp; <legend></legend></fieldset>
         &nbsp; &nbsp; <br>
+        <fieldset name="eventinfoFieldSet"><legend>Event Information</legend>Event
+          Type:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <label form="eventTypeLabel">-event
+            type-</label>
+          <p>People Attending: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label form="numberAttendingLabel">XXX</label><br>
+          </p>
+          <p>Party Room:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label form="partyRoomConfirmationLabel">Yes/No</label><label></label></p>
+          Party Room Time: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <label form="partyRoomTimeLabel">11:12
+            PM</label> &nbsp; </fieldset>
         <br>
-        Event Information<br>
-        <br>
-        <table style="width: 381px; height: 174px;" border="1">
-          <tbody>
-            <tr>
-              <td>
-                <p>Event Type:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <label form="eventTypeLabel">-event
-                    type-</label></p>
-                <p>People Attending: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp; &nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label
-                    form="attendingnumberLabel">XXX</label> &nbsp;
-                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp; <br>
-                </p>
-                <p>Party Room:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <label form="partyRoomConfirmLabel">Yes/No</label><label></label></p>
-                <p>Party Room Time: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <label
-                    form="partyRoomTimeLabel">11:12 PM</label> &nbsp; </p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        &nbsp; &nbsp; <br>
         Brief Description:<br>
         <br>
         <textarea rows="3" cols="80" name="briefdescriptionTextBox"></textarea><br>
