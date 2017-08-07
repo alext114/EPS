@@ -46,6 +46,29 @@
 	top:1px;
 }
 
+.changeButton {
+	background-color:#f74f4f;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #e32d2d;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #612a31;
+}
+.changeButton:hover {
+	background-color:#f54949;
+}
+.changeButton:active {
+	position:relative;
+	top:1px;
+}
+
 .loginButton {
 	-moz-box-shadow: 0px 1px 0px 0px #fff6af;
 	-webkit-box-shadow: 0px 1px 0px 0px #fff6af;
