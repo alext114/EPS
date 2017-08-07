@@ -3,9 +3,16 @@
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <title>customerconfirmation</title>
+    <style>
+    body{
+      background-color: 	#ffffe0
+    }
+  </style>
   </head>
   <body>
-    <h2>Great, please take a second to review your information...</h2>
+    <h2>Great, please take a second to review your information...&nbsp;&nbsp;</h2>
+    <h1 style=" text-align: center;"></h1>
+    <h1 style=" text-align: center;"></h1>
     <p>Personal Information </p>
     <fieldset name="personalInfoFieldSet">Name:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
       &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
@@ -24,11 +31,18 @@
       &nbsp; <legend>Personal Information</legend>&nbsp; <br>
     </fieldset>
     <h2>You should receive an e-mail from a representative as soon as possible.</h2>
-    <h3>Thanks for booking with <label form="theaternameLabel">-theater chosen-</label>!</h3>
-    <div style="text-align: right;"> <button name="changeButton">Wait I need to
-        Edit!</button>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;<button name="submitButton">Sounds Good!</button></div>
-    <p><br>
-    </p>
+    <h3>Thanks for booking with <label form="theaternameLabel">-theater chosen-</label>!
+    </h3>
+    <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
+    <div style="text-align: right;">
+      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+      <a href="ButtonReferences.css" class="declineButton">Wait I need to Edit!</a>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+      <a href="ButtonReferences.css" class="submitButton">Sounds Good!</a>
+      <p><br>
+      </p>
+    </div>
+    
   </body>
 </html>
