@@ -3,9 +3,19 @@
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <title>home</title>
+    <style>
+    body{
+      background-color: #98FB98
+    }
+  </style>
   </head>
   <body>
-    <div style="text-align: center;">Hello -name- !<br>
+    <div style="text-align: center;">Hello <label form="nameLabel">-name-</label>
+      !<br>
+      <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Event
+        Popper System<img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
+      <br>
+      <br>
       <br>
       <br>
       <br>
@@ -14,20 +24,10 @@
       <br>
       <br>
       <div style="text-align: right;"><input name="eventDateTextBox" type="date"></div>
-      <div style="text-align: left;">
-        <div style="text-align: right;"><br>
-        </div>
-        <div style="text-align: right;"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp; <button name="quicksearchButton">Quick
-            Search</button><br>
+      <div style="text-align: left;"> <br>
+        <div style="text-align: right;">
+          <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+          <a class="searchButton" href="ButtonReferences.css"> Quick Search</a><br>
           <br>
           <br>
           <br>
@@ -35,30 +35,33 @@
           <br>
           <br>
           <div style="text-align: center;"><input name="namesearchTextBox" type="text">
-            <button name="namesearchButton">Search by Name</button> <br>
+            <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+            <a href="ButtonReferences.css" class="searchNameButton"> Name Search</a>
             <br>
             <br>
-            <div style="text-align: center;"><button name="pendingEventsButton">Manage
-                Pending Events</button> <button name="acceptedEventsButton">Manage
-                Accepted Events</button> <br>
+            <br>
+            <br>
+            <div style="text-align: center;">
+              <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+              <a href="ButtonReferences.css" class="pendingButton"> Manage
+                Pending Events</a>
+              <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+              <a href="ButtonReferences.css" class="acceptedButton"> Manage
+                Accepted Events</a> <br>
               <br>
-              <button name="createButton">Create an Event</button> </div>
+              <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+              <a class="changeButton" href="ButtonReferences.css"> Create Event</a>
+            </div>
             <br>
             <br>
-            <div style="text-align: justify;"><button name="manageAccountButton">Manage
-                Accounts</button> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <button
-                name="logoutButton">Logout</button></div>
+            <div style="text-align: justify;">
+              <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+              <a href="ButtonReferences.css" class="editButton"> Manage Accounts</a>
+              <br>
+              <div style="text-align: right;">
+                <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+                <a href="ButtonReferences.css" class="logoutButton"> Logout</a></div>
+            </div>
           </div>
         </div>
       </div>
