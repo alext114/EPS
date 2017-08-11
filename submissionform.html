@@ -1,89 +1,100 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
-    <title>customersubmit</title>
-    <style>
+        <html>
+          <head>
+            <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            <title>customersubmit</title>
+            <style>
     body{
       background-color: 	#ffffe0
     }
   </style>
-  </head>
-  <body>
-    <div style="text-align: right;">
-      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-      <a href="ButtonReferences.css" class="loginButton"> Manager/Admin Login</a></div>
-    <h1 style=" text-align: center;"></h1>
-    <h1 style=" text-align: center;"><img style="width: 83px; height: 97px;" src="http://clipart.coolclips.com/480/vectors/tf05182/CoolClips_vc015190.png">What's
-      Poppin'? <img style="width: 83px; height: 97px;" src="http://clipart.coolclips.com/480/vectors/tf05182/CoolClips_vc015190.png"></h1>
-    <br>
-    <fieldset name="personalInfoFieldSet">Name:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-      &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp; <input name="nameTextBox" type="text">
-      <p>E-Mail: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; <input
-          name="emailField" type="email"> &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <br>
-      </p>
-      <p>Phone Number:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp; &nbsp; <input name="phonenumberField" type="tel"></p>
-      Child's Name (If Applicable):&nbsp; &nbsp;&nbsp; <input name="childNameTextBox"
-        type="text"><legend>Personal Information</legend></fieldset>
-    <p><br>
-    </p>
-    <fieldset name="theaterFieldSet">Town of Theater: &nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;
-      <select name="TheaterSelectionList">
-      </select>
-      <br>
-      <br>
-      Movie:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <input name="movieTextBox" type="text"><br>
-      <br>
-      Date/Time Desired:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp; &nbsp;&nbsp; <input name="datetimeOptions" type="datetime-local"><legend>Theater
-        Information</legend></fieldset>
-    &nbsp;<br>
-    <fieldset name="eventInfoFieldSet">Type of Event:&nbsp;&nbsp; &nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
-      <select name="EventList">
-        <option value="">Fundraiser</option>
-        <option value="">Walk-In</option>
-        <option value="">Rental</option>
-        <option value="">Private Screening</option>
-      </select>
-      <br>
-      <br>
-      Number of People Attending:&nbsp;&nbsp;&nbsp; <input name="attendanceTextBox"
-        type="number"><br>
-      <br>
-      Party Room:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      <select name="partyroomConfirmList">
-        <option value="">No</option>
-        <option value="">Yes</option>
-      </select>
-      <legend>Event Information</legend></fieldset>
-    <br>
-    <br>
-    Brief Description: <br>
-    <textarea rows="3" cols="80" name="descriptionField" wrap="hard"></textarea>
-    <br>
-    <br>
-    Special Attention:<br>
-    <textarea rows="3" cols="80" name="attentionField"></textarea><br>
-    <br>
-    <br>
-    <br>
-    <div style="text-align: right;">
-      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-      <a href="ButtonReferences.css" class="submitButton">Submit</a></div>
-  </body>
-</html>
+          </head>
+          <body>
+            <form method="POST" action="customerSubmitConfirm.php">
+              <h1 style=" text-align: center;"></h1>
+              <h1 style=" text-align: center;"><img style="width: 83px; height: 97px;"
+
+                  src="http://clipart.coolclips.com/480/vectors/tf05182/CoolClips_vc015190.png">What's
+                Poppin'? <img style="width: 83px; height: 97px;" src="http://clipart.coolclips.com/480/vectors/tf05182/CoolClips_vc015190.png"></h1>
+              <br>
+              <fieldset name="personalInfoFieldSet">Name:&nbsp;&nbsp;
+                &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp; <input required="required" name="nameTextBox"
+
+                  type="text">
+                <p>E-Mail: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                  &nbsp;&nbsp; <input name="emailField" type="email"> &nbsp;
+                  &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <br>
+                </p>
+                <p>Phone Number:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp; &nbsp; <input name="phonenumberField" type="tel"></p>
+                Child's Name (If Applicable):&nbsp; &nbsp;&nbsp; <input name="childNameTextBox"
+
+                  type="text"><legend>Personal Information</legend></fieldset>
+              <p><br>
+              </p>
+              <fieldset name="theaterFieldSet">Town of Theater: &nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <select name="TheaterSelectionList">
+                  <option value="Teaneck">Teaneck</option>
+                  <option value="Sayville">Sayville</option>
+                </select>
+                <br>
+                <br>
+                Movie:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+                &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <input
+
+                  name="movieTextBox" type="text"><br>
+                <br>
+                Date/Time Desired:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; <input name="datetimeOptions"
+
+                  type="datetime-local"><legend>Theater Information</legend></fieldset>
+              &nbsp;<br>
+              <fieldset name="eventInfoFieldSet">Type of Event:&nbsp;&nbsp;
+                &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+                <select name="EventList">
+                  <option value="Fundraiser">Fundraiser</option>
+                  <option value="Walk-In">Walk-In</option>
+                  <option value="Rental">Rental</option>
+                  <option value="Private Screening">Private Screening</option>
+                </select>
+                <br>
+                <br>
+                Number of People Attending:&nbsp;&nbsp;&nbsp; <input name="attendanceTextBox"
+
+                  type="number"><br>
+                <br>
+                Party Room:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                <select name="partyroomConfirmList">
+                  <option value="">No</option>
+                  <option value="">Yes</option>
+                </select>
+                <legend>Event Information</legend></fieldset>
+              <br>
+              <br>
+              Brief Description: <br>
+              <textarea rows="3" cols="80" name="descriptionField" wrap="hard"></textarea>
+              <br>
+              <br>
+              Special Attention:<br>
+              <textarea rows="3" cols="80" name="attentionField"></textarea><br>
+              <br>
+              <br>
+              <br>
+              <div style="text-align: right;">
+                <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+                <input name="submitButton" class="submitButton" type="submit"></div>
+    </form>
+</body></html>

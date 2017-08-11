@@ -10,9 +10,11 @@
   </style>
   </head>
   <body>
-    <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-    <div style="text-align: right;"> <a href="ButtonReferences.css" class="logoutButton">
-        Logout</a></div>
+    <form method="POST" action="logout.php">
+      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+      <div style="text-align: right;"> <button type="ButtonReferences.css" class="logoutButton">
+          Logout</button></div>
+    </form>
     <h2>Search Results for... <label form="nameLabel">name</label></h2>
     <p> </p>
     <fieldset name="event1FieldSet"><legend>Event 1</legend> <br>
@@ -30,7 +32,9 @@
       <p></p>
     </fieldset>
     <br>
-    <div style="text-align: right;"> <a href="ButtonReferences.css" class="backButton">Back</a>
-    </div>
+    <form method="POST" action="back.php">
+      <div style="text-align: right;"> <button type="button" name="backButton"
+          class="backButton">Back</button> </div>
+    </form>
   </body>
 </html>

@@ -10,16 +10,20 @@
   </style>
   </head>
   <body>
-    <div style="text-align: right;">
+    <form method="POST" action="logout.php">
+      <div style="text-align: right;">
+        <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+        <button type="button" name="logoutButton" class="logoutButton"> Logout</button></div>
+    </form>
+    <form method="POST" action="dayshift.php">
+      <div style="text-align: right;">
+        <h2><label form="dateLabel">06/06/2006 </label></h2>
+      </div>
       <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-      <a href="ButtonReferences.css" class="logoutButton"> Logout</a></div>
-    <div style="text-align: right;">
-      <h2><label form="dateLabel">06/06/2006 </label></h2>
-    </div>
-    <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-    <a href="ButtonReferences.css" class="prevButton"> Previous Day</a>&nbsp;&nbsp;
-    <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-    <a href="ButtonReferences.css" class="nextButton"> Next Day</a>
+      <button type="button" name="prevButton" class="prevButton"> Previous Day</button>&nbsp;&nbsp;
+      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+      <button type="button" name="nextButton" class="nextButton"> Next Day</button>
+    </form>
     <div style="text-align: left;"><br>
       <br>
       <fieldset name="event1FieldSet"><br>
@@ -36,9 +40,11 @@
         <label form="partyRoomConfirmationLabel">Party Room Y/N</label> <legend>Event
           1</legend></fieldset>
       <br>
-      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-      <div style="text-align: right;"> <a href="ButtonReferences.css" class="backButton">Back</a>
-      </div>
+      <form method="POST" action="back.php">
+        <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+        <div style="text-align: right;"> <button type="button" name=" backButton"
+            class="backButton">Back</button> </div>
+      </form>
     </div>
   </body>
 </html>

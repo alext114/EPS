@@ -8,32 +8,40 @@
     }
   </style>
   </head>
-  <body><br>
-    <div style="text-align: center;">
-      <h1><img style="width: 65px; height: 46px;" src="http://diysolarpanelsv.com/images/agricultural-mechanics-clip-art-10.png">Some
-        Maintenance...<img style="width: 65px; height: 46px;" src="http://diysolarpanelsv.com/images/agricultural-mechanics-clip-art-10.png"></h1>
-    </div>
-    <br>
-    <fieldset name="managerFieldSet">
-      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-      <a href="ButtonReferences.css" class="acceptedButton">Add a Manager</a><br>
+  <body>
+    <form method="POST" action="manage.php"> <br>
+      <div style="text-align: center;">
+        <h1><img style="width: 65px; height: 46px;" src="http://diysolarpanelsv.com/images/agricultural-mechanics-clip-art-10.png">Some
+          Maintenance...<img style="width: 65px; height: 46px;" src="http://diysolarpanelsv.com/images/agricultural-mechanics-clip-art-10.png"></h1>
+      </div>
       <br>
-      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-      <a class="changeButton" href="ButtonReferences.css">Remove a Manager</a> <br>
-      <legend>Manager Maintenance</legend></fieldset>
-    <br>
-    <br>
-    <fieldset name="theaterFieldSet">
-      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-      <a href="ButtonReferences.css" class="acceptedButton">Add a Theater</a><br>
+      <fieldset name="managerFieldSet">
+        <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+        <button type="button" name="addManagerButton" class="acceptedButton">Add
+          a Manager</button><br>
+        <br>
+        <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+        <button type="button" name="removeTheaterButton" class="changeButton">Remove
+          a Manager</button> <br>
+        <legend>Manager Maintenance</legend></fieldset>
       <br>
+      <br>
+      <fieldset name="theaterFieldSet">
+        <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+        <button type="button" name="addTheaterButton" class="acceptedButton">Add
+          a Theater</button> <br>
+        <br>
+        <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+        <button type="button" name="removeTheaterButton" class="changeButton">Remove
+          a Theater</button> <br>
+        <legend>Theater Maintenance</legend></fieldset>
+    </form>
+    <br>
+    <br>
+    <form method="POST" action="back.php">
       <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-      <a class="changeButton" href="ButtonReferences.css">Remove a Theater</a> <br>
-      <legend>Theater Maintenance</legend></fieldset>
-    <br>
-    <br>
-    <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-    <div style="text-align: right;"> <a href="ButtonReferences.css" class="backButton">Back</a></div>
-    
+      <div style="text-align: right;"> <button type="button" name="backButton"
+          class="backButton">Back</button></div>
+    </form>
   </body>
 </html>

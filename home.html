@@ -23,48 +23,58 @@
       <br>
       <br>
       <br>
-      <div style="text-align: right;"><input name="eventDateTextBox" type="date"></div>
-      <div style="text-align: left;"> <br>
-        <div style="text-align: right;">
-          <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-          <a class="searchButton" href="ButtonReferences.css"> Quick Search</a><br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <div style="text-align: center;"><input name="namesearchTextBox" type="text">
+      <form method="POST" action="quicksearch.php">
+        <div style="text-align: right;"><input name="eventDateTextBox" type="date"></div>
+        <div style="text-align: left;"> <br>
+          <div style="text-align: right;">
             <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-            <a href="ButtonReferences.css" class="searchNameButton"> Name Search</a>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div style="text-align: center;">
-              <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-              <a href="ButtonReferences.css" class="pendingButton"> Manage
-                Pending Events</a>
-              <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-              <a href="ButtonReferences.css" class="acceptedButton"> Manage
-                Accepted Events</a> <br>
-              <br>
-              <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-              <a class="changeButton" href="ButtonReferences.css"> Create Event</a>
-            </div>
-            <br>
-            <br>
-            <div style="text-align: justify;">
-              <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-              <a href="ButtonReferences.css" class="editButton"> Manage Accounts</a>
-              <br>
-              <div style="text-align: right;">
-                <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-                <a href="ButtonReferences.css" class="logoutButton"> Logout</a></div>
-            </div>
-          </div>
+            <button type="button" name="searchButton" class="searchButton" href="ButtonReferences.css">
+              Quick Search</button></div>
         </div>
+      </form>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <form method="POST" action="namesearch.php">
+        <div style="text-align: center;"><input name="namesearchTextBox" type="text">
+          <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+          <button type="button" name="namesearchButton" class="searchNameButton">
+            Name Search</button></div>
+      </form>
+      <br>
+      <br>
+      <br>
+      <br>
+      <form method="POST" action="pendingoracceptedGoButton.php">
+        <div style="text-align: center;">
+          <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+          <button type="button" name="pendingEventButton" class="pendingButton">
+            Manage Pending Events</button>
+          <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+          <button type="button" name="acceptedEventButton" class="acceptedButton">
+            Manage Accepted Events</button></div>
+      </form>
+      <br>
+      <br>
+      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+      <a href="managersubmissionform.html" name="createButton" class="changeButton">
+        Create Event</a> <br>
+      <br>
+      <div style="text-align: justify;">
+        <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+        <a href="manage.html" class="editButton"> Manage Accounts</a> <br>
+        <form method="POST" action="logout.php">
+          <div style="text-align: right;">
+            <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+            <button type="button" name="logoutButton" class="logoutButton">
+              Logout</button></div>
+        </form>
       </div>
     </div>
+    
   </body>
 </html>

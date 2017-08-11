@@ -9,22 +9,26 @@
     }
   </style>
   </head>
-  <body> <br>
-    <fieldset name="addTheater"><legend>Add a Theater</legend><br>
-      Town of Theater:&nbsp;&nbsp;&nbsp; <input name="theaterNameTextBox" type="text"><br>
-      <br>
-      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-      <div style="text-align: center;"> <a href="ButtonReferences.css" class="acceptedButton">Open
-          Up!</a><br>
-      </div>
-    </fieldset>
+  <body>
+    <form method="POST" action="createtheater.php"><br>
+      <fieldset name="addTheater"><legend>Add a Theater</legend><br>
+        Town of Theater:&nbsp;&nbsp;&nbsp; <input name="theaterNameTextBox" type="text"><br>
+        <br>
+        <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+        <div style="text-align: center;"> <button type="button" name="createTheaterButton"
+            class="acceptedButton">Open Up!</button><br>
+        </div>
+      </fieldset>
+    </form>
     <br>
-    <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-    <div style="text-align: right;"> <a href="ButtonReferences.css" class="backButton">Back</a>
-    </div>
-    <p><br>
-    </p>
-    <p><br>
-    </p>
+    <form method="POST" action="back.php">
+      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+      <div style="text-align: right;"> <button type="button" name="backButton"
+          class="backButton">Back</button> </div>
+      <p><br>
+      </p>
+      <p><br>
+      </p>
+    </form>
   </body>
 </html>
