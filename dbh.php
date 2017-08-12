@@ -1,19 +1,27 @@
 <?php
+/*
+$servername = "teaneckcinemascom.startlogicmysql.com";
+$username = "teaneckcinemas";
+$password = "503cedarlane";
+$database="eps_database";
+*/
 
-//Connect to database using PDO
-$dsn = 'mysql:host=teaneckcinemascom.startlogicmysql.com;dbname=eps_database';
-$username = 'teaneckcinemas';
-$password = '!Railroad103!';
+//connect to database using mysqli
 
-try
-{
-    $db = new PDO($dsn, $username, $password);
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$database="eps_database";
+
+// Create connection
+$db = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($db->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-catch (PDOException $e)
-{
-    $error_message = $e->getMessage();
-    echo '<p>Not connected to database</p>';
-    exit();
+else{
+  //echo "Connected";
 }
 
 ?>
