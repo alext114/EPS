@@ -22,11 +22,7 @@
     </div>
     <h2 style="text-align: center;"></h2>
     <form method="POST" action="edit.php">
-    <form method="POST" action="eventProcessing.php">
-      <div style="text-align: right;">Deposit Paid <input name="depositCheckBox"
-
-          type="checkbox"></div>
-      <p style="text-align: left;">Personal Information </p>
+      <div style="text-align: right;">&nbsp;</div>
       <fieldset name="personalInfoFieldSet"><legend>Personal Information</legend>
         <div style="text-align: left;">Name:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
@@ -42,8 +38,7 @@
         <p style="text-align: left;">Phone Number:&nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <label form="numberLabel">XXX-XXX-XXXX</label></p>
-        <div style="text-align: left;">Child's Name (If Applicable):&nbsp; <label
-
+        <div style="text-align: left;">Child's Name (If Applicable):&nbsp; <label
             form="childNameLabel">-billy-</label> &nbsp; <legend></legend></div>
       </fieldset>
       <br>
@@ -90,15 +85,16 @@
         <br>
         Brief Description:<br>
         <br>
-        <textarea rows="3" cols="80" name="briefdescriptionTextBox"></textarea><br>
+        <label form="descLabel">-description here-</label><br>
         <br>
         Special Attention:<br>
         <br>
-        <textarea rows="3" cols="80" name="attentionTextField"></textarea><br>
+        <label form="specialneedsLabel">No special needs were noted by the one
+          who inquired.</label><br>
         <br>
         Message to be Delivered:<br>
         <br>
-        <textarea required="required" rows="3" cols="80" name="messageTextField"></textarea></div>
+        <textarea rows="3" cols="80" name="messageTextField"></textarea></div>
       <br>
       <br>
       <div style="text-align: center;">
@@ -110,20 +106,19 @@
           &nbsp; &nbsp;&nbsp;&nbsp;
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
           <button type="button" name="pushButton" class="pushButton">Push!</button></div>
-      </div></form>
-      <br>
-      <br>
-      <div style="text-align: left;">
-        <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-        <button type="button" name="editInfoButton" class="editButton">Edit
-          Information</button></div>
+      </div>
     </form>
+    <br>
+    <br>
+    <div style="text-align: left;">
+      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+      <button type="button" name="editInfoButton" class="editButton">Edit
+        Information</button></div>
     <form method="POST" action="back.php">
       <div style="text-align: right;">
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
         <button type="button" name="backButton" class="backButton">Back</button></div>
       <br>
     </form>
-    
   </body>
 </html>
