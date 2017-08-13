@@ -6,7 +6,6 @@ $manager= new manager();
 $event=$manager->viewPendingQueue($db);
 
 //fix party room time and partyRoomBook
-// partyRoomBook needs to come up as yes or no depending on 1 or 0
 //party room time should then appear depending if the they are getting a party room
 // fix the spacing so all the information comes at the same loginPage
 // make a fieldset for the description and specialAttention called Extra or something like that
