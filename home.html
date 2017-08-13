@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
-    <title>home</title>
+    <title>EPS Home</title>
     <style>
     body{
       background-color: #98FB98
@@ -49,15 +49,15 @@
       <br>
       <br>
       <br>
-      <form method="POST" action="pendingoracceptedGoButton.php">
+      <div>
         <div style="text-align: center;">
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-          <button type="button" name="pendingEventButton" class="pendingButton">
+          <button type="button" name="pendingEventButton" class="pendingButton" onclick="window.location.href='pendingevents.php';"/>
             Manage Pending Events</button>
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-          <button type="button" name="acceptedEventButton" class="acceptedButton">
+          <button type="button" name="acceptedEventButton" class="acceptedButton"  onclick="window.location.href='acceptedevents.php';">
             Manage Accepted Events</button></div>
-      </form>
+  </div>
       <br>
       <br>
       <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
@@ -75,6 +75,6 @@
         </form>
       </div>
     </div>
-    
+
   </body>
 </html>

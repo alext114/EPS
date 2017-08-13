@@ -1,23 +1,30 @@
 <?php
 
-  public class manager{
+  class manager{
   //Variables being declared
-    var $fullName;
-    var $emailAddress;
+    public $fullName;
+    public $emailAddress;
 
 
-    function viewPendingQueue(){
+    public function viewPendingQueue($db){
       /*Displays the events in a queue available in a
       	table. */
       	//connect to database
-      	include '../dbh.php';
-          //get tables for employee
-          $queryEvents = "SELECT *
-                           FROM events_queue";
-          $result = $db->prepare($queryEvents);
-          $result->execute();
-          $events = $result->fetchAll();
-          $result->closeCursor();
+
+          //get tables for events
+          $queryEvents = "SELECT * FROM events_queue LIMIT 1";
+          $result = $db->query($queryEvents);
+
+          while($row = $result->fetch_assoc())
+          {
+            // turn row into an array
+            $event= array("fullName"=>$row["fullName"], "emailAddress"=>$row["emailAddress"], "phoneNumber"=>$row["phoneNumber"], "eventDate"=>$row["eventDate"], "description"=>$row["description"], "movie"=>$row["movie"], "eventTime"=>$row["eventTime"], "rate"=>$row["rate"]
+            , "numOfPeople"=>$row["numOfPeople"], "specialAttention"=>$row["specialAttention"], "eventType"=>$row["eventType"], "partyRoomBook"=>$row["partyRoomBook"], "childName"=>$row["childName"], "theater"=>$row["theater"]);
+
+
+          }
+          //return the new array
+          return $event;
 
 
 
@@ -28,7 +35,7 @@
       /*Displays the events  available in a
       	table. */
       	//connect to database
-      	include '../dbh.php';
+      	include 'dbh.php';
           //get tables for events
           $queryEvents = "SELECT *
                            FROM events";
@@ -44,7 +51,7 @@
       /*Displays the events in a queue available in a
       	table. */
       	//connect to database
-      	include '../dbh.php';
+      	include 'dbh.php';
           //get tables for employee
           $queryEvents = "SELECT *
                            FROM events where depositReceived='true'";
@@ -85,7 +92,7 @@
       /*Displays the events in a queue available in a
       	table. */
       	//connect to database
-      	include '../dbh.php';
+      	include 'dbh.php';
           //get tables for event where id is equal to event id
           //maybe change the * to single value
           $queryEvents = "SELECT *
@@ -105,18 +112,50 @@
           }
 
     }
-    function addEntry($submittedEvent){
+    public function addEntry($db,$submittedEvent){
 
-      $eventManager= new eventManager();
-      $isAvailable=$eventManager->checkAvailabilty($date);
 
-      if (isAvailable==true){
-        $queryEvents = ;//INSERT INTO events (`fullName`,`emailAddress`,`phoneNumber`,`eventDate`,`movie`,`eventTime`,`rate`,`numOfPeople`,`specialAttention`,`eventType`,`depositAmt`,`receivedDeposit`,`partyRoomBook`,`childName`,`isApproved`,`theater`) WHERE (`fullName`,`emailAddress`,`phoneNumber`,`eventDate`,`movie`,`eventTime`,`rate`,`numOfPeople`,`specialAttention`,`eventType`,`depositAmt`,`receivedDeposit`,`partyRoomBook`,`childName`,`isApproved`,`theater`)
-        $result = $db->prepare($queryEvents);
-        $result->execute(); 
 
+
+        $fullName=$submittedEvent['fullName'];
+        $emailAddress=$submittedEvent['emailAddress'];
+        $phoneNumber=$submittedEvent['phoneNumber'];
+        $eventDate=$submittedEvent['eventDate'];
+        $movie=$submittedEvent['movie'];
+        $eventTime=$submittedEvent['eventTime'];
+        $numOfPeople=$submittedEvent['numOfPeople'];
+        $specialAttention=$submittedEvent['specialAttention'];
+        $eventType=$submittedEvent['eventType'];
+        $partyRoomBook=$submittedEvent['partyRoomBook'];
+        $childName=$submittedEvent['childName'];
+        $eventType=$submittedEvent['eventType'];
+        $theater=$submittedEvent['theater'];
+
+        $eventManager= new eventManager();
+        $isAvailable=$eventManager->checkAvailabilty($eventDate);
+
+
+        if (isAvailable==true){
+          //query the database to insert
+          //info not available is null
+          $queryEvents = "INSERT INTO events (`eventID`, `fullName`, `emailAddress`, `phoneNumber`, `eventDate`, `description`, `movie`, `eventTime`, `rate`, `numOfPeople`, `specialAttention`, `eventType`, `depositAmt`, `recievedDeposit`, `partyRoomBook`, `childName`, `isApproved`, `theater`)
+          VALUES (null, '$fullName', '$emailAddress', '$phoneNumber', '$eventDate', '$description', '$movie', '$eventTime', null, '$numOfPeople', '$specialAttention', '$eventType', null, null, '$partyRoomBook', '$childName', 1, '$theater')";
+          if ($db->query($queryEvents) === TRUE)
+          {
+            print '<script>alert("Event Booked!");</script>';
+           //redirects to home.html
+            print '<script>window.location.assign("home.html");</script>';
+          }
+          else {
+              $error= "Error: " . $queryEvents . "<br>" . $db->error;
+              print '<script>alert('$error');</script>';
+              //redirects to home.html
+              print '<script>window.location.assign("home.html");</script>';
+
+          }
+          $db->close();
       }
     }
-}
 
+}
 ?>
