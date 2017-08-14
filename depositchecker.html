@@ -19,40 +19,29 @@
       Paid Deposit Yet <img style="width: 76px; height: 122px;" src="http://clipart-library.com/data_images/139966.png">
     </h2>
     <p> </p>
-    <fieldset name="person1FieldSet"><label form="nameLabel">Name</label><br>
-      <br>
-      <label form="eventLabel">Event</label><br>
-      <br>
-      <label form="dateLabel">Date</label><br>
-      &nbsp; <br>
-      <label form="phoneNumberLabel">Phone Number</label><br>
-      <br>
-      <label form="emailLabel">E-Mail </label>
-      <p></p>
-    </fieldset>
     <br>
     <table style="width: 100%" border="1">
       <tbody>
         <tr>
-          <td style="text-align: center;">Name</td>
-          <td style="text-align: center;">Event</td>
-          <td style="text-align: center;">Date</td>
-          <td style="text-align: center;">Time</td>
-          <td style="text-align: center;">Phone Number</td>
-          <td style="text-align: center;">E-Mail</td>
+          <th id="name">Name</th>
+          <th style="width: 192.933px;" id="email">Email</th>
+          <th style="width: 168px;" id="phonenumber">Phone Number</th>
+          <th id="event">Event</th>
+          <th id="date">Date</th>
+          <th id="time">Time</th>
         </tr>
         <tr>
-          <td style="text-align: center;"><br>
+          <td headers="name" style="text-align: center;"><br>
           </td>
-          <td style="text-align: center;"><br>
+          <td headers="email" style="text-align: center; margin-left: -91px;"><br>
           </td>
-          <td style="text-align: center;"><br>
+          <td headers="phonenumber" style="text-align: center;"><br>
           </td>
-          <td style="text-align: center;"><br>
+          <td headers="event" style="text-align: center;"><br>
           </td>
-          <td style="text-align: center;"><br>
+          <td headers="date" style="text-align: center;"><br>
           </td>
-          <td style="text-align: center;"><br>
+          <td headers="time" style="text-align: center;"><br>
           </td>
         </tr>
       </tbody>
@@ -60,10 +49,13 @@
     <br>
     <br>
     <br>
+    <br>
+    <br>
+    <br>
     <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-    <div style="text-align: center;"> <button type="button" name="editInfoButton"
-
-        class="editButton">E-mail</button></div>
+    <div style="text-align: center;"><img style="width: 119px; height: 88px;" src="http://clipart-library.com/data_images/405785.png"><br>
+      <button type="button" name="emailButton" class="editButton">Email Customer</button>
+    </div>
     <br>
     <br>
     <form method="POST" action="back.php">
@@ -71,5 +63,6 @@
 
           class="backButton">Back</button> </div>
     </form>
+    
   </body>
 </html>

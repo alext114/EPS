@@ -1,32 +1,19 @@
-<?php
-include 'dbh.php';
-include 'manager.php';
-
-$manager= new manager();
-$event=$manager->viewPendingQueue($db);
-
-//fix party room time and partyRoomBook
-//party room time should then appear depending if the they are getting a party room
-// fix the spacing so all the information comes at the same loginPage
-// make a fieldset for the description and specialAttention called Extra or something like that
-//the push button is too grey
-// remove the deposit paid button. it doesnt need to appear here because its accepeted yet.
-
-
-?>
-
-<!DOCTYPE html>
+<!--?php
+include 'dbh.php';include 'manager.php';$manager= new manager();
+$event=$manager--->
 <html>
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  </head>
+  <body>viewPendingQueue($db); //fix party room time and partyRoomBook //party
+    room time should then appear depending if the they are getting a party room
+    // fix the spacing so all the information comes at the same loginPage ?&gt;
     <title>Pending Events</title>
     <style>
     body{
       background-color: #b0e2ff
     }
   </style>
-  </head>
-  <body>
     <form method="POST" action="logout.php">
       <div style="text-align: right;">
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
@@ -35,108 +22,59 @@ $event=$manager->viewPendingQueue($db);
     <br>
     <div style="text-align: center;">
       <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Event
-<<<<<<< HEAD:pendingevents.html
-        Popper System<img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+        HEAD:pendingevents.html Popper System<img style="width: 64px; height: 79px;"
+
+          src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
     </div>
     <h2 style="text-align: center;"></h2>
     <form method="POST" action="edit.php">
       <div style="text-align: right;">&nbsp;</div>
-      <fieldset name="personalInfoFieldSet"><legend>Personal Information</legend>
-        <div style="text-align: left;">Name:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label form="nameLabel">-name-</label></div>
-        <p style="text-align: left;">E-Mail: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
-          &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; <label form="emailLabel">-email-</label> &nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp; <br>
-        </p>
-        <p style="text-align: left;">Phone Number:&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <label form="numberLabel">XXX-XXX-XXXX</label></p>
-        <div style="text-align: left;">Child's Name (If Applicable):&nbsp; <label
-            form="childNameLabel">N/A</label> &nbsp; <legend></legend></div>
-      </fieldset>
-      <br>
-      <div style="text-align: left;">
-=======
-        Popper System<img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
-    </div>
-    <h2 style="text-align: center;"></h2>
-    <form method="POST" action="edit.php">
-    <form method="POST" action="eventProcessing.php">
-      <div style="text-align: right;">Deposit Paid <input name="depositCheckBox"
+      <div style="text-align: left;"> ======= Popper System<img style="width: 64px; height: 79px;"
 
-          type="checkbox"></div>
+          src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"> </div>
+      <h2 style="text-align: center;"></h2>
+      <div style="text-align: right;"><br>
+      </div>
       <p style="text-align: left;">Personal Information </p>
       <fieldset name="personalInfoFieldSet"><legend>Personal Information</legend>
-        <div style="text-align: left;">Name:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label form="nameLabel"><?php  echo $event['fullName'];  ?></label></div>
-        <p style="text-align: left;">E-Mail: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
-          &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; <label form="emailLabel"><?php  echo $event['emailAddress'];?></label> &nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp; <br>
+        <div style="text-align: left;">Name:   <label form="nameLabel"><?php  echo $event['fullName'];  ?></label></div>
+        <p style="text-align: left;">E-Mail:   <label form="emailLabel"><?php  echo $event['emailAddress'];?></label>
+          <br>
         </p>
-        <p style="text-align: left;">Phone Number:&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <label form="numberLabel"><?php  echo $event['phoneNumber'];  ?></label></p>
+        <p style="text-align: left;">Phone Number:   <label form="numberLabel"><?php  echo $event['phoneNumber'];  ?></label></p>
         <div style="text-align: left;">Child's Name (If Applicable):&nbsp; <label
 
-            form="childNameLabel"><?php  echo $event['childName'];?></label> &nbsp; <legend></legend></div>
+            form="childNameLabel"><?php  echo $event['childName'];?></label> <legend></legend></div>
       </fieldset>
       <br>
-      <div style="text-align: left;">
->>>>>>> c62f45ba9efc3b035632aea3b3e38a3a83a742c8:pendingevents.php
-        <fieldset name="theaterFieldSet"><legend>Theater Information</legend>Theater:&nbsp;&nbsp;
-          &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <label form="theaterNameLabel"><?php  echo $event['theater'];?></label>
-          <p>Movie: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label form="movieNameLabel"><?php  echo $event['movie'];?></label> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <br>
+      <div style="text-align: left;"> &gt;&gt;&gt;&gt;&gt;&gt;&gt;
+        c62f45ba9efc3b035632aea3b3e38a3a83a742c8:pendingevents.php
+        <fieldset name="theaterFieldSet"><legend>Theater Information</legend>Theater:
+            <label form="theaterNameLabel"><?php  echo $event['theater'];?></label>
+          <p>Movie:   <label form="movieNameLabel"><?php  echo $event['movie'];?></label>
+            <br>
           </p>
-          <p>Date Desired:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label form="eventdateLabel"><?php  echo $event['eventDate'];?></label></p>
-          Time: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; <label form="timeLabel"><?php  echo $event['eventTime'];?></label>
+          <p>Date Desired:  <label form="eventdateLabel"><?php  echo $event['eventDate'];?></label></p>
+          Time:   <label form="timeLabel"><?php  echo $event['eventTime'];?></label>
           &nbsp; <legend></legend></fieldset>
-        &nbsp; &nbsp; <br>
+        <br>
         <fieldset name="eventinfoFieldSet"><legend>Event Information</legend>Event
-          Type:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <label form="eventTypeLabel"><?php  echo $event['eventType'];?></label>
-          <p>People Attending: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
-            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <label form="numberAttendingLabel"><?php  echo $event['numOfPeople'];?></label><br>
+          Type: <label form="eventTypeLabel"><?php  echo $event['eventType'];?></label>
+          <p>People Attending:   <label form="numberAttendingLabel"><?php  echo $event['numOfPeople'];?></label><br>
           </p>
-          <p>Party Room:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <label form="partyRoomConfirmationLabel"><?php  echo $event['partyRoomBook'];?></label><label></label></p>
-          Party Room Time: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <label form="partyRoomTimeLabel">11:12
-            PM</label> &nbsp; </fieldset>
+          <p>Party Room:  <label form="partyRoomConfirmationLabel"><?php  echo $event['partyRoomBook'];?></label><label></label></p>
+          Party Room Time:   <label form="partyRoomTimeLabel">11:12 PM</label>
+        </fieldset>
         <br>
-        Brief Description:<br>
-        <br>
-      <label form="descLabel"><?php  echo $event['description'];?></label><br>
-        <br>
-      Special Attention:<br>
-      <br>
-      <label form="specialneedsLabel"><?php  echo $event['specialAttention'];?></label><br>
+        <fieldset name="additionalInfoFieldSet"><legend>Additional Information</legend>Brief
+          Description:<br>
+          <br>
+          <label form="descLabel"><?php  echo $event['description'];?></label><br>
+          <br>
+          Special Attention:<br>
+          <br>
+          <label form="specialneedsLabel"><?php  echo $event['specialAttention'];?></label></fieldset>
         <br>
         Message to be Delivered:<br>
         <br>
@@ -146,26 +84,25 @@ $event=$manager->viewPendingQueue($db);
       <div style="text-align: center;">
         <div style="text-align: center;">
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-          <button type="button" name="acceptButton" class="submitButton">Accept</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" name="acceptButton" class="submitButton">Accept</button> 
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
           <button type="button" name="rejectButton" class="rejectButton">Reject</button>
-          &nbsp; &nbsp;&nbsp;&nbsp;
+           
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
           <button type="button" name="pushButton" class="pushButton">Push!</button></div>
-      </div></form>
-      <br>
-      <br>
-      <div style="text-align: left;">
-        <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-        <button type="button" name="editInfoButton" class="editButton">Edit
-          Information</button></div>
+      </div>
     </form>
+    <br>
+    <br>
+    <div style="text-align: left;">
+      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+      <button type="button" name="editInfoButton" class="editButton">Edit
+        Information</button></div>
     <form method="POST" action="back.php">
       <div style="text-align: right;">
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
         <button type="button" name="backButton" class="backButton">Back</button></div>
       <br>
     </form>
-
   </body>
 </html>

@@ -15,22 +15,39 @@
       <div style="text-align: right;"> <button type="ButtonReferences.css" class="logoutButton">
           Logout</button></div>
     </form>
-    <h2>Search Results for... <label form="nameLabel">name</label></h2>
+    <h2><img style="width: 153px; height: 124px;" src="http://clipart-library.com/images/BcgKM4A9i.png"></h2>
+    <h2></h2>
+    <h2>Search Results for... <label form="nameLabel">name </label></h2>
+    <h2>Last E-mail Used: <label form="emailLabel">e-mail here</label></h2>
+    <table style="width: 100%" border="1">
+      <tbody>
+        <tr>
+          <th id="event">Event</th>
+          <th id="date">Date</th>
+          <th id="time">Time</th>
+          <th id="partyroom">Party Room?</th>
+        </tr>
+        <tr>
+          <td headers="event" style="text-align: center;"><br>
+          </td>
+          <td headers="date" style="text-align: center;"><br>
+          </td>
+          <td headers="time" style="text-align: center;"><br>
+          </td>
+          <td headers="partyroom" style="text-align: center;"><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
     <p> </p>
-    <fieldset name="event1FieldSet"><legend>Event 1</legend> <br>
-      <label form="nameLabel">Name</label><br>
-      <br>
-      <label form="theaterLabel">Theater</label><br>
-      <br>
-      <label form="eventLabel">Event</label><br>
-      <br>
-      <label form="dateLabel">Date</label><br>
-      <br>
-      <label form="timeLabel">Time</label><br>
-      <br>
-      <label form="partyRoomConfirmationLabel">Party Room Y/N</label>
-      <p></p>
-    </fieldset>
+    <br>
+    <div style="text-align: center;">
+      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+      <button type="button" name="eventButton" class="acceptedButton" onclick="window.location.href='acceptedevents.html';">
+        Go to Event</button> </div>
+    <br>
+    <div style="text-align: right;"><br>
+    </div>
     <br>
     <form method="POST" action="back.php">
       <div style="text-align: right;"> <button type="button" name="backButton"
