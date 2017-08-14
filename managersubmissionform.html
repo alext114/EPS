@@ -19,47 +19,50 @@
     <h1 style=" text-align: center;"><img style="width: 83px; height: 97px;" src="http://clipart.coolclips.com/480/vectors/tf05182/CoolClips_vc015190.png">What's
       Poppin'? <img style="width: 83px; height: 97px;" src="http://clipart.coolclips.com/480/vectors/tf05182/CoolClips_vc015190.png"></h1>
     <br>
-    <form method="POST" action="managersubmit.php">
+    <form method="POST" action="managerSubmissionConfirm.php">
       <fieldset name="personalInfoFieldSet">Name:&nbsp;&nbsp; &nbsp;&nbsp;
         &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
         &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp; <input required="required" name="nameTextBox"
+        &nbsp;&nbsp;&nbsp;&nbsp; <input required="required" name="fullName"
           type="text">
         <p>E-Mail: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-          <input required="required" name="emailField" type="email"> &nbsp;
+          <input required="required" name="emailAddress" type="email"> &nbsp;
           &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp; <br>
         </p>
         <p>Phone Number:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp; <input required="required" name="phonenumberField"
+          &nbsp;&nbsp;&nbsp; &nbsp; <input required="required" name="phoneNumber"
             type="tel"></p>
-        Child's Name (If Applicable):&nbsp; &nbsp;&nbsp; <input name="childNameTextBox"
+        Child's Name (If Applicable):&nbsp; &nbsp;&nbsp; <input name="childName"
           type="text"><legend>Personal Information</legend></fieldset>
       <p><br>
       </p>
-      <fieldset name="theaterFieldSet">Town of Theater:
-        <select name="TheaterSelectionList">
-          <option value="Teaneck">Teaneck</option>
-          <option value="Sayville">Sayville</option>
+      <fieldset name="theaterFieldSet">Theater:
+        <select name="theater">
+          <option value="Teaneck Cinemas">Teaneck Cinemas</option>
+          <option value="Sayville Cinemas">Sayville Cinemas</option>
         </select>
         <br>
         <br>
         Movie:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <input required="required" name="movieTextBox"
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <input required="required" name="movie"
           type="text"><br>
         <br>
-        Date/Time Desired:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp; &nbsp;&nbsp; <input required="required" name="datetimeOptions"
-          type="datetime-local"><legend>Theater Information</legend></fieldset>
+        Date Desired:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp; &nbsp;&nbsp; <input required="required" name="eventDate"
+          type="date">
+
+        Time Desired: <input type="time" name="eventTime" >
+          <legend>Theater Information</legend></fieldset>
       &nbsp;<br>
       <fieldset name="eventInfoFieldSet">Type of Event:&nbsp;&nbsp; &nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
-        <select name="EventList">
+        <select name="eventType">
           <option value="Fundraiser">Fundraiser</option>
           <option value="Walk-In">Walk-In</option>
           <option value="Rental">Rental</option>
@@ -68,24 +71,24 @@
         <br>
         <br>
         Number of People Attending:&nbsp;&nbsp;&nbsp; <input required="required"
-          name="attendanceTextBox" type="number"><br>
+          name="numOfPeople" type="number"><br>
         <br>
         Party Room:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        <select name="partyroomConfirmList">
-          <option value="">No</option>
-          <option value="">Yes</option>
+        <select name="partyRoomBook">
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
         </select>
         <legend>Event Information</legend></fieldset>
       <br>
       <br>
       Brief Description: <br>
-      <textarea required="required" rows="3" cols="80" name="descriptionField" wrap="hard"></textarea>
+      <textarea required="required" rows="3" cols="80" name="description" wrap="hard"></textarea>
       <br>
       <br>
       Special Attention:<br>
-      <textarea rows="3" cols="80" name="attentionField"></textarea><br>
+      <textarea rows="3" cols="80" name="specialAttention"></textarea><br>
       <br>
       <br>
       <br>

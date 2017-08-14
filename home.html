@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
-    <title>home</title>
+    <title>EPS Home</title>
     <style>
     body{
       background-color: #98FB98
@@ -49,31 +49,36 @@
       <br>
       <br>
       <br>
-      <form method="POST" action="pendingoracceptedGoButton.php">
+      <div>
         <div style="text-align: center;">
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-          <button type="button" name="pendingEventButton" class="pendingButton">
-            Manage Pending Events</button>
+          <button type="button" name="pendingEventButton" class="pendingButton"
+
+            onclick="window.location.href='pendingevents.php';"> Manage Pending
+            Events</button>
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-          <button type="button" name="acceptedEventButton" class="acceptedButton">
-            Manage Accepted Events</button></div>
-      </form>
-      <br>
+          <button type="button" name="acceptedEventButton" class="acceptedButton"
+
+            onclick="window.location.href='acceptedevents.php';"> Manage
+            Accepted Events</button> </div>
+      </div>
       <br>
       <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
       <a href="managersubmissionform.html" name="createButton" class="changeButton">
-        Create Event</a> <br>
-      <br>
-      <div style="text-align: justify;">
-        <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-        <a href="manage.html" class="editButton"> Manage Accounts</a> <br>
-        <form method="POST" action="logout.php">
-          <div style="text-align: right;">
-            <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-            <button type="button" name="logoutButton" class="logoutButton">
-              Logout</button></div>
-        </form>
-      </div>
+        Create Event</a>
+      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+      <button type="button" name="depositcheckerButton" class="checkButton" onclick="window.location.href='depositchecker.html';">
+        Check Unpaid Deposits</button> </div>
+    <br>
+    <br>
+    <div style="text-align: justify;">
+      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+      <a href="manage.html" class="editButton"> Manage Accounts</a> <br>
+      <form method="POST" action="logout.php">
+        <div style="text-align: right;">
+          <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+          <button type="button" name="logoutButton" class="logoutButton"> Logout</button></div>
+      </form>
     </div>
     
   </body>
