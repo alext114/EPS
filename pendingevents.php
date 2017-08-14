@@ -1,12 +1,15 @@
-<!--?php
-include 'dbh.php';include 'manager.php';$manager= new manager();$event=$manager--->
+<?php
+include 'dbh.php';
+include 'manager.php';
+$manager= new manager();
+$event=$manager->viewPendingQueue($db);
+
+?>
 <html>
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
   </head>
-  <body>viewPendingQueue($db); //fix party room time and partyRoomBook //party
-    room time should then appear depending if the they are getting a party room
-    // fix the spacing so all the information comes at the same loginPage ?&gt;
+  <body>
     <title>Pending Events</title>
     <style>
     body{
@@ -20,18 +23,13 @@ include 'dbh.php';include 'manager.php';$manager= new manager();$event=$manager-
     </form>
     <br>
     <div style="text-align: center;">
-      <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Event
-&lt;&lt;&lt;&lt;&lt;&lt;&lt;
-        HEAD:pendingevents.html Popper System<img style="width: 64px; height: 79px;"
-
+      <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Event Popper System<img style="width: 64px; height: 79px;"
           src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
     </div>
     <h2 style="text-align: center;"></h2>
     <form method="POST" action="edit.php">
       <div style="text-align: right;">&nbsp;</div>
-      <div style="text-align: left;"> ======= Popper System<img style="width: 64px; height: 79px;"
 
-          src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"> </div>
       <h2 style="text-align: center;"></h2>
       <div style="text-align: right;"><br>
       </div>
@@ -47,8 +45,7 @@ include 'dbh.php';include 'manager.php';$manager= new manager();$event=$manager-
             form="childNameLabel"><?php  echo $event['childName'];?></label> <legend></legend></div>
       </fieldset>
       <br>
-      <div style="text-align: left;"> &gt;&gt;&gt;&gt;&gt;&gt;&gt;
-        c62f45ba9efc3b035632aea3b3e38a3a83a742c8:pendingevents.php
+      <div style="text-align: left;">
         <fieldset name="theaterFieldSet"><legend>Theater Information</legend>Theater:
             <label form="theaterNameLabel"><?php  echo $event['theater'];?></label>
           <p>Movie:   <label form="movieNameLabel"><?php  echo $event['movie'];?></label>
@@ -97,9 +94,11 @@ include 'dbh.php';include 'manager.php';$manager= new manager();$event=$manager-
       <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
       <button type="button" name="editInfoButton" class="editButton">Edit
         Information</button></div>
-    <div style="text-align: right;"> <button type="button" name="backButton" class="backButton"
-
-        onclick="window.location.href='home.php';">Back</button> </div>
-    
+    <form method="POST" action="back.php">
+      <div style="text-align: right;">
+        <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+        <button type="button" name="backButton" class="backButton">Back</button></div>
+      <br>
+    </form>
   </body>
 </html>
