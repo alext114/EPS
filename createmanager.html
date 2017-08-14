@@ -12,16 +12,20 @@
   <body>
     <form method="POST" action="createmanager.php"><br>
       <fieldset name="createManagerFieldSet"><legend>Create Manager...</legend><legend>Name:&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input required="required"
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input required="required"
+
             name="managerNameTextBox" type="text"><br>
           <br>
-          Username: &nbsp;&nbsp;&nbsp; &nbsp; <input required="required" name="userNameTextBox"
+          Username: &nbsp;&nbsp;&nbsp; &nbsp; <input required="required" name="userNameTextBox"
+
             type="text"><br>
           <br>
-          Password:&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<input required="required" name="passwordTextBox"
+          Password:&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<input required="required" name="passwordTextBox"
+
             type="password"> &nbsp; <br>
           <br>
-          Confirm Password:&nbsp;&nbsp;&nbsp; <input required="required" name="confirmPasswordTextBox"
+          Confirm Password:&nbsp;&nbsp;&nbsp; <input required="required" name="confirmPasswordTextBox"
+
             type="password"></legend><br>
         Town of Theater: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
         <select name="theaterSelectionList">
@@ -29,15 +33,14 @@
         <br>
         <br>
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-        <div style="text-align: center;"> <button type="button" name="createManagerButton"
+        <div style="text-align: center;"> <button type="button" name="createManagerButton"
+
             class="acceptedButton">Add Manager</button></div>
       </fieldset>
     </form>
     <br>
-    <form method="POST" action="back.php">
-      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-      <div style="text-align: right;"> <button type="button" name="backButton"
-          class="backButton">Back</button> </div>
-    </form>
+    <div style="text-align: right;"> <button type="button" name="backButton" class="backButton"
+
+         onclick="window.location.href='manage.html';">Back</button></div>
   </body>
 </html>

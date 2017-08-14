@@ -1,6 +1,5 @@
 <!--?php
-include 'dbh.php';include 'manager.php';$manager= new manager();
-$event=$manager--->
+include 'dbh.php';include 'manager.php';$manager= new manager();$event=$manager--->
 <html>
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
@@ -98,11 +97,9 @@ $event=$manager--->
       <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
       <button type="button" name="editInfoButton" class="editButton">Edit
         Information</button></div>
-    <form method="POST" action="back.php">
-      <div style="text-align: right;">
-        <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-        <button type="button" name="backButton" class="backButton">Back</button></div>
-      <br>
-    </form>
+    <div style="text-align: right;"> <button type="button" name="backButton" class="backButton"
+
+        onclick="window.location.href='home.php';">Back</button> </div>
+    
   </body>
 </html>
