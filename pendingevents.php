@@ -1,15 +1,11 @@
-<?php
-include 'dbh.php';
-include 'manager.php';
-$manager= new manager();
-$event=$manager->viewPendingQueue($db);
-
-?>
+<!--?php
+include 'dbh.php';include 'manager.php';$manager= new manager();$event=$manager--->
 <html>
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   </head>
-  <body>
+  <body onload = "javascript:check()">viewPendingQueue($db); ?&gt;
     <title>Pending Events</title>
     <style>
     body{
@@ -23,13 +19,12 @@ $event=$manager->viewPendingQueue($db);
     </form>
     <br>
     <div style="text-align: center;">
-      <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Event Popper System<img style="width: 64px; height: 79px;"
-          src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
+      <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Event
+        Popper System<img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
     </div>
     <h2 style="text-align: center;"></h2>
     <form method="POST" action="edit.php">
       <div style="text-align: right;">&nbsp;</div>
-
       <h2 style="text-align: center;"></h2>
       <div style="text-align: right;"><br>
       </div>
@@ -59,10 +54,25 @@ $event=$manager->viewPendingQueue($db);
           Type: <label form="eventTypeLabel"><?php  echo $event['eventType'];?></label>
           <p>People Attending:   <label form="numberAttendingLabel"><?php  echo $event['numOfPeople'];?></label><br>
           </p>
-          <p>Party Room:  <label form="partyRoomConfirmationLabel"><?php  echo $event['partyRoomBook'];?></label><label></label></p>
-          Party Room Time:   <label form="partyRoomTimeLabel">11:12 PM</label>
-        </fieldset>
-        <br>
+          <p>Party Room:  <label id="partyConfirmLabel" form="partyRoomConfirmationLabel"><?php  echo $event['partyRoomBook'];?></label><label></label></p>
+          <label id="partyRoomTimeHeaderID" form="partyRoomTimeHeader" style="display: none">Party
+            Room Time: </label>   <label id="partyRoomTimeIDLabel" form="partyRoomTimeLabel"
+
+            style="display: none" >11:12 PM</label> </fieldset>
+        
+        <script>
+          function check(){
+          var confirm = $('#partyRoomTimeIDLabel').text();
+   if(confirm == "Yes"){
+     $("#partyRoomTimeHeaderID").show();
+     $("#partyRoomTimeIDLabel").show();
+   }
+   else{
+     $("#partyRoomTimeHeaderID").hide();
+     $("#partyRoomTimeIDLabel").hide();
+   }
+});
+        </script> <br>
         <fieldset name="additionalInfoFieldSet"><legend>Additional Information</legend>Brief
           Description:<br>
           <br>
