@@ -61,11 +61,10 @@
                   <option value="No">No</option>
                 </select>
                 <br>
-   
-   <script>$('#partyroomselector').on('change', function () {
+                <script>$('#partyroomselector').on('change', function () {
    var optionSelected = $("option:selected", this);
    var valueSelected = this.value;
-   if(valueSelected == "Yes"){
+   if(valueSelected === "Yes"){
      $("#partytimeIDHeader").show();
      $("#partyroomTextID").show();
    }

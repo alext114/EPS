@@ -5,7 +5,7 @@ include 'dbh.php';include 'manager.php';$manager= new manager();$event=$manager-
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   </head>
-  <body onload = "javascript:check()">viewPendingQueue($db); ?&gt;
+  <body onload="check()">viewPendingQueue($db); ?&gt;
     <title>Pending Events</title>
     <style>
     body{
@@ -58,12 +58,11 @@ include 'dbh.php';include 'manager.php';$manager= new manager();$event=$manager-
           <label id="partyRoomTimeHeaderID" form="partyRoomTimeHeader" style="display: none">Party
             Room Time: </label>   <label id="partyRoomTimeIDLabel" form="partyRoomTimeLabel"
 
-            style="display: none" >11:12 PM</label> </fieldset>
-        
+            style="display: none">11:12 PM</label> </fieldset>
         <script>
           function check(){
           var confirm = $('#partyRoomTimeIDLabel').text();
-   if(confirm == "Yes"){
+   if(confirm === "Yes"){
      $("#partyRoomTimeHeaderID").show();
      $("#partyRoomTimeIDLabel").show();
    }
@@ -71,7 +70,7 @@ include 'dbh.php';include 'manager.php';$manager= new manager();$event=$manager-
      $("#partyRoomTimeHeaderID").hide();
      $("#partyRoomTimeIDLabel").hide();
    }
-});
+};
         </script> <br>
         <fieldset name="additionalInfoFieldSet"><legend>Additional Information</legend>Brief
           Description:<br>
