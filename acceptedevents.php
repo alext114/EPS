@@ -16,16 +16,14 @@
         <button type="button" name="logoutButton" class="logoutButton">Logout</button></div>
     </form>
     <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-    <form method="POST" action="dayshift.php"> <button type="button" name="prevEntryButton"
-
+    <form method="POST" action="dayshift.php"> <button type="button" name="prevEntryButton"
         class="prevButton">Previous Entry</button>&nbsp;&nbsp;
       <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
       <button type="button" name="nextEntryButton" class="nextButton"> Next
         Entry</button></form>
     <form method="POST" action="editEvent.php">
       <div style="text-align: left;"><br>
-        <div style="text-align: right;">Deposit Paid <input name="depositCheckBox"
-
+        <div style="text-align: right;">Deposit Paid <input name="depositCheckBox"
             type="checkbox"></div>
         <br>
         <fieldset name="personalInfoFieldSet"> Name:&nbsp;&nbsp; &nbsp;&nbsp;
@@ -42,8 +40,7 @@
           <p style="text-align: left;">Phone Number:&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <label form="phoneLabel">XXX-XXX-XXXX</label></p>
-          <div style="text-align: left;">Child's Name (If Applicable):&nbsp; <label
-
+          <div style="text-align: left;">Child's Name (If Applicable):&nbsp; <label
               form="childnameLabel">-billy-</label> &nbsp; </div>
           <legend>Personal Information</legend></fieldset>
         <legend></legend></div>
@@ -88,13 +85,15 @@
       &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <label form="partyRoomTimeLabel">11:12
         PM</label> &nbsp; </fieldset>
     <br>
-    Brief Description:<br>
+    <fieldset name="additionalInfoFieldSet"><legend>Additional Information</legend>Brief
+      Description:<br>
+      <br>
+      <label form="descLabel">Description Here</label><br>
+      <br>
+      Special Attention:<br>
+      <br>
+      <label form="specialneedsLabel">Needs Here</label></fieldset>
     <br>
-    <textarea rows="3" cols="80" name="briefdescriptionTextField"></textarea><br>
-    <br>
-    Special Attention:<br>
-    <br>
-    <textarea rows="3" cols="80" name="attentionTextField"></textarea><br>
     <br>
     <br>
     <div style="text-align: left;">
@@ -106,6 +105,5 @@
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
         <button type="button" name="backButton" class="backButton">Back</button></div>
     </form>
-
   </body>
 </html>
