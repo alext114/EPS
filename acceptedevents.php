@@ -1,117 +1,79 @@
-<?php
-include 'dbh.php';
-include 'manager.php';
-//create manager and get an array of all the events
-$manager=new manager();
-$event=$manager->viewAccepted($db);
-
-
-//Notes for Sly
-/*
-make the green and blue for buttons brigher
-change deposit paid to event information
-get all the information to line up
-bold the labels i.e: Name: <--- that is bolded
-make the font bigger
-
-
-
-*/
-?>
-
-<!DOCTYPE html>
+<!--?php
+include 'dbh.php';include 'manager.php';//create manager and get an array of all the events$manager=new manager();$event=$manager--->
 <html>
   <head>
-
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  </head>
+  <body onload="check()">viewAccepted($db);
     <title>acceptedeventsPage</title>
     <style>
     body{
       background-color: #ffecd0
     }
   </style>
-  </head>
-  <body>
-
     <form method="POST" action="logout.php">
       <div style="text-align: right;">
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
         <button type="button" name="logoutButton" class="logoutButton">Logout</button></div>
     </form>
     <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-    <button type="button" id="prevButton" class="prevButton" onclick="prevEvent()">Previous Entry</button>&nbsp;&nbsp;
-      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-      <button type="button" id="nextButton" class="nextButton" onclick="nextEvent()" > Next
-        Entry</button></form>
+    <button type="button" id="prevButton" class="prevButton" onclick="prevEvent()">Previous
+      Entry</button> 
+    <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+    <button type="button" id="nextButton" class="nextButton" onclick="nextEvent()">
+      Next Entry</button>
     <form method="POST" action="editEvent.php">
       <div style="text-align: left;"><br>
-        <div style="text-align: right;">Deposit Paid <input name="depositCheckBox" type="checkbox"></div>
-        <br>
-        <fieldset name="personalInfoFieldSet"> Name:&nbsp;&nbsp; &nbsp;&nbsp;
-          &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-          &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label id="fullName"> </label>
-          <p style="text-align: left;">E-Mail: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
-            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp; <label id="emailAddress"></label> &nbsp;
-            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp; <br>
+        <fieldset name="personalInfoFieldSet"> <strong>Name:</strong>  <label
+            id="fullName"> </label>
+          <p style="text-align: left;"><strong>E-Mail: </strong>  <label id="emailAddress"></label>
+              <br>
           </p>
-          <p style="text-align: left;">Phone Number:&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <label id="phoneNumber"></label></p>
-          <div style="text-align: left;">Child's Name (If Applicable):&nbsp; <label
-
-              id="childName"></label> &nbsp; </div>
-          <legend>Personal Information</legend></fieldset>
+          <p style="text-align: left;"><strong>Phone Number:</strong> <label id="phoneNumber"></label></p>
+          <div style="text-align: left;"><strong>Child's Name (If Applicable):</strong>&nbsp;
+            <label id="childName"></label> &nbsp; </div>
+          <legend><strong>Personal Information</strong></legend></fieldset>
         <legend></legend></div>
     </form>
     <br>
-    <fieldset name="theaterFieldSet"><legend>Theater Information</legend>Theater:&nbsp;&nbsp;
-      &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <label id="theater"></label>
-      <p>Movie: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label id="movie"></label>
-        &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <br>
+    <fieldset name="theaterFieldSet"><legend><strong>Theater Information</strong></legend><strong>Theater:
+        </strong>   <label id="theater"></label>
+      <p><strong>Movie:</strong>  <label id="movie"></label>   <br>
       </p>
-      <p>Date Desired:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label id="eventDate"></label></p>
-      Time: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; <label id="eventTime"></label>
-      &nbsp; </fieldset>
-    &nbsp; &nbsp; <br>
-    <fieldset name="eventinfoFieldSet"><legend>Event Information</legend>Event
-      Type:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <label id="eventType"></label>
-      <p>People Attending: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label id="numOfPeople"></label><br>
-      </p>
-      <p>Party Room:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label id="partyRoomBook"></label></p>
-      Party Room Time: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <label id="partyRoomTime"></label> &nbsp; </fieldset>
+      <p><strong>Date Desired:</strong>  <label id="eventDate"></label></p>
+      <strong>Time:</strong>   </fieldset>
     <br>
-    <fieldset name="additionalInfoFieldSet"><legend>Additional Information</legend>Brief
-      Description:
+    <fieldset name="eventinfoFieldSet"><legend><strong>Event Information</strong></legend>
+      <div style="text-align: right;"><strong>Deposit Paid</strong> <input name="depositCheckBox"
+          type="checkbox"> </div>
+      <strong>Event Type:</strong>  <label id="eventType"></label>
+      <p><strong>People Attending:</strong>   <label id="numOfPeople"></label><br>
+      </p>
+      <p><strong>Party Room:</strong>  <label id="partyConfirmIDLabel" form="partyRoomConfirmationLabel"></label></p>
+      <label id="partyRoomTimeHeaderID" form="partyRoomTimeHeader" style="display: none"><strong>Party
+          Room Time:</strong> </label>   <label id="partyRoomTimeIDLabel" form="partyRoomTimeLabel"
+        style="display: none"></label> </fieldset>
+    <script>
+          function check(){
+          var confirm = $('#partyConfirmIDLabel').text();
+   if(confirm === "Yes"){
+     $("#partyRoomTimeHeaderID").show();
+     $("#partyRoomTimeIDLabel").show();
+   }
+   else{
+     $("#partyRoomTimeHeaderID").hide();
+     $("#partyRoomTimeIDLabel").hide();
+   }
+};
+        </script> <br>
+    <br>
+    <fieldset name="additionalInfoFieldSet"><legend><strong>Additional
+          Information</strong></legend><strong>Brief Description:</strong> <br>
+      <label id="description"></label> <br>
       <br>
-      <label id="description"></label>
-      <br>
-      <br>
-      Special Attention:
-      <br>
+      <strong>Special Attention:<br>
+      </strong>&nbsp;<br>
       <label id="specialAttention"></label></fieldset>
     <br>
     <br>
@@ -120,11 +82,9 @@ make the font bigger
       <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
       <button type="button" name="editInfoButton" class="editButton">Edit
         Information</button></div>
-    <form method="POST" action="back.php">
-      <div style="text-align: right;">
-        <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-        <button type="button" name="backButton" class="backButton">Back</button></div>
-    </form>
+    <div style="text-align: right;">
+      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+      <button type="button" name="backButton" class="backButton" onclick="window.location.href='home.php';">Back</button></div>
     <script>
 
     //declare the index var

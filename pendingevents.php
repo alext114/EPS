@@ -29,34 +29,34 @@ include 'dbh.php';include 'manager.php';$manager= new manager();$event=$manager-
       <div style="text-align: right;"><br>
       </div>
       <p style="text-align: left;">Personal Information </p>
-      <fieldset name="personalInfoFieldSet"><legend>Personal Information</legend>
-        <div style="text-align: left;">Name:   <label form="nameLabel"><?php  echo $event['fullName'];  ?></label></div>
-        <p style="text-align: left;">E-Mail:   <label form="emailLabel"><?php  echo $event['emailAddress'];?></label>
+      <fieldset name="personalInfoFieldSet"><legend><strong>Personal Information</strong></legend>
+        <div style="text-align: left;"><strong>Name:</strong>   <label form="nameLabel"><?php  echo $event['fullName'];  ?></label></div>
+        <p style="text-align: left;"><strong>E-Mail:</strong>   <label form="emailLabel"><?php  echo $event['emailAddress'];?></label>
           <br>
         </p>
-        <p style="text-align: left;">Phone Number:   <label form="numberLabel"><?php  echo $event['phoneNumber'];  ?></label></p>
-        <div style="text-align: left;">Child's Name (If Applicable):&nbsp; <label
-
-            form="childNameLabel"><?php  echo $event['childName'];?></label> <legend></legend></div>
+        <p style="text-align: left;"><strong>Phone Number:</strong>   <label form="numberLabel"><?php  echo $event['phoneNumber'];  ?></label></p>
+        <div style="text-align: left;"><strong>Child's Name (If Applicable):</strong>&nbsp;
+          <label form="childNameLabel"><?php  echo $event['childName'];?></label>
+          <legend></legend></div>
       </fieldset>
       <br>
       <div style="text-align: left;">
-        <fieldset name="theaterFieldSet"><legend>Theater Information</legend>Theater:
+        <fieldset name="theaterFieldSet"><legend><strong>Theater Information</strong></legend><strong>Theater:</strong>
             <label form="theaterNameLabel"><?php  echo $event['theater'];?></label>
-          <p>Movie:   <label form="movieNameLabel"><?php  echo $event['movie'];?></label>
+          <p><strong>Movie: </strong>  <label form="movieNameLabel"><?php  echo $event['movie'];?></label>
             <br>
           </p>
-          <p>Date Desired:  <label form="eventdateLabel"><?php  echo $event['eventDate'];?></label></p>
-          Time:   <label form="timeLabel"><?php  echo $event['eventTime'];?></label>
+          <p><strong>Date Desired:</strong>  <label form="eventdateLabel"><?php  echo $event['eventDate'];?></label></p>
+          <strong>Time:</strong>   <label form="timeLabel"><?php  echo $event['eventTime'];?></label>
           &nbsp; <legend></legend></fieldset>
         <br>
-        <fieldset name="eventinfoFieldSet"><legend>Event Information</legend>Event
-          Type: <label form="eventTypeLabel"><?php  echo $event['eventType'];?></label>
-          <p>People Attending:   <label form="numberAttendingLabel"><?php  echo $event['numOfPeople'];?></label><br>
+        <fieldset name="eventinfoFieldSet"><legend><strong>Event Information</strong></legend><strong>Event
+            Type:</strong> <label form="eventTypeLabel"><?php  echo $event['eventType'];?></label>
+          <p><strong>People Attending:</strong>   <label form="numberAttendingLabel"><?php  echo $event['numOfPeople'];?></label><br>
           </p>
-          <p>Party Room:  <label id="partyConfirmLabel" form="partyRoomConfirmationLabel"><?php  echo $event['partyRoomBook'];?></label><label></label></p>
-          <label id="partyRoomTimeHeaderID" form="partyRoomTimeHeader" style="display: none">Party
-            Room Time: </label>   <label id="partyRoomTimeIDLabel" form="partyRoomTimeLabel"
+          <p><strong>Party Room:</strong>  <label id="partyConfirmLabel" form="partyRoomConfirmationLabel"><?php  echo $event['partyRoomBook'];?></label><label></label></p>
+          <label id="partyRoomTimeHeaderID" form="partyRoomTimeHeader" style="display: none"><strong>Party
+            Room Time: </strong></label>   <label id="partyRoomTimeIDLabel" form="partyRoomTimeLabel"
 
             style="display: none">11:12 PM</label> </fieldset>
         <script>
@@ -72,16 +72,16 @@ include 'dbh.php';include 'manager.php';$manager= new manager();$event=$manager-
    }
 };
         </script> <br>
-        <fieldset name="additionalInfoFieldSet"><legend>Additional Information</legend>Brief
-          Description:<br>
+        <fieldset name="additionalInfoFieldSet"><legend><strong>Additional
+              Information</strong></legend><strong>Brief Description:</strong><br>
           <br>
           <label form="descLabel"><?php  echo $event['description'];?></label><br>
           <br>
-          Special Attention:<br>
+          <strong>Special Attention:</strong><br>
           <br>
           <label form="specialneedsLabel"><?php  echo $event['specialAttention'];?></label></fieldset>
         <br>
-        Message to be Delivered:<br>
+        <strong>Message to be Delivered:</strong><br>
         <br>
         <textarea required="required" rows="3" cols="80" name="messageTextField"></textarea></div>
       <br>
