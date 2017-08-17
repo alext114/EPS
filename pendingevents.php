@@ -1,11 +1,15 @@
-<!--?php
-include 'dbh.php';include 'manager.php';$manager= new manager();$event=$manager--->
+<?php
+include 'dbh.php';
+include 'manager.php';
+$manager= new manager();
+$event=$manager->viewPendingQueue($db)?>
+
 <html>
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   </head>
-  <body onload="check()">viewPendingQueue($db); ?&gt;
+  <body onload="check()"&gt;
     <title>Pending Events</title>
     <style>
     body{
