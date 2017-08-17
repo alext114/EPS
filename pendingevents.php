@@ -1,15 +1,11 @@
-<?php
-include 'dbh.php';
-include 'manager.php';
-$manager= new manager();
-$event=$manager->viewPendingQueue($db);
-
-?>
+<!--?php
+include 'dbh.php';include 'manager.php';$manager= new manager();$event=$manager--->
 <html>
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   </head>
-  <body>
+  <body onload="check()">viewPendingQueue($db); ?&gt;
     <title>Pending Events</title>
     <style>
     body{
@@ -23,57 +19,65 @@ $event=$manager->viewPendingQueue($db);
     </form>
     <br>
     <div style="text-align: center;">
-      <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Event Popper System<img style="width: 64px; height: 79px;"
-          src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
+      <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Event
+        Popper System<img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
     </div>
     <h2 style="text-align: center;"></h2>
     <form method="POST">
       <div style="text-align: right;">&nbsp;</div>
-
       <h2 style="text-align: center;"></h2>
       <div style="text-align: right;"><br>
       </div>
       <p style="text-align: left;">Personal Information </p>
-      <fieldset name="personalInfoFieldSet"><legend>Personal Information</legend>
-        <div style="text-align: left;">Name:   <label form="nameLabel"><?php  echo $event['fullName'];  ?></label></div>
-        <p style="text-align: left;">E-Mail:   <label form="emailLabel"><?php  echo $event['emailAddress'];?></label>
+      <fieldset name="personalInfoFieldSet"><legend><strong>Personal Information</strong></legend>
+        <div style="text-align: left;"><strong>Name:</strong>   <label form="nameLabel"><?php  echo $event['fullName'];  ?></label></div>
+        <p style="text-align: left;"><strong>E-Mail:</strong>   <label form="emailLabel"><?php  echo $event['emailAddress'];?></label>
           <br>
         </p>
-        <p style="text-align: left;">Phone Number:   <label form="numberLabel"><?php  echo $event['phoneNumber'];  ?></label></p>
-        <div style="text-align: left;">Child's Name (If Applicable):&nbsp; <label
-
-            form="childNameLabel"><?php  echo $event['childName'];?></label> <legend></legend></div>
+        <p style="text-align: left;"><strong>Phone Number:</strong>   <label form="numberLabel"><?php  echo $event['phoneNumber'];  ?></label></p>
+        <div style="text-align: left;"><strong>Child's Name (If Applicable):</strong>&nbsp;
+          <label form="childNameLabel"><?php  echo $event['childName'];?></label>
+          <legend></legend></div>
       </fieldset>
       <br>
       <div style="text-align: left;">
-        <fieldset name="theaterFieldSet"><legend>Theater Information</legend>Theater:
+        <fieldset name="theaterFieldSet"><legend><strong>Theater Information</strong></legend><strong>Theater:</strong>
             <label form="theaterNameLabel"><?php  echo $event['theaterName'];?></label>
-          <p>Movie:   <label form="movieNameLabel"><?php  echo $event['movie'];?></label>
+          <p><strong>Movie: </strong>  <label form="movieNameLabel"><?php  echo $event['movie'];?></label>
             <br>
           </p>
-          <p>Date Desired:  <label form="eventdateLabel"><?php  echo $event['eventDate'];?></label></p>
-          Time:   <label form="timeLabel"><?php  echo $event['eventTime'];?></label>
+          <p><strong>Date Desired:</strong>  <label form="eventdateLabel"><?php  echo $event['eventDate'];?></label></p>
+          <strong>Time:</strong>   <label form="timeLabel"><?php  echo $event['eventTime'];?></label>
           &nbsp; <legend></legend></fieldset>
         <br>
-        <fieldset name="eventinfoFieldSet"><legend>Event Information</legend>Event
-          Type: <label form="eventTypeLabel"><?php  echo $event['eventType'];?></label>
-          <p>People Attending:   <label form="numberAttendingLabel"><?php  echo $event['numOfPeople'];?></label><br>
+        <fieldset name="eventinfoFieldSet"><legend><strong>Event Information</strong></legend><strong>Event
+            Type:</strong> <label form="eventTypeLabel"><?php  echo $event['eventType'];?></label>
+          <p><strong>People Attending:</strong>   <label form="numberAttendingLabel"><?php  echo $event['numOfPeople'];?></label><br>
           </p>
-          <p>Needs Party Room:  <label form="partyRoomConfirmationLabel">
-            <?php  if($event['partyRoomBook'] == 0) {
-              echo "false";
-            }else{
-              echo "true";
-            };?></label><label></label></p>
-          Party Room Time:   <label form="partyRoomTimeLabel">11:12 PM</label>
-        </fieldset>
-        <br>
-        <fieldset name="additionalInfoFieldSet"><legend>Additional Information</legend>Brief
-          Description:<br>
+          <p><strong>Party Room:</strong>  <label id="partyConfirmLabel" form="partyRoomConfirmationLabel"><?php  echo $event['partyRoomBook'];?></label><label></label></p>
+          <label id="partyRoomTimeHeaderID" form="partyRoomTimeHeader" style="display: none"><strong>Party
+            Room Time: </strong></label>   <label id="partyRoomTimeIDLabel" form="partyRoomTimeLabel"
+
+            style="display: none">11:12 PM</label> </fieldset>
+        <script>
+          function check(){
+          var confirm = $('#partyRoomTimeIDLabel').text();
+   if(confirm === "Yes"){
+     $("#partyRoomTimeHeaderID").show();
+     $("#partyRoomTimeIDLabel").show();
+   }
+   else{
+     $("#partyRoomTimeHeaderID").hide();
+     $("#partyRoomTimeIDLabel").hide();
+   }
+};
+        </script> <br>
+        <fieldset name="additionalInfoFieldSet"><legend><strong>Additional
+              Information</strong></legend><strong>Brief Description:</strong><br>
           <br>
           <label form="descLabel"><?php  echo $event['description'];?></label><br>
           <br>
-          Special Attention:<br>
+          <strong>Special Attention:</strong><br>
           <br>
           <label form="specialneedsLabel"><?php  echo $event['specialAttention'];?></label></fieldset>
         <br>

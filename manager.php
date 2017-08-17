@@ -1,5 +1,6 @@
 <?php
 
+
   class manager{
   //Variables being declared
     public $fullName;
@@ -33,18 +34,30 @@
 
     }
 
-    function viewAccepted(){
-      /*Displays the events  available in a
+    function viewAccepted($db){
+      /*Displays the events in a queue available in a
       	table. */
       	//connect to database
-      	include 'dbh.php';
+
           //get tables for events
-          $queryEvents = "SELECT *
-                           FROM events";
-          $result = $db->prepare($queryEvents);
-          $result->execute();
-          $events = $result->fetchAll();
-          $result->closeCursor();
+          $queryEvents = "SELECT * FROM events ORDER BY eventDate";
+          $result = $db->query($queryEvents);
+          $event=array($result->num_rows);
+          $index=0;
+        while($row = $result->fetch_assoc())
+        {
+
+            // turn row into an array
+
+            $event[$index]=array("fullName"=>$row["fullName"], "emailAddress"=>$row["emailAddress"], "phoneNumber"=>$row["phoneNumber"], "eventDate"=>$row["eventDate"], "description"=>$row["description"], "movie"=>$row["movie"], "eventTime"=>$row["eventTime"], "rate"=>$row["rate"]
+            , "numOfPeople"=>$row["numOfPeople"], "specialAttention"=>$row["specialAttention"], "eventType"=>$row["eventType"], "partyRoomBook"=>$row["partyRoomBook"], "childName"=>$row["childName"], "theater"=>$row["theater"]);
+            $index++;
+
+          }
+          //return the new array
+
+
+          return $event;
 
 
 
@@ -123,6 +136,7 @@
         $emailAddress=$submittedEvent['emailAddress'];
         $phoneNumber=$submittedEvent['phoneNumber'];
         $eventDate=$submittedEvent['eventDate'];
+        $description=$submittedEvent['description'];
         $movie=$submittedEvent['movie'];
         $eventTime=$submittedEvent['eventTime'];
         $numOfPeople=$submittedEvent['numOfPeople'];
@@ -133,11 +147,13 @@
         $eventType=$submittedEvent['eventType'];
         $theater=$submittedEvent['theater'];
 
-        $eventManager= new eventManager();
-        $isAvailable=$eventManager->checkAvailabilty($eventDate);
+
+        //Check if the date is available
+    //    $eventManager= new eventManager();
+      //  $isAvailable=$eventManager->checkAvailabilty($db,$partyRoomBook, date_format($eventDate,"Y/m/d"));
 
 
-        if (isAvailable==true){
+      //  if ($isAvailable==true){
           //query the database to insert
           //info not available is null
           $queryEvents = "INSERT INTO events (`eventID`, `fullName`, `emailAddress`, `phoneNumber`, `eventDate`, `description`, `movie`, `eventTime`, `rate`, `numOfPeople`, `specialAttention`, `eventType`, `depositAmt`, `recievedDeposit`, `partyRoomBook`, `childName`, `isApproved`, `theater`)
@@ -146,17 +162,17 @@
           {
             print '<script>alert("Event Booked!");</script>';
            //redirects to home.html
-            print '<script>window.location.assign("home.html");</script>';
+          print '<script>window.location.assign("home.html");</script>';
           }
           else {
               $error= "Error: " . $queryEvents . "<br>" . $db->error;
-              print '<script>alert('.$error.');</script>';
+              //print '<script>alert('$error');</script>';
               //redirects to home.html
               print '<script>window.location.assign("home.html");</script>';
 
           }
           $db->close();
-      }
+      //}
     }
 
 }

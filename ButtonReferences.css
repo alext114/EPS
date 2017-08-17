@@ -138,19 +138,19 @@
 }
 
 .prevButton {
-	background-color:#9eddf0;
+	background-color:#affdff;
 	-moz-border-radius:28px;
 	-webkit-border-radius:28px;
 	border-radius:28px;
-	border:1px solid #46cccc;
+	border:1px solid #61e2eb;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
+	color:#000000;
 	font-family:Arial;
 	font-size:17px;
 	padding:16px 31px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #29cfcf;
+	text-shadow:0px 0px 0px #ffffff;
 }
 .prevButton:hover {
 	background-color:#61e2eb;
@@ -161,19 +161,19 @@
 }
 
 .nextButton {
-	background-color:#ebf09e;
+	background-color:#f7fcb3;
 	-moz-border-radius:28px;
 	-webkit-border-radius:28px;
 	border-radius:28px;
-	border:1px solid #b2e349;
+	border:1px solid #eded5f;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
+	color:#000000;
 	font-family:Arial;
 	font-size:17px;
 	padding:16px 31px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #cfcf27;
+	text-shadow:0px 1px 0px #ffffff;
 }
 .nextButton:hover {
 	background-color:#eded5f;
