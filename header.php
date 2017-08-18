@@ -1,6 +1,10 @@
+<?php session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Event Popper Header</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -13,35 +17,34 @@ body {font-size:16px;}
 </style>
 <body>
   <!-- Sidebar/menu -->
-  <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <nav class="w3-sidebar w3-aqua w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
     <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
     <div class="w3-container">
-      <h3 class="w3-padding-64"><b>Company<br>Name</b></h3>
+      <h3 class="w3-padding-64"><b>Event Popper</b> <img style="width: 30px; height: 45px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></img></h3>
     </div>
     <div class="w3-bar-block">
-      <input name="searchTextBox" type="text">
-      <a href="something.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
-      <a href="pendingevents.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Pending Events</a>
-      <a href="acceptedevents.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Accepted Events</a>
-      <a href="managersubmission.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Create Event</a>
-      <a href="quickcalendar.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Quick Calendar</a>
-      <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+      <a href="home.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="pendingevents.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pending Events</a>
+      <a href="acceptedevents.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Accepted Events</a>
+      <a href="managersubmissionform.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Create an Event</a>
+      <br><input name="eventDateTextBox" type="date">
+      <a href="quickcalendar.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Quick Calendar</a>
+      <br><input name="searchTextBox" type="text">
+      <a href="searchresults.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Search Results</a><br>
+      <a href="accountmanage.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Accounts</a><br>
+      <a href="logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
     </div>
   </nav>
 
   <!-- Top menu on small screens -->
-  <header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-    <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-    <span>Company Name</span>
+  <header class="w3-container w3-top w3-hide-large w3-aqua w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-aqua w3-margin-right" onclick="w3_open()">☰</a>
+    <span>Event Popper</span>
   </header>
 
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-
-<!-- W3.CSS Container -->
-<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
 
 <script>
 // Script to open and close sidebar

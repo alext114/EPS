@@ -4,18 +4,24 @@
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <title>acceptedeventsPage</title>
+
     <style>
+    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+    body {font-size:16px;}
+    .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+    .w3-half img:hover{opacity:1}
     body{
       background-color: #ffecd0
     }
-  </style>
+    </style>
+
   </head>
   <body onload="check()">
-    <form method="POST" action="logout.php">
-      <div style="text-align: right;"> 
+
+      <div style="text-align: right;">
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
         <button type="button" name="logoutButton" class="logoutButton">Logout</button></div>
-    </form>
+  
     <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
     <form method="POST" action="dayshift.php"> <button type="button" name="prevEntryButton"
 
@@ -70,7 +76,7 @@
      $("#partyRoomTimeIDLabel").hide();
    }
 };
-        </script> 
+        </script>
     <br>
     <fieldset name="additionalInfoFieldSet"><legend>Additional Information</legend>Brief
           Description:<br>

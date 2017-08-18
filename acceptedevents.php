@@ -1,22 +1,29 @@
+<?php
+include 'header.php';
+?>
 <!--?php
 include 'dbh.php';include 'manager.php';//create manager and get an array of all the events$manager=new manager();$event=$manager--->
 <html>
   <head>
+    <title>acceptedeventsPage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  </head>
-  <body onload="check()">viewAccepted($db);
-    <title>acceptedeventsPage</title>
     <style>
+    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+    body {font-size:16px;}
+    .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+    .w3-half img:hover{opacity:1}
     body{
       background-color: #ffecd0
     }
-  </style>
-    <form method="POST" action="logout.php">
-      <div style="text-align: right;">
-        <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-        <button type="button" name="logoutButton" class="logoutButton">Logout</button></div>
-    </form>
+    </style>
+  </head>
+  <body onload="check()">viewAccepted($db);
+    <div class="w3-main" style="margin-left:340px;margin-right:40px">
     <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
     <button type="button" id="prevButton" class="prevButton" onclick="prevEvent()">Previous
       Entry</button> 
@@ -78,13 +85,10 @@ include 'dbh.php';include 'manager.php';//create manager and get an array of all
     <br>
     <br>
     <br>
-    <div style="text-align: left;">
-      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+    <div style="text-align: center;">
+      <link rel="stylesheet" type="text/css" href="editinformation.php">
       <button type="button" name="editInfoButton" class="editButton">Edit
         Information</button></div>
-    <div style="text-align: right;">
-      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-      <button type="button" name="backButton" class="backButton" onclick="window.location.href='home.php';">Back</button></div>
     <script>
 
     //declare the index var
@@ -171,5 +175,6 @@ include 'dbh.php';include 'manager.php';//create manager and get an array of all
       }
 
     </script>
+  </div>
   </body>
 </html>

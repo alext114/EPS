@@ -9,19 +9,21 @@ $event=$manager->viewPendingQueue($db)?>
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <style>
+    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+    body {font-size:16px;}
+    .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+    .w3-half img:hover{opacity:1}
+    body{background-color: #b0e2ff}
+    </style>
+<title>Pending Events</title>
   </head>
   <body onload="check()"&gt;
-    <title>Pending Events</title>
-    <style>
-    body{
-      background-color: #b0e2ff
-    }
-  </style>
-    <form method="POST" action="logout.php">
-      <div style="text-align: right;">
-        <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-        <button type="button" name="logoutButton" class="logoutButton">Logout</button></div>
-    </form>
+     <div class="w3-main" style="margin-left:340px;margin-right:40px">
     <br>
     <div style="text-align: center;">
       <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Event
@@ -176,5 +178,6 @@ $event=$manager->viewPendingQueue($db)?>
       <div style="text-align: right;">
       <a href="home.html" class="backButton">Back</a></div>
       <br>
+    </div>
   </body>
 </html>
