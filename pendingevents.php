@@ -1,4 +1,5 @@
 <?php
+include 'header.php';
 include 'dbh.php';
 include 'manager.php';
 $manager= new manager();
