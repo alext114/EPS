@@ -19,11 +19,12 @@ body {font-size:16px;}
       <h3 class="w3-padding-64"><b>Company<br>Name</b></h3>
     </div>
     <div class="w3-bar-block">
-      <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
-      <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Showcase</a>
-      <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Services</a>
-      <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Designers</a>
-      <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a>
+      <input name="searchTextBox" type="text">
+      <a href="something.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="pendingevents.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Pending Events</a>
+      <a href="acceptedevents.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Accepted Events</a>
+      <a href="managersubmission.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Create Event</a>
+      <a href="quickcalendar.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Quick Calendar</a>
       <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
     </div>
   </nav>

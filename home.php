@@ -1,27 +1,25 @@
-<?php
-session_start();
-
+<?php session_start();
 
  ?>
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html>
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <title>EPS Home</title>
     <style>
     body{
-      background-color: #98FB98
+      background-color: #f1f1f1
     }
   </style>
   </head>
   <body>
-    <div style="text-align: center;">Hello <label form="nameLabel"><?php echo $_SESSION['username'];?></label>
-      !<br>
+    <div style="text-align: center;">Logged in as <label form="nameLabel"><?php echo $_SESSION['username'];?></label>
+      .<br>
       <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Event
         Popper System<img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
-
       <br>
-      <iframe src="https://calendar.google.com/calendar/embed?src=33fk84kf0rdcqb7frkm8f1ocl0%40group.calendar.google.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+      <iframe src="https://calendar.google.com/calendar/embed?src=33fk84kf0rdcqb7frkm8f1ocl0%40group.calendar.google.com&amp;ctz=America/New_York"
+
+        style="border: 0" scrolling="no" frameborder="0" height="600" width="800"></iframe>
       <form method="POST" action="quicksearch.php">
         <div style="text-align: right;"><input name="eventDateTextBox" type="date"></div>
         <div style="text-align: left;"> <br>
@@ -31,7 +29,6 @@ session_start();
               Quick Search</button></div>
         </div>
       </form>
-
       <form method="POST" action="namesearch.php">
         <div style="text-align: center;"><input name="namesearchTextBox" type="text">
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
@@ -39,7 +36,6 @@ session_start();
             Name Search</button></div>
       </form>
       <br>
-
       <div>
         <div style="text-align: center;">
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
@@ -71,6 +67,5 @@ session_start();
           <button type="button" name="logoutButton" class="logoutButton"> Logout</button></div>
       </form>
     </div>
-
   </body>
 </html>
