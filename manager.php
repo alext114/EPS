@@ -3,8 +3,7 @@
 
   class manager{
   //Variables being declared
-    public $fullName;
-    public $emailAddress;
+    public $managerName;
 
 
     public function viewPendingQueue($db){
@@ -33,7 +32,6 @@
 
 
     }
-
     function viewAccepted($db){
       /*Displays the events in a queue available in a
       	table. */
@@ -173,6 +171,29 @@
           }
           $db->close();
       //}
+    }
+
+    public function editEvent($db, $eventID){
+
+      $query= "SELECT * FROM events WHERE eventID='$eventID'";
+
+      $result = $db->query($query);
+
+      $event = null;
+      while($row = $result->fetch_assoc())
+      {
+        // turn row into an array
+        $event= array("eventID"=>$row["eventID"],
+          "fullName"=>$row["fullName"], "emailAddress"=>$row["emailAddress"], "phoneNumber"=>$row["phoneNumber"], "eventDate"=>$row["eventDate"], "description"=>$row["description"], "movie"=>$row["movie"], "eventTime"=>$row["eventTime"], "rate"=>$row["rate"]
+        , "numOfPeople"=>$row["numOfPeople"], "specialAttention"=>$row["specialAttention"], "eventType"=>$row["eventType"], "partyRoomBook"=>$row["partyRoomBook"], "childName"=>$row["childName"], "theaterName"=>$row["theaterName"]);
+
+
+      }
+      //return the new array
+      return $event;
+
+      $db->close();
+
     }
 
 }

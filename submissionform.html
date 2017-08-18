@@ -9,6 +9,8 @@
       background-color: 	#ffffe0
     }
   </style>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+
           </head>
           <body>
             <form method="POST" action="customerSubmitConfirm.php">
@@ -26,12 +28,12 @@
                 <p>Phone Number:  <input name="phonenumberField" type="tel"></p>
                 Child's Name (If Applicable):  <input name="childNameTextBox" type="text"><legend>Personal
                   Information</legend></fieldset>
-              <p><br>
-              </p>
+              <br>
+
               <fieldset name="theaterFieldSet">Town of Theater:  
                 <select name="TheaterSelectionList">
-                  <option value="Teaneck">Teaneck</option>
-                  <option value="Sayville">Sayville</option>
+                  <option value="Teaneck Cinemas">Teaneck Cinemas </option>
+                  <option value="Sayville Cinemas">Sayville Cinemas</option>
                 </select>
                 <br>
                 <br>
@@ -56,9 +58,8 @@
                 <br>
                 Party Room: 
                 <select id="partyroomselector" name="partyRoomChecker">
-                  <option value="">Select</option>
-                  <option value="Yes">Yes</option>
                   <option value="No">No</option>
+                  <option value="Yes">Yes</option>
                 </select>
                 <br>
                 <script>$('#partyroomselector').on('change', function () {
@@ -72,7 +73,7 @@
      $("#partytimeIDHeader").hide();
      $("#partyroomTextID").hide();
    }
-});</script><br>
+ });</script> <br>
                 <label id="partytimeIDHeader" name="partytimeLabel" style="display: none">Time
                   Desired:</label>   <input id="partyroomTextID" name="partyRoomTimeBox"
 
@@ -87,13 +88,21 @@
 wrap="hard"></textarea> <br>
                 <br>
                 Special Attention:<br>
-                <textarea rows="3" cols="80" name="specialAttention"></textarea></fieldset>
+                <textarea rows="3" cols="80" name="specialAttention"></textarea>
+                <br>
+                <br>
+                <div class="g-recaptcha" data-sitekey="6Lc_RS0UAAAAAAliM5C_DoF3rzN2aS3O1Ngj7Ebo"></div>
+
+              </fieldset>
               <br>
               <br>
               <br>
               <br>
+
               <div style="text-align: right;">
                 <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
                 <input name="submitButton" class="submitButton" type="submit"></div>
+
+
     </form>
 </body></html>
