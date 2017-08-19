@@ -1,8 +1,13 @@
 <?php
 include 'header.php';
+include 'dbh.php';
+include 'manager.php';
+//create manager and get an array of all the events
+$manager=new manager();
+$event=$manager->viewAccepted($db);
 ?>
-<!--?php
-include 'dbh.php';include 'manager.php';//create manager and get an array of all the events$manager=new manager();$event=$manager--->
+
+
 <html>
   <head>
     <title>acceptedeventsPage</title>
@@ -22,7 +27,7 @@ include 'dbh.php';include 'manager.php';//create manager and get an array of all
     }
     </style>
   </head>
-  <body onload="check()">viewAccepted($db);
+  <body onload="check()">
     <div class="w3-main" style="margin-left:340px;margin-right:40px">
     <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
     <button type="button" id="prevButton" class="prevButton" onclick="prevEvent()">Previous
@@ -30,7 +35,7 @@ include 'dbh.php';include 'manager.php';//create manager and get an array of all
     <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
     <button type="button" id="nextButton" class="nextButton" onclick="nextEvent()">
       Next Entry</button>
-    <form method="POST" action="editEvent.php">
+    <form method="post" id="editForm"name="editForm" action="editAcceptedEvents.php?">
       <div style="text-align: left;"><br>
         <fieldset name="personalInfoFieldSet"> <strong>Name:</strong>  <label
             id="fullName"> </label>
@@ -42,39 +47,39 @@ include 'dbh.php';include 'manager.php';//create manager and get an array of all
             <label id="childName"></label> &nbsp; </div>
           <legend><strong>Personal Information</strong></legend></fieldset>
         <legend></legend></div>
-    </form>
+
     <br>
     <fieldset name="theaterFieldSet"><legend><strong>Theater Information</strong></legend><strong>Theater:
         </strong>   <label id="theater"></label>
       <p><strong>Movie:</strong>  <label id="movie"></label>   <br>
       </p>
       <p><strong>Date Desired:</strong>  <label id="eventDate"></label></p>
-      <strong>Time:</strong>   </fieldset>
+      <strong>Time:</strong><label id="eventTime">  </fieldset>
     <br>
     <fieldset name="eventinfoFieldSet"><legend><strong>Event Information</strong></legend>
       <div style="text-align: right;"><strong>Deposit Paid</strong> <input name="depositCheckBox"
           type="checkbox"> </div>
       <strong>Event Type:</strong>  <label id="eventType"></label>
-      <p><strong>People Attending:</strong>   <label id="numOfPeople"></label><br>
+      <p><strong>People Attending:</strong> <label id="numOfPeople"></label><br>
       </p>
-      <p><strong>Party Room:</strong>  <label id="partyConfirmIDLabel" form="partyRoomConfirmationLabel"></label></p>
-      <label id="partyRoomTimeHeaderID" form="partyRoomTimeHeader" style="display: none"><strong>Party
-          Room Time:</strong> </label>   <label id="partyRoomTimeIDLabel" form="partyRoomTimeLabel"
+      <p><strong>Party Room:</strong>  <label id="partyRoomBook" form="partyRoomConfirmationLabel"></label></p>
+      <label id="partyRoomTimeHeaderID" style="display: none"><strong>Party
+          Room Time:</strong> </label>   <label id="partyRoomTime" form="partyRoomTimeLabel"
         style="display: none"></label> </fieldset>
     <script>
           function check(){
-          var confirm = $('#partyConfirmIDLabel').text();
+          var confirm = $('#partyRoomBook').text();
    if(confirm === "Yes"){
      $("#partyRoomTimeHeaderID").show();
-     $("#partyRoomTimeIDLabel").show();
+     $("#partyRoomTime").show();
    }
    else{
      $("#partyRoomTimeHeaderID").hide();
-     $("#partyRoomTimeIDLabel").hide();
+     $("#partyRoomTime").hide();
    }
 };
         </script> <br>
-    <br>
+
     <fieldset name="additionalInfoFieldSet"><legend><strong>Additional
           Information</strong></legend><strong>Brief Description:</strong> <br>
       <label id="description"></label> <br>
@@ -84,11 +89,15 @@ include 'dbh.php';include 'manager.php';//create manager and get an array of all
       <label id="specialAttention"></label></fieldset>
     <br>
     <br>
-    <br>
     <div style="text-align: center;">
       <link rel="stylesheet" type="text/css" href="editinformation.php">
-      <button type="button" name="editInfoButton" class="editButton">Edit
-        Information</button></div>
+      <input type="hidden" name="eventID" name="eventID" value="">
+
+      <a href="#" class="editButton" onclick="setValue();">Edit Information</a></div>
+        <br>
+        <br>
+</form>
+
     <script>
 
     //declare the index var
@@ -100,7 +109,7 @@ include 'dbh.php';include 'manager.php';//create manager and get an array of all
     document.getElementById("emailAddress").innerHTML = acceptedEvent[index]['emailAddress'];
     document.getElementById("phoneNumber").innerHTML = acceptedEvent[index]['phoneNumber'];
     document.getElementById("childName").innerHTML = acceptedEvent[index]['childName'];
-    document.getElementById("theater").innerHTML = acceptedEvent[index]['theater'];
+    document.getElementById("theater").innerHTML = acceptedEvent[index]['theaterName'];
     document.getElementById("movie").innerHTML = acceptedEvent[index]['movie'];
     document.getElementById("eventDate").innerHTML = acceptedEvent[index]['eventDate'];
     document.getElementById("eventTime").innerHTML = acceptedEvent[index]['eventTime'];
@@ -172,6 +181,11 @@ include 'dbh.php';include 'manager.php';//create manager and get an array of all
 
         }
 
+      }
+
+      function setValue(){
+        document.editForm.eventID.value = acceptedEvent[index]['eventID'];
+        document.forms["editForm"].submit();
       }
 
     </script>

@@ -1,10 +1,12 @@
-<?php session_start();
+<?php
+session_start();
+
 
 ?>
 
 <!DOCTYPE html>
 <html>
-<title>Event Popper Header</title>
+<title>Event Popper</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -16,8 +18,9 @@ body {font-size:16px;}
 .w3-half img:hover{opacity:1}
 </style>
 <body>
+
   <!-- Sidebar/menu -->
-  <nav class="w3-sidebar w3-aqua w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <nav class="w3-sidebar w3-blue w3-collapse w3-top w3-large w3-padding" style="box-shadow: 1px 1px 40px #808080;z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
     <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
     <div class="w3-container">
       <h3 class="w3-padding-64"><b>Event Popper</b> <img style="width: 30px; height: 45px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></img></h3>
@@ -38,7 +41,7 @@ body {font-size:16px;}
 
   <!-- Top menu on small screens -->
   <header class="w3-container w3-top w3-hide-large w3-aqua w3-xlarge w3-padding">
-    <a href="javascript:void(0)" class="w3-button w3-aqua w3-margin-right" onclick="w3_open()">☰</a>
+    <a href="javascript:void(0)" class="w3-button w3-blue w3-margin-right" onclick="w3_open()">☰</a>
     <span>Event Popper</span>
   </header>
 

@@ -1,78 +1,75 @@
 <!DOCTYPE html>
 <?php
+include 'header.php';
 include 'dbh.php';
 include 'manager.php';
 $manager= new manager();
-$event=$manager->editEvent($db);
+$editEvent=$_POST['eventID'];
+$eventID= $_POST['eventID'];
+$event=$manager->editEvent($db, $editEvent);
 
 ?>
 <html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
-    <title>editinformation</title>
-    <style>
-    body{
-      background-color: #BDA0CB
-    }
-  </style>
-  </head>
+
   <body>
-    <form method="POST" action="editEvent.php">
-      <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Event
+  <style>
+  body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+  body {font-size:16px;}
+  .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+  .w3-half img:hover{opacity:1}
+  body{
+    background-color: #ffecd0
+  }
+  </style>
+    <div class="w3-main" style="margin-left:340px;margin-right:40px">
+    <form method="POST" action="editAcceptedEventsConfirm.php">
+      <h2 style="text-align: center;">
+        <img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Event
         Popper System<img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
       <fieldset name="personalInfoFieldSet">Name:&nbsp;&nbsp; &nbsp;&nbsp;
         &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
         &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp; <input name="nameTextBox" type="text">
+        &nbsp;&nbsp;&nbsp;&nbsp; <input name="fullName" type="text" value="<?php echo $event['fullName']; ?>">
         <p>E-Mail: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-          <input name="emailField" type="email"> &nbsp; &nbsp;
+          <input name="emailAddress" type="email" value="<?php echo $event['emailAddress']; ?>"> &nbsp; &nbsp;
           &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp; <br>
         </p>
         <p>Phone Number:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp; <input name="phonenumberField" type="tel"></p>
-        Child's Name (If Applicable):&nbsp; &nbsp;&nbsp; <input name="childNameTextBox"
-
-          type="text"><legend>Personal Information</legend></fieldset>
+          &nbsp;&nbsp;&nbsp; &nbsp; <input name="phoneNumber" value="<?php echo $event['fullName']; ?>" type="tel"></p>
+        Child's Name (If Applicable):&nbsp; &nbsp;&nbsp; <input name="childName" type="text" value="<?php echo $event['childName']; ?>">
+        <legend>Personal Information</legend></fieldset>
       <p><br>
       </p>
-      <fieldset name="theaterFieldSet">Town of Theater: &nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;
-        <select name="TheaterSelectionList">
-        </select>
+      <fieldset name="theaterFieldSet">Theater:
+        <label name="theaterName"><?php echo $event['theaterName']; ?></label>
         <br>
         <br>
-        Movie:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <input name="movieTextBox" type="text"><br>
+        Movie:  <input required="required" name="movie" type="text" value="<?php echo $event['movie']; ?>"><br>
         <br>
-        Date/Time Desired:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp; &nbsp;&nbsp; <input name="datetimeOptions" type="datetime-local"><legend>Theater
+        Date Desired:  <input required="required" name="eventDate" type="date" value="<?php echo $event['eventDate']; ?>">
+        <br>
+        <br>
+        Time Desired: <input name="eventTime" type="time" value="<?php echo $event['eventTime']; ?>"> <legend>Theater
           Information</legend></fieldset>
       &nbsp;<br>
       <fieldset name="eventInfoFieldSet">Type of Event:&nbsp;&nbsp; &nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
-        <select name="EventList">
-          <option value="">Fundraiser</option>
-          <option value="">Walk-In</option>
-          <option value="">Rental</option>
-          <option value="">Private Screening</option>
-        </select>
+        <Label name="eventType"><?php echo $event['eventType']; ?></label>
         <br>
         <br>
-        Number of People Attending:&nbsp;&nbsp;&nbsp; <input name="attendanceTextBox"
-
-          type="number"><br>
+        Number of People Attending:&nbsp;&nbsp;&nbsp; <input name="numOfPeople" type="number" value="<?php echo $event['numOfPeople']; ?>"><br>
         <br>
         Party Room:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        <select name="partyroomConfirmList">
+        <select name="partyRoomBook" selected='selected'>
+          <option selected><?php echo $event['partyRoomBook']; ?></option>
+
           <option value="">No</option>
           <option value="">Yes</option>
         </select>
@@ -80,24 +77,25 @@ $event=$manager->editEvent($db);
       <br>
       <br>
       Brief Description: <br>
-      <textarea rows="3" cols="80" name="descriptionField" wrap="hard"></textarea>
+      <textarea rows="3" cols="80" name="description" wrap="hard" ><?php echo $event['description']; ?></textarea>
       <br>
       Special Attention:<br>
-      <textarea rows="3" cols="80" name="attentionField"></textarea><br>
+      <textarea rows="3" cols="80" name="specialAttention" ><?php echo $event['specialAttention']; ?></textarea><br>
       <br>
       <br>
+      <input type="hidden" name="eventID" name="eventID" value="<?php echo $eventID; ?>">
+
       <div style="text-align: center;">
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-        <button type="button" name="saveButton" class="prevButton"> Save Changes</button>
+        <button type="submit" name="saveChangesButton" class="prevButton">Save Changes</button>
         &nbsp;
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-        <a href="pendingevents.php" class="rejectButton">Discard Changes</a>
+        <a href="acceptedevents.php" class="rejectButton">Discard Changes</a>
         </div>
-      <br>
       <br>
       <div style="text-align: right;">
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-        <button type="button" name="deleteEventButton"  onclick="confirm('Are you sure you want to delete this Event?')" class="deleteButton">
+        <button type="button" name="deleteEventButton"  onclick="confirm('Are you sure you want to delete this Event? (Warning: If there was a deposit, refund will have to be given!)')" class="deleteButton">
           Delete Event</button> </div>
     </form>
   </body>

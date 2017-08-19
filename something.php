@@ -1,83 +1,192 @@
 <?php
 include 'header.php';
+include 'dbh.php';
+include 'manager.php';
+//create manager and get an array of all the events
+$manager=new manager();
+$event=$manager->viewAccepted($db);
+?>
 
- ?>
 
-<!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-body {font-size:16px;}
-.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-.w3-half img:hover{opacity:1}
-</style>
-<body>
+  <head>
+    <title>acceptedeventsPage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <style>
+    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+    body {font-size:16px;}
+    .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+    .w3-half img:hover{opacity:1}
+    body{
+      background-color: #ffecd0
+    }
+    </style>
+  </head>
+  <body onload="check()">
+    <div class="w3-main" style="margin-left:340px;margin-right:40px">
+    <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+    <button type="button" id="prevButton" class="prevButton" onclick="prevEvent()">Previous
+      Entry</button> 
+    <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+    <button type="button" id="nextButton" class="nextButton" onclick="nextEvent()">
+      Next Entry</button>
+    <form method="POST" action="editEvent.php">
+      <div style="   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ text-align: center;"><br>
+        <fieldset name="personalInfoFieldSet"> <strong>Name:</strong>  <label
+
+            id="fullName"> </label>
+          <p style="text-align: center;"><strong>E-Mail: </strong>  <label id="emailAddress"></label>
+              <br>
+          </p>
+          <p style="text-align: center;"><strong>Phone Number:</strong> <label id="phoneNumber"></label></p>
+           <strong>Child's Name (If Applicable):</strong>&nbsp;
+            <label id="childName"></label> &nbsp;
+          <legend><strong>Personal Information</strong></legend></fieldset>
+        <legend></legend></div>
+    </form>
+    <br>
+    <fieldset name="theaterFieldSet"><legend><strong>Theater Information</strong></legend><strong>Theater:
+        </strong>   <label id="theater"></label>
+      <p><strong>Movie:</strong>  <label id="movie"></label>   <br>
+      </p>
+      <p><strong>Date Desired:</strong>  <label id="eventDate"></label></p>
+      <strong>Time:</strong><label id="eventTime">  </fieldset>
+    <br>
+    <fieldset name="eventinfoFieldSet"><legend><strong>Event Information</strong></legend>
+      <div style="text-align: right;"><strong>Deposit Paid</strong> <input name="depositCheckBox"
+
+          type="checkbox"> </div>
+      <strong>Event Type:</strong>  <label id="eventType"></label>
+      <p><strong>People Attending:</strong> <label id="numOfPeople"></label><br>
+      </p>
+      <p><strong>Party Room:</strong>  <label id="partyRoomBook" form="partyRoomConfirmationLabel"></label></p>
+      <label id="partyRoomTimeHeaderID" style="display: none"><strong>Party
+          Room Time:</strong> </label>   <label id="partyRoomTime" form="partyRoomTimeLabel"
+
+        style="display: none"></label> </fieldset>
+    <script>
+          function check(){
+          var confirm = $('#partyRoomBook').text();
+   if(confirm === "Yes"){
+     $("#partyRoomTimeHeaderID").show();
+     $("#partyRoomTime").show();
+   }
+   else{
+     $("#partyRoomTimeHeaderID").hide();
+     $("#partyRoomTime").hide();
+   }
+};
+        </script> <br>
+
+    <fieldset name="additionalInfoFieldSet"><legend><strong>Additional
+          Information</strong></legend><strong>Brief Description:</strong> <br>
+      <label id="description"></label> <br>
+      <br>
+      <strong>Special Attention:<br>
+      </strong>&nbsp;<br>
+      <label id="specialAttention"></label></fieldset>
+    <br>
+    <br>
+    <div style="text-align: center;">
+      <link rel="stylesheet" type="text/css" href="editinformation.php">
+      <button type="button" name="editInfoButton" class="editButton">Edit
+        Information</button></div>
+        <br>
+        <br>
 
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+    <script>
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
+    //declare the index var
+     var index=0;
+    //pass php array to javascript
+    var acceptedEvent= <?php echo json_encode($event); ?>;
+    //change content to top of array
+    document.getElementById("fullName").innerHTML = acceptedEvent[index]['fullName'];
+    document.getElementById("emailAddress").innerHTML = acceptedEvent[index]['emailAddress'];
+    document.getElementById("phoneNumber").innerHTML = acceptedEvent[index]['phoneNumber'];
+    document.getElementById("childName").innerHTML = acceptedEvent[index]['childName'];
+    document.getElementById("theater").innerHTML = acceptedEvent[index]['theater'];
+    document.getElementById("movie").innerHTML = acceptedEvent[index]['movie'];
+    document.getElementById("eventDate").innerHTML = acceptedEvent[index]['eventDate'];
+    document.getElementById("eventTime").innerHTML = acceptedEvent[index]['eventTime'];
+    document.getElementById("eventType").innerHTML = acceptedEvent[index]['eventType'];
+    document.getElementById("numOfPeople").innerHTML = acceptedEvent[index]['numOfPeople'];
+    document.getElementById("partyRoomBook").innerHTML = acceptedEvent[index]['partyRoomBook'];
+    document.getElementById("partyRoomTime").innerHTML = acceptedEvent[index]['partyRoomTime'];
+    document.getElementById("description").innerHTML = acceptedEvent[index]['description'];
+    document.getElementById("specialAttention").innerHTML = acceptedEvent[index]['specialAttention'];
 
-  <!-- Header -->
-  <div class="w3-container" style="margin-top:80px" id="showcase">
-    <h1 class="w3-jumbo"><b>Interior Design</b></h1>
-    <h1 class="w3-xxxlarge w3-text-red"><b>Showcase.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
+
+      function nextEvent(){
+        //if the index is less than amount of events, continue
+
+        if (index < acceptedEvent.length-1){
+          document.getElementById("prevButton").disabled = false;
+            index++;
+
+            document.getElementById("fullName").innerHTML = acceptedEvent[index]['fullName'];
+            document.getElementById("emailAddress").innerHTML = acceptedEvent[index]['emailAddress'];
+            document.getElementById("phoneNumber").innerHTML = acceptedEvent[index]['phoneNumber'];
+            document.getElementById("childName").innerHTML = acceptedEvent[index]['childName'];
+            document.getElementById("theater").innerHTML = acceptedEvent[index]['theater'];
+            document.getElementById("movie").innerHTML = acceptedEvent[index]['movie'];
+            document.getElementById("eventDate").innerHTML = acceptedEvent[index]['eventDate'];
+            document.getElementById("eventTime").innerHTML = acceptedEvent[index]['eventTime'];
+            document.getElementById("eventType").innerHTML = acceptedEvent[index]['eventType'];
+            document.getElementById("numOfPeople").innerHTML = acceptedEvent[index]['numOfPeople'];
+            document.getElementById("partyRoomBook").innerHTML = acceptedEvent[index]['partyRoomBook'];
+            document.getElementById("partyRoomTime").innerHTML = acceptedEvent[index]['partyRoomTime'];
+            document.getElementById("description").innerHTML = acceptedEvent[index]['description'];
+            document.getElementById("specialAttention").innerHTML = acceptedEvent[index]['specialAttention'];
+
+
+
+      }
+      //else disable the next button to prevent the user from going further
+      else{
+        document.getElementById("nextButton").disabled = true;
+
+
+      }
+      }
+      function prevEvent(){
+        // if the index is equal to 0, disable prevButton abd enable next button
+        if (index <= 0){
+          document.getElementById("nextButton").disabled = false;
+          document.getElementById("prevButton").disabled = true;
+        }
+        else{
+          //else index moves back
+          document.getElementById("nextButton").disabled = false;
+            index--;
+            document.getElementById("fullName").innerHTML = acceptedEvent[index]['fullName'];
+            document.getElementById("emailAddress").innerHTML = acceptedEvent[index]['emailAddress'];
+            document.getElementById("phoneNumber").innerHTML = acceptedEvent[index]['phoneNumber'];
+            document.getElementById("childName").innerHTML = acceptedEvent[index]['childName'];
+            document.getElementById("theater").innerHTML = acceptedEvent[index]['theater'];
+            document.getElementById("movie").innerHTML = acceptedEvent[index]['movie'];
+            document.getElementById("eventDate").innerHTML = acceptedEvent[index]['eventDate'];
+            document.getElementById("eventTime").innerHTML = acceptedEvent[index]['eventTime'];
+            document.getElementById("eventType").innerHTML = acceptedEvent[index]['eventType'];
+            document.getElementById("numOfPeople").innerHTML = acceptedEvent[index]['numOfPeople'];
+            document.getElementById("partyRoomBook").innerHTML = acceptedEvent[index]['partyRoomBook'];
+            document.getElementById("partyRoomTime").innerHTML = acceptedEvent[index]['partyRoomTime'];
+            document.getElementById("description").innerHTML = acceptedEvent[index]['description'];
+            document.getElementById("specialAttention").innerHTML = acceptedEvent[index]['specialAttention'];
+
+
+        }
+
+      }
+
+    </script>
   </div>
-
-  <!-- Photo grid (modal) -->
-  <iframe src="https://calendar.google.com/calendar/embed?src=33fk84kf0rdcqb7frkm8f1ocl0%40group.calendar.google.com&ctz=America/New_York" align="center" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-
-
-  <!-- Modal for full size images on click-->
-
-
-  <!-- Services -->
-
-
-  <!-- Designers -->
-
-
-  <!-- The Team -->
-
-
-  <!-- Packages / Pricing Tables -->
-
-
-  <!-- Contact -->
-
-
-<!-- End page content -->
-</div>
-
-
-<script>
-// Script to open and close sidebar
-function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-}
-
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-}
-
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-</script>
-
-</body>
+  </body>
 </html>

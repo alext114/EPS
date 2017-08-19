@@ -47,8 +47,8 @@
 
             // turn row into an array
 
-            $event[$index]=array("fullName"=>$row["fullName"], "emailAddress"=>$row["emailAddress"], "phoneNumber"=>$row["phoneNumber"], "eventDate"=>$row["eventDate"], "description"=>$row["description"], "movie"=>$row["movie"], "eventTime"=>$row["eventTime"], "rate"=>$row["rate"]
-            , "numOfPeople"=>$row["numOfPeople"], "specialAttention"=>$row["specialAttention"], "eventType"=>$row["eventType"], "partyRoomBook"=>$row["partyRoomBook"], "childName"=>$row["childName"], "theater"=>$row["theater"]);
+            $event[$index]=array("eventID"=>$row['eventID'], "fullName"=>$row["fullName"], "emailAddress"=>$row["emailAddress"], "phoneNumber"=>$row["phoneNumber"], "eventDate"=>$row["eventDate"], "description"=>$row["description"], "movie"=>$row["movie"], "eventTime"=>$row["eventTime"], "rate"=>$row["rate"]
+            , "numOfPeople"=>$row["numOfPeople"], "specialAttention"=>$row["specialAttention"], "eventType"=>$row["eventType"], "partyRoomBook"=>$row["partyRoomBook"], "childName"=>$row["childName"], "theaterName"=>$row["theaterName"]);
             $index++;
 
           }
@@ -143,7 +143,7 @@
         $partyRoomBook=$submittedEvent['partyRoomBook'];
         $childName=$submittedEvent['childName'];
         $eventType=$submittedEvent['eventType'];
-        $theater=$submittedEvent['theater'];
+        $theater=$submittedEvent['theaterName'];
 
 
         //Check if the date is available
@@ -154,7 +154,7 @@
       //  if ($isAvailable==true){
           //query the database to insert
           //info not available is null
-          $queryEvents = "INSERT INTO events (`eventID`, `fullName`, `emailAddress`, `phoneNumber`, `eventDate`, `description`, `movie`, `eventTime`, `rate`, `numOfPeople`, `specialAttention`, `eventType`, `depositAmt`, `recievedDeposit`, `partyRoomBook`, `childName`, `isApproved`, `theater`)
+          $queryEvents = "INSERT INTO events (`eventID`, `fullName`, `emailAddress`, `phoneNumber`, `eventDate`, `description`, `movie`, `eventTime`, `rate`, `numOfPeople`, `specialAttention`, `eventType`, `depositAmt`, `recievedDeposit`, `partyRoomBook`, `childName`, `isApproved`, `theaterName`)
           VALUES (null, '$fullName', '$emailAddress', '$phoneNumber', '$eventDate', '$description', '$movie', '$eventTime', null, '$numOfPeople', '$specialAttention', '$eventType', null, null, '$partyRoomBook', '$childName', 1, '$theater')";
           if ($db->query($queryEvents) === TRUE)
           {
@@ -193,6 +193,38 @@
       return $event;
 
       $db->close();
+
+    }
+
+    public function saveAcceptedChanges($db, $submittedEvent){
+      $eventID=$submittedEvent['eventID'];
+      $fullName=$submittedEvent['fullName'];
+      $emailAddress=$submittedEvent['emailAddress'];
+      $phoneNumber=$submittedEvent['phoneNumber'];
+      $eventDate=$submittedEvent['eventDate'];
+      $description=$submittedEvent['description'];
+      $movie=$submittedEvent['movie'];
+      $eventTime=$submittedEvent['eventTime'];
+      $numOfPeople=$submittedEvent['numOfPeople'];
+      $specialAttention=$submittedEvent['specialAttention'];
+      //eventtype was here
+      $partyRoomBook=$submittedEvent['partyRoomBook'];
+      $childName=$submittedEvent['childName'];
+
+
+
+
+      $query = "UPDATE `events` SET `fullName`='$fullName',`emailAddress`='$emailAddress',`phoneNumber`='$phoneNumber',`eventDate`='$eventDate',`description`= '$description'
+      ,`movie`='$movie',`eventTime`='$eventTime', numOfPeople`='$numOfPeople',`specialAttention`='$specialAttention', partyRoomBook`='$partyRoomBook',
+      `childName`='$childName', WHERE eventID= '$eventID'";
+
+      $result=$db->query($query);
+
+      if(!$result) {
+        echo "Query was unable to be executed";
+      } else {
+        echo "Changes Saved!";
+      }
 
     }
 
