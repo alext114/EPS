@@ -22,11 +22,6 @@ include 'header.php';
 
   <body>
     <div class="w3-main" style="margin-left:340px;margin-right:40px">
-    <form method="POST" action="logout.php">
-      <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-      <div style="text-align: right;"> <button type="ButtonReferences.css" class="logoutButton">
-          Logout</button></div>
-    </form>
     <h2 style="text-align: center;"><img style="width: 76px; height: 122px;" src="http://clipart-library.com/image_gallery/335689.png">Haven't
       Paid Deposit Yet <img style="width: 76px; height: 122px;" src="http://clipart-library.com/image_gallery/335689.png">
     </h2>
@@ -80,10 +75,6 @@ include 'header.php';
           Customer!</button> </div>
     </form>
     <br>
-    <br>
-    <div style="text-align: right;"> <button type="button" name="backButton" class="backButton"
-
-        onclick="window.location.href='home.php';">Back</button> </div>
       </div>
   </body>
 </html>

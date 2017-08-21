@@ -175,9 +175,7 @@ $event=$manager->viewPendingQueue($db)?>
     <br>
     <div style="text-align: left;">
       <a href="editinformation.php" class="editButton">Edit Information</a></div>
-      <div style="text-align: right;">
-      <a href="home.html" class="backButton">Back</a></div>
-      <br>
     </div>
+    <br>
   </body>
 </html>

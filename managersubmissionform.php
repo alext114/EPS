@@ -103,6 +103,7 @@ $("#partyroomTextID").hide();
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
           <input name="submitButton" class="submitButton" type="submit"></div>
 </form>
+<br>
   <!-- Modal for full size images on click-->
 
 
