@@ -1,6 +1,5 @@
 <?php
 
-
   class manager{
   //Variables being declared
     public $managerName;
@@ -102,10 +101,7 @@
     }
 
     function checkDeposit($eventID){
-      /*Displays the events in a queue available in a
-      	table. */
-      	//connect to database
-      	include 'dbh.php';
+
           //get tables for event where id is equal to event id
           //maybe change the * to single value
           $queryEvents = "SELECT *
@@ -160,13 +156,13 @@
           {
             print '<script>alert("Event Booked!");</script>';
            //redirects to home.html
-          print '<script>window.location.assign("home.html");</script>';
+          print '<script>window.location.assign("home.php");</script>';
           }
           else {
               $error= "Error: " . $queryEvents . "<br>" . $db->error;
               //print '<script>alert('$error');</script>';
               //redirects to home.html
-              print '<script>window.location.assign("home.html");</script>';
+              print '<script>window.location.assign("home.php");</script>';
 
           }
           $db->close();
@@ -215,8 +211,8 @@
 
 
       $query = "UPDATE `events` SET `fullName`='$fullName',`emailAddress`='$emailAddress',`phoneNumber`='$phoneNumber',`eventDate`='$eventDate',`description`= '$description'
-      ,`movie`='$movie',`eventTime`='$eventTime', numOfPeople`='$numOfPeople',`specialAttention`='$specialAttention', partyRoomBook`='$partyRoomBook',
-      `childName`='$childName', WHERE eventID= '$eventID'";
+      ,`movie`='$movie',`eventTime`='$eventTime', `numOfPeople`='$numOfPeople',`specialAttention`='$specialAttention', `partyRoomBook`='$partyRoomBook',
+      `childName`='$childName' WHERE `eventID`= '$eventID'";
 
       $result=$db->query($query);
 
@@ -227,6 +223,11 @@
       }
 
     }
+
+
+    
+
+
 
 }
 ?>

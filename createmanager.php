@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+include 'dbh.php';
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +22,7 @@ include 'header.php';
   </head>
   <body>
     <div class="w3-main" style="margin-left:340px;margin-right:40px">
-    <form method="POST" action="createmanager.php"><br>
+    <form method="POST" action="createmanagerConfirm.php"><br>
       <fieldset name="createManagerFieldSet"><legend>Create Manager...</legend><legend>Name:&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <input required="required"
 
@@ -31,20 +32,35 @@ include 'header.php';
 
             type="text"><br>
           <br>
-          Password:&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<input required="required" name="passwordTextBox"
-
-            type="password"> &nbsp; <br>
+          Password:&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<input id="password" required="required" name="passwordTextBox" type="password"> &nbsp; <br>
           <br>
-          Confirm Password:&nbsp;&nbsp;&nbsp; <input required="required" name="confirmPasswordTextBox"
+          Confirm Password:&nbsp;&nbsp;&nbsp; <input id="confirm_password" required="required" name="confirmPasswordTextBox" type="password"></legend><br>
 
-            type="password"></legend><br>
+          <script>
+          var password = document.getElementById("password"), confirm_password = document.getElementById("confirm_password");
+
+          function validatePassword(){
+            if(password.value != confirm_password.value) {
+              confirm_password.setCustomValidity("Passwords Don't Match");
+            } else {
+              confirm_password.setCustomValidity('');
+            }
+          }
+
+          password.onchange = validatePassword;
+          confirm_password.onkeyup = validatePassword;
+          </script>
+
+
         Town of Theater: &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
         <select name="theaterSelectionList">
+          <option value="Teaneck Cinemas">Teaneck Cinemas</option>;
+          <option value="Sayville Cinemas">Sayville Cinemas</option>;
         </select>
         <br>
         <br>
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-        <div style="text-align: center;"> <button type="button" name="createManagerButton"
+        <div style="text-align: center;"> <button type="submit" name="createManagerButton"
 
             class="acceptedButton">Add Manager</button></div>
       </fieldset>

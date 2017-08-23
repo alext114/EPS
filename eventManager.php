@@ -85,10 +85,15 @@
       $db->close();
     }
 
-    function createEvent(){
-
+    function quickCalendar($db, $date){
+      //fetch all the events on given date
+      $query="SELECT * FROM `events` WHERE eventDate = '$date'";
+      $result=$db->query($query);
+      while ($row=$result->fetch_assoc()){
+            $events[]= $row;
+      }
+      return $events;
     }
   }
-
 
 ?>

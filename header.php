@@ -29,12 +29,16 @@ body {font-size:16px;}
       <a href="home.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
       <a href="pendingevents.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pending Events</a>
       <a href="acceptedevents.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Accepted Events</a>
-      <a href="managersubmissionform.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Create an Event</a>
-      <br><input name="eventDateTextBox" type="date">
-      <a href="quickcalendar.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Quick Calendar</a>
       <a href="depositchecker.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Check Unpaid Deposits</a>
-      <br><input name="searchTextBox" type="text">
-      <a href="searchresults.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Search Results</a><br>
+      <a href="managersubmissionform.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Create an Event</a>
+      <form method="GET" action="quickcalendar.php">
+      <br><input name="eventDateTextBox" type="date"required="required">
+      <button type='submit' onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white" >Quick Calendar</button>
+    </form>
+      <form method="GET" action="searchresults.php">
+      <br><input name="searchTextBox" type="text"required="required">
+      <button type='submit' onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Search Results</button><br>
+    </form>
       <a href="accountmanage.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Accounts</a><br>
       <a href="logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
     </div>

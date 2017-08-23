@@ -23,7 +23,6 @@ $event=$manager->viewPendingQueue($db)?>
 <title>Pending Events</title>
   </head>
   <body onload="check()"&gt;
-     <div class="w3-main" style="margin-left:340px;margin-right:40px">
     <br>
     <div style="text-align: center;">
       <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Event
@@ -31,10 +30,7 @@ $event=$manager->viewPendingQueue($db)?>
     </div>
     <h2 style="text-align: center;"></h2>
     <form method="POST">
-      <div style="text-align: right;">&nbsp;</div>
-      <h2 style="text-align: center;"></h2>
-      <div style="text-align: right;"><br>
-      </div>
+
       <p style="text-align: left;">Personal Information </p>
       <fieldset name="personalInfoFieldSet"><legend><strong>Personal Information</strong></legend>
         <div style="text-align: left;"><strong>Name:</strong>   <label form="nameLabel"><?php  echo $event['fullName'];  ?></label></div>

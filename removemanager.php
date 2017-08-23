@@ -1,5 +1,9 @@
 <?php
 include 'header.php';
+include 'dbh.php';
+include 'admin.php';
+
+$admin= new admin();
 ?>
 
 <!DOCTYPE html>
@@ -21,39 +25,43 @@ include 'header.php';
   </head>
   <body>
     <div class="w3-main" style="margin-left:340px;margin-right:40px">
-    <form method="POST" action="removemanager.php"><br>
+    <form id="removeManager" method="POST" action="removemanagerConfirm.php"><br>
       <fieldset name="deleteManagerFieldSet"><legend>Remove a Manager...</legend>
-        Select Theater:&emsp;
-        <select name="TheaterSelectionList">
-        </select>
-        <br>
-        <br>
+
+
         Select Username:&nbsp;
-        <select name="ManagerSelectionList">
+        <?php $managers=$admin->getManagers($db); ?>
+
+        <select name="managerSelection">
+        <?php  foreach($managers as $manager): ?>
+          <option value=<?php echo $manager['username']; ?>>
+            <?php echo $manager['username']; ?>
+          </option>
+
+      <?php endforeach ?>
         </select>
+
         <br>
         <br>
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-        <div style="text-align: center;"> <button type="button" name="deleteManagerButton"
-
-            onclick="ConfirmDelete()"
-
-            class="deleteButton"> Remove Manager</button> </div>
+        <div style="text-align: center;">
+          <button type="button" name="deleteManagerButton" onclick="ConfirmDelete()"class="deleteButton"> Remove Manager</button> </div>
       </fieldset>
       <script>
 
         function ConfirmDelete()
           {
             var x = confirm("Are you sure you want to delete this manager?");
-            if (x)
-                return window.location.href="home.html";
-            else
-              return false;
-          }
+            if (x){
 
+            document.getElementById("removeManager").submit();
+            }
+            else{
+              //return false;
+          }
+          }
       </script>
     </form>
-    <br>
   </div>
   </body>
 </html>
