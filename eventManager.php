@@ -94,6 +94,21 @@
       }
       return $events;
     }
+
+
+    function search($db, $name){
+      //fetch all the events on given name
+
+
+      $query="SELECT * FROM `events` WHERE fullName like '$name'";
+      $result=$db->query($query);
+      $events= array();
+      while ($row=$result->fetch_assoc()){
+            $events[]= $row;
+      }
+      return $events;
+    }
+
   }
 
 ?>

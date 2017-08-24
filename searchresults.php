@@ -1,5 +1,10 @@
 <?php
 include 'header.php';
+include 'eventManager.php';
+include 'dbh.php';
+
+$eventManager=new eventManager();
+$events=$eventManager->search($db, $_GET['searchTextBox']);
  ?>
 
 <!DOCTYPE html>
@@ -23,26 +28,29 @@ include 'header.php';
     <div class="w3-main" style="margin-left:340px;margin-right:40px">
     <h2><img style="width: 153px; height: 124px;" src="http://clipart-library.com/images/BcgKM4A9i.png"></h2>
     <h2></h2>
-    <h2>Search Results for... <label form="nameLabel">name </label></h2>
-    <h2>Last E-mail Used: <label form="emailLabel">e-mail here</label></h2>
+    <h2>Search Results for... <label form="nameLabel"> <?php echo $_GET['searchTextBox']; ?></label></h2>
     <table style="width: 100%" border="1">
       <tbody>
         <tr>
-          <th id="event">Event</th>
+          <th id="Name">Name</th>
           <th id="date">Date</th>
-          <th id="time">Time</th>
-          <th id="partyroom">Party Room?</th>
+          <th id="type">Event Type</th>
+          <th id="description">description</th>
         </tr>
+        <?php foreach ($events as $event): ?>
+
         <tr>
-          <td headers="event" style="text-align: center;"><br>
+          <td headers="Name" style="text-align: center;"><?php echo $event['fullName']; ?>
           </td>
-          <td headers="date" style="text-align: center;"><br>
+          <td headers="date" style="text-align: center;"><?php echo $event['eventDate']; ?>
           </td>
-          <td headers="time" style="text-align: center;"><br>
+          <td headers="type" style="text-align: center;"><?php echo $event['eventType']; ?>
           </td>
-          <td headers="partyroom" style="text-align: center;"><br>
+          <td headers="description" style="text-align: center;"><?php echo $event['description']; ?>
           </td>
         </tr>
+      <?php endforeach; ?>
+
       </tbody>
     </table>
     <p> </p>

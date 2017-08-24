@@ -36,7 +36,7 @@ body {font-size:16px;}
       <button type='submit' onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white" >Quick Calendar</button>
     </form>
       <form method="GET" action="searchresults.php">
-      <br><input name="searchTextBox" type="text"required="required">
+      <br><input name="searchTextBox" type="text" pattern= "[a-zA-Z]*" required="required">
       <button type='submit' onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Search Results</button><br>
     </form>
       <a href="accountmanage.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Accounts</a><br>
