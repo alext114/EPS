@@ -111,14 +111,14 @@ $event=$manager->viewPendingQueue($db)?>
       if ($_POST['messageTextField'] == "") {
         echo 'Please provide a reason for the rejection of the event.';
       } else {
-        /*create mail message
+        //create mail message
         $to = $event['emailAddress'];
         $subject = $event['theaterName'] . ' Event Rejection';
         $message = 'Reason for rejection: ' . $_POST['messageTextField'];
         $headers = 'From: sapeventplanner@gmail.com' . "\r\n" .
             'Reply-To: sapeventplanner@gmail.com' . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
-        mail($to, $subject, $message, $headers);*/
+        mail($to, $subject, $message, $headers);
         //remove from database
         $id = $event['eventID'];
         $result=$db->query("DELETE FROM events_queue WHERE eventID = $id");
@@ -132,14 +132,14 @@ $event=$manager->viewPendingQueue($db)?>
     }
     //push the event to the bottom of the queue
     if(isset($_POST['pushButton'])) {
-      /*create mail message
+      //create mail message
       $to = $event['emailAddress'];
       $subject = $event['theaterName'] . ' Event Postponement';
       $message = 'Reason for postponement: ' . $_POST['messageTextField'];
       $headers = 'From: sapeventplanner@gmail.com' . "\r\n" .
           'Reply-To: sapeventplanner@gmail.com' . "\r\n" .
           'X-Mailer: PHP/' . phpversion();
-      mail($to, $subject, $message, $headers);*/
+      mail($to, $subject, $message, $headers);
       //remove event from the top of the queue
       $id = $event['eventID'];
       $result=$db->query("DELETE FROM events_queue WHERE eventID = $id");
