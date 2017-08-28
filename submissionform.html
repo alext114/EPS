@@ -22,11 +22,11 @@
               <br>
               <fieldset name="personalInfoFieldSet">Name:  <input required="required"
 
-                  name="nameTextBox" type="text" pattern="[A-Za-z]" title="Names can't have numbers!">
+                  name="nameTextBox" type="text" pattern="[A-Za-z]{}" title="Names can't have numbers!">
                 <p>E-Mail:   <input name="emailField" type="email">   <br>
                 </p>
-                <p>Phone Number:  <input name="phonenumberField" type="tel"></p>
-                Child's Name (If Applicable):  <input name="childNameTextBox" type="text" pattern="[A-Za-z]" title="Names can't have numbers!"><legend>Personal
+                <p>Phone Number:  <input name="phonenumberField" type="tel" pattern = "\d{3}[\-]\d{3}[\-]\d{4}" title = "Please enter your phone number in XXX-XXX-XXXX format, dashes included!"></p>
+                Child's Name (If Applicable):  <input name="childNameTextBox" type="text" pattern="[A-Za-z]{}" title="Names can't have numbers!"><legend>Personal
                   Information</legend></fieldset>
               <br>
 
