@@ -9,29 +9,23 @@ $event=$manager->viewPendingQueue($db)?>
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+
     <style>
-    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-    body {font-size:16px;}
-    .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-    .w3-half img:hover{opacity:1}
     body{background-color: #b0e2ff}
     </style>
 <title>Pending Events</title>
   </head>
   <body onload="check()"&gt;
     <br>
+    <div class="w3-main" style="margin-left:340px;margin-right:40px">
+
     <div style="text-align: center;">
       <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Event
         Popper System<img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
     </div>
     <h2 style="text-align: center;"></h2>
-    <form method="POST">
-
-      <p style="text-align: left;">Personal Information </p>
+    <form method="POST" action="pendingeventsConfirm.php">
       <fieldset name="personalInfoFieldSet"><legend><strong>Personal Information</strong></legend>
         <div style="text-align: left;"><strong>Name:</strong>   <label form="nameLabel"><?php  echo $event['fullName'];  ?></label></div>
         <p style="text-align: left;"><strong>E-Mail:</strong>   <label form="emailLabel"><?php  echo $event['emailAddress'];?></label>
@@ -84,89 +78,24 @@ $event=$manager->viewPendingQueue($db)?>
           <br>
           <label form="specialneedsLabel"><?php  echo $event['specialAttention'];?></label></fieldset>
         <br>
+        <input type="hidden" name="eventID" value=<?php  echo $event['eventID'];?>>
+
         Message to be Delivered (Reason for postponment/rejection etc.):<br>
         <br>
         <textarea rows="3" cols="80" name="messageTextField"></textarea></div>
       <br>
       <br>
       <div style="text-align: center;">
-        <div style="text-align: center;">
+
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
           <input type="submit" name="acceptButton" class="submitButton" value="Accept"> 
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
           <input type="submit" name="rejectButton" class="rejectButton" value="Reject">
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-          <input type="submit" name="pushButton" class="pushButton" value="Push!"></div>
+          <input type="submit" name="pushButton" class="pushButton" value="Push!">
       </div>
     </form>
-    <?php
-    //accept the event
-    if(isset($_POST['acceptButton'])) {
-      //check google calendar to see if date is available
 
-    }
-    //reject the event
-    if(isset($_POST['rejectButton'])) {
-      //check if reason for rejection is filled
-      if ($_POST['messageTextField'] == "") {
-        echo 'Please provide a reason for the rejection of the event.';
-      } else {
-        //create mail message
-        $to = $event['emailAddress'];
-        $subject = $event['theaterName'] . ' Event Rejection';
-        $message = 'Reason for rejection: ' . $_POST['messageTextField'];
-        $headers = 'From: sapeventplanner@gmail.com' . "\r\n" .
-            'Reply-To: sapeventplanner@gmail.com' . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
-        mail($to, $subject, $message, $headers);
-        //remove from database
-        $id = $event['eventID'];
-        $result=$db->query("DELETE FROM events_queue WHERE eventID = $id");
-        if(!$result) {
-          echo "Query was unable to be executed";
-        } else {
-          echo "The pending event was successfully removed from the database";
-          $event=$manager->viewPendingQueue($db);
-        }
-      }
-    }
-    //push the event to the bottom of the queue
-    if(isset($_POST['pushButton'])) {
-      //create mail message
-      $to = $event['emailAddress'];
-      $subject = $event['theaterName'] . ' Event Postponement';
-      $message = 'Reason for postponement: ' . $_POST['messageTextField'];
-      $headers = 'From: sapeventplanner@gmail.com' . "\r\n" .
-          'Reply-To: sapeventplanner@gmail.com' . "\r\n" .
-          'X-Mailer: PHP/' . phpversion();
-      mail($to, $subject, $message, $headers);
-      //remove event from the top of the queue
-      $id = $event['eventID'];
-      $result=$db->query("DELETE FROM events_queue WHERE eventID = $id");
-      //insert at the bottom of the queue
-      $fullName = $event['fullName'];
-      $emailAddress = $event['emailAddress'];
-      $phoneNumber = $event['phoneNumber'];
-      $eventDate = $event['eventDate'];
-      $movie = $event['movie'];
-      $eventTime = $event['eventTime'];
-      $rate = $event['rate'];
-      $numOfPeople = $event['numOfPeople'];
-      $specialAttention = $event['specialAttention'];
-      $eventType = $event['eventType'];
-      $partyRoomBook = $event['partyRoomBook'];
-      $childName = $event['childName'];
-      $theaterName = $event['theaterName'];
-      $description = $event['description'];
-      $result=$db->query("INSERT INTO events_queue (fullName, emailAddress, phoneNumber, eventDate, movie, eventTime, rate, numOfPeople, specialAttention, eventType, depositAmt, recievedDeposit, partyRoomBook, childName, isApproved, theaterName, description) VALUES ('$fullName', '$emailAddress', '$phoneNumber', '$eventDate', '$movie', '$eventTime', $rate, $numOfPeople, '$specialAttention', '$eventType', 0, false, $partyRoomBook, '$childName', 0, '$theaterName', '$description')");
-      if(!$result) {
-        echo "Query was unable to be executed";
-      } else {
-        echo "The pending event was successfully pushed to the back of the queue";
-        $event=$manager->viewPendingQueue($db);
-      }
-    }
-     ?>
     <br>
     <br>
     <div style="text-align: left;">

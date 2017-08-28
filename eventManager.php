@@ -100,7 +100,7 @@
       //fetch all the events on given name
 
 
-      $query="SELECT * FROM `events` WHERE fullName like '$name'";
+      $query="SELECT * FROM `events` WHERE fullName like '%".$name."%'";
       $result=$db->query($query);
       $events= array();
       while ($row=$result->fetch_assoc()){

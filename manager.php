@@ -13,6 +13,11 @@
           //get tables for events
           $queryEvents = "SELECT * FROM events_queue LIMIT 1";
           $result = $db->query($queryEvents);
+          if($result->num_rows <=0) {
+            print '<script>alert("No More Events in Queue");</script>';
+          }
+          else {
+
 
           $event = null;
           while($row = $result->fetch_assoc())
@@ -26,8 +31,7 @@
           }
           //return the new array
           return $event;
-
-
+        }
 
 
     }
@@ -46,7 +50,8 @@
 
             // turn row into an array
 
-            $event[$index]=array("eventID"=>$row['eventID'], "fullName"=>$row["fullName"], "emailAddress"=>$row["emailAddress"], "phoneNumber"=>$row["phoneNumber"], "eventDate"=>$row["eventDate"], "description"=>$row["description"], "movie"=>$row["movie"], "eventTime"=>$row["eventTime"], "rate"=>$row["rate"]
+            $event[$index]=array("eventID"=>$row['eventID'], "fullName"=>$row["fullName"], "emailAddress"=>$row["emailAddress"], "phoneNumber"=>$row["phoneNumber"], "eventDate"=>$row["eventDate"], "description"=>$row["description"], "movie"=>$row["movie"],
+            "eventTime"=>$row["eventTime"], "rate"=>$row["rate"], "recievedDeposit"=> $row['recievedDeposit']
             , "numOfPeople"=>$row["numOfPeople"], "specialAttention"=>$row["specialAttention"], "eventType"=>$row["eventType"], "partyRoomBook"=>$row["partyRoomBook"], "childName"=>$row["childName"], "theaterName"=>$row["theaterName"]);
             $index++;
 
@@ -59,19 +64,17 @@
 
 
     }
-    function viewNotPaid(){
-      /*Displays the events in a queue available in a
-      	table. */
-      	//connect to database
-      	include 'dbh.php';
-          //get tables for employee
-          $queryEvents = "SELECT *
-                           FROM events where depositReceived='true'";
-          $result = $db->prepare($queryEvents);
-          $result->execute();
-          $events = $result->fetchAll();
-          $result->closeCursor();
+    function viewNotPaid($db){
 
+          //get tables for employee
+          $queryEvents = "SELECT * FROM `events` where `recievedDeposit`= 0";
+          $result = $db->query($queryEvents);
+
+          while ($row=$result->fetch_assoc())
+          {
+                $events[]= $row;
+          }
+          return $events;
 
     }
     function deleteEvent($eventID){
@@ -151,7 +154,7 @@
           //query the database to insert
           //info not available is null
           $queryEvents = "INSERT INTO events (`eventID`, `fullName`, `emailAddress`, `phoneNumber`, `eventDate`, `description`, `movie`, `eventTime`, `rate`, `numOfPeople`, `specialAttention`, `eventType`, `depositAmt`, `recievedDeposit`, `partyRoomBook`, `childName`, `isApproved`, `theaterName`)
-          VALUES (null, '$fullName', '$emailAddress', '$phoneNumber', '$eventDate', '$description', '$movie', '$eventTime', null, '$numOfPeople', '$specialAttention', '$eventType', null, null, '$partyRoomBook', '$childName', 1, '$theater')";
+          VALUES (null, '$fullName', '$emailAddress', '$phoneNumber', '$eventDate', '$description', '$movie', '$eventTime', null, '$numOfPeople', '$specialAttention', '$eventType', 0, 0, '$partyRoomBook', '$childName', 1, '$theater')";
           if ($db->query($queryEvents) === TRUE)
           {
             print '<script>alert("Event Booked!");</script>';
@@ -224,9 +227,89 @@
 
     }
 
+    public function payDeposit($db, $eventID){
 
-    
+      //update recievedDeposit to 1 by eventID
+      $query="UPDATE `events` SET `recievedDeposit`= 1 WHERE `eventID` = '$eventID'";
+      $result=$db->query($query);
+      //error handling
+      if(!$result) {
+        echo "Pay Deposit Failed. Unable to be executed";
+      }
+      else
+      {
+        echo "Deposit Paid!";
+      }
 
+    }
+
+    public function acceptEvent(){
+      $result=$db->query("DELETE FROM events_queue WHERE eventID = '$eventID'");
+      if(!$result) {
+        echo "Query was unable to be executed";
+      } else {
+        echo "The pending event was successfully removed from the database";
+        print '<script>window.location.assign("pendingevents.php");</script>';
+      }
+
+
+    }
+
+    public function rejectEvent($db, $eventID){
+      /*create mail message*/
+      //remove from database
+      $result=$db->query("DELETE FROM events_queue WHERE eventID = '$eventID'");
+      if(!$result) {
+        echo "Query was unable to be executed";
+      } else {
+        echo "The pending event was successfully removed from the database";
+        print '<script>window.location.assign("pendingevents.php");</script>';
+      }
+
+    }
+
+    public function pushEvent($db, $eventID){
+      /*create mail message*/
+      //remove event from the top of the queue
+
+      $result=$db->query("DELETE FROM events_queue WHERE eventID = '$eventID'");
+      //make into an array
+      while($row = $result->fetch_assoc())
+      {
+        // turn row into an array
+        $event= array("eventID"=>$row["eventID"],
+          "fullName"=>$row["fullName"], "emailAddress"=>$row["emailAddress"], "phoneNumber"=>$row["phoneNumber"], "eventDate"=>$row["eventDate"], "description"=>$row["description"], "movie"=>$row["movie"], "eventTime"=>$row["eventTime"], "rate"=>$row["rate"]
+        , "numOfPeople"=>$row["numOfPeople"], "specialAttention"=>$row["specialAttention"], "eventType"=>$row["eventType"], "partyRoomBook"=>$row["partyRoomBook"], "childName"=>$row["childName"], "theaterName"=>$row["theaterName"]);
+
+
+      }
+
+      //insert at the bottom of the queue
+      $fullName = $event['fullName'];
+      $emailAddress = $event['emailAddress'];
+      $phoneNumber = $event['phoneNumber'];
+      $eventDate = $event['eventDate'];
+      $movie = $event['movie'];
+      $eventTime = $event['eventTime'];
+      $rate = $event['rate'];
+      $numOfPeople = $event['numOfPeople'];
+      $specialAttention = $event['specialAttention'];
+      $eventType = $event['eventType'];
+      $partyRoomBook = $event['partyRoomBook'];
+      $childName = $event['childName'];
+      $theaterName = $event['theaterName'];
+      $description = $event['description'];
+      $result=$db->query("INSERT INTO `events_queue` (eventID, fullName, emailAddress, phoneNumber, eventDate, movie, eventTime, rate, numOfPeople, specialAttention, eventType, depositAmt, recievedDeposit, partyRoomBook, childName, isApproved, theaterName, description) VALUES (null, '$fullName', '$emailAddress', '$phoneNumber', '$eventDate', '$movie', '$eventTime', $rate, $numOfPeople, '$specialAttention', '$eventType', 0, 0, $partyRoomBook, '$childName', 0, '$theaterName', '$description')");
+      if(!$result) {
+        echo "Query was unable to be executed";
+
+      } else {
+        print '<script>alert("The pending event was successfully pushed to the back of the queue");</script>';
+
+        print '<script>window.location.assign("pendingevents.php");</script>';
+      }
+
+    }
 
 
 }
