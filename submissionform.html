@@ -23,9 +23,9 @@
               <fieldset name="personalInfoFieldSet">Name:  <input required="required"
 
                   name="nameTextBox" type="text" pattern="[A-Za-z]{}" title="Names can't have numbers!">
-                <p>E-Mail:   <input name="emailField" type="email">   <br>
+                <p>E-Mail:   <input required="required" name="emailField" type="email">   <br>
                 </p>
-                <p>Phone Number:  <input name="phonenumberField" type="tel" pattern = "\d{3}[\-]\d{3}[\-]\d{4}" title = "Please enter your phone number in XXX-XXX-XXXX format, dashes included!"></p>
+                <p>Phone Number:  <input required="required" name="phonenumberField" type="tel" pattern = "\d{3}[\-]\d{3}[\-]\d{4}" title = "Please enter your phone number in XXX-XXX-XXXX format, dashes included!"></p>
                 Child's Name (If Applicable):  <input name="childNameTextBox" type="text" pattern="[A-Za-z]{}" title="Names can't have numbers!"><legend>Personal
                   Information</legend></fieldset>
               <br>
@@ -37,9 +37,9 @@
                 </select>
                 <br>
                 <br>
-                Movie:  <input name="movieTextBox" type="text"><br>
+                Movie:  <input required="required" name="movieTextBox" type="text"><br>
                 <br>
-                Date/Time Desired:  <input name="datetimeOptions" type="datetime-local"><legend>Theater
+                Date/Time Desired:  <input required="required" name="datetimeOptions" type="datetime-local"><legend>Theater
                   Information</legend></fieldset>
               &nbsp; <br>
               <br>
@@ -52,7 +52,7 @@
                 </select>
                 <br>
                 <br>
-                Number of People Attending:&nbsp;&nbsp;&nbsp; <input name="attendanceTextBox"
+                Number of People Attending:&nbsp;&nbsp;&nbsp; <input required="required" name="attendanceTextBox"
 
                   type="number"><br>
                 <br>

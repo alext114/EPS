@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style>
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
@@ -47,7 +48,7 @@ body {background-color: 	#ffffe0}
           Date Desired:  <input required="required" name="eventDate" type="date">
           <br>
           <br>
-          Time Desired: <input name="eventTime" type="time"> <legend>Theater
+          Time Desired: <input required="required" name="eventTime" type="time"> <legend>Theater
             Information</legend></fieldset>
         &nbsp; <br>
         <br>
