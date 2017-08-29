@@ -4,6 +4,12 @@
             <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             <title>customersubmit</title>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"> </script>
+            <script>
+            jQuery(function($){
+               $("#phone").mask("999-999-9999");
+            });
+            </script>
             <style>
     body{
       background-color: 	#ffffe0
@@ -25,7 +31,7 @@
                   name="nameTextBox" type="text" pattern="[A-Za-z\s\-]{0,}" title="Names can't have numbers!">
                 <p>E-Mail:   <input required="required" name="emailField" type="email">   <br>
                 </p>
-                <p>Phone Number:  <input required="required" name="phonenumberField" type="tel" pattern = "\d{3}[\-]\d{3}[\-]\d{4}" title = "Please enter your phone number in XXX-XXX-XXXX format, dashes included!"></p>
+                <p>Phone Number:  <input required="required" name="phonenumberField" type="tel" id = "phone" pattern = "\d{3}[\-]\d{3}[\-]\d{4}" title = "Please enter your phone number in XXX-XXX-XXXX format, dashes included!"></p>
                 Child's Name (If Applicable):  <input name="childNameTextBox" type="text" pattern="[A-Za-z\s\-]{0,}" title="Names can't have numbers!"><legend>Personal
                   Information</legend></fieldset>
               <br>

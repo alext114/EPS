@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"> </script>
+    <script>
+    jQuery(function($){
+       $("#phone").mask("999-999-9999");
+    });
+    </script>
     <style>
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
@@ -31,7 +37,9 @@ body {background-color: 	#ffffe0}
           <p>E-Mail:   <input required="required" name="emailAddress" type="email">
               <br>
           </p>
-          <p>Phone Number: <input required="required" name="phoneNumber" type="tel" pattern = "\d{3}[\-]\d{3}[\-]\d{4}" title = "Please enter your phone number in XXX-XXX-XXXX format, dashes included!"></p>
+
+          <p>Phone Number: <input required="required" name="phoneNumber" type="tel" id = "phone" pattern = "\d{3}[\-]\d{3}[\-]\d{4}" title = "Please enter your phone number in XXX-XXX-XXXX format, dashes included!"></p>
+
           Child's Name (If Applicable):  <input name="childName" type="text" pattern = "[A-Za-z\s\-]{0,}" title="Names can't have numbers!"><legend>Personal
             Information</legend></fieldset>
         <p><br>
