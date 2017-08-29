@@ -27,12 +27,12 @@ body {background-color: 	#ffffe0}
       <br>
       <form method="POST" action="managerSubmissionConfirm.php">
         <fieldset name="personalInfoFieldSet">Name:  <input required="required"
-            name="fullName" type="text" pattern="[A-Za-z]{}" title="Names can't have numbers!">
+            name="fullName" type="text" pattern = "[A-Za-z\s\-]{0,}" title="Names can't have numbers!">
           <p>E-Mail:   <input required="required" name="emailAddress" type="email">
               <br>
           </p>
           <p>Phone Number: <input required="required" name="phoneNumber" type="tel" pattern = "\d{3}[\-]\d{3}[\-]\d{4}" title = "Please enter your phone number in XXX-XXX-XXXX format, dashes included!"></p>
-          Child's Name (If Applicable):  <input name="childName" type="text" pattern="[A-Za-z]{}" title="Names can't have numbers!"><legend>Personal
+          Child's Name (If Applicable):  <input name="childName" type="text" pattern = "[A-Za-z\s\-]{0,}" title="Names can't have numbers!"><legend>Personal
             Information</legend></fieldset>
         <p><br>
         </p>
