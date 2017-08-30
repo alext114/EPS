@@ -144,6 +144,8 @@
         $eventType=$submittedEvent['eventType'];
         $theater=$submittedEvent['theaterName'];
 
+        include 'eventManager.php';
+        $eventManager=new eventManager();
 
         //Check if the date is available
     //    $eventManager= new eventManager();
@@ -153,10 +155,38 @@
       //  if ($isAvailable==true){
           //query the database to insert
           //info not available is null
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
           $queryEvents = "INSERT INTO events (`eventID`, `fullName`, `emailAddress`, `phoneNumber`, `eventDate`, `description`, `movie`, `eventTime`, `rate`, `numOfPeople`, `specialAttention`, `eventType`, `depositAmt`, `recievedDeposit`, `partyRoomBook`, `childName`, `isApproved`, `theaterName`)
           VALUES (null, '$fullName', '$emailAddress', '$phoneNumber', '$eventDate', '$description', '$movie', '$eventTime', null, '$numOfPeople', '$specialAttention', '$eventType', 0, 0, '$partyRoomBook', '$childName', 1, '$theater')";
           if ($db->query($queryEvents) === TRUE)
           {
+            $eventManager->addToCalendar($db,  )
             print '<script>alert("Event Booked!");</script>';
            //redirects to home.html
           print '<script>window.location.assign("home.php");</script>';
