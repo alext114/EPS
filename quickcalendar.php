@@ -1,7 +1,5 @@
 <?php
 include 'header.php';
-include 'dbh.php';
-include 'eventManager.php';
 
 $eventManager=new eventManager();
 $events=$eventManager->quickCalendar($db, $_GET['eventDateTextBox']);
@@ -25,21 +23,7 @@ $events=$eventManager->quickCalendar($db, $_GET['eventDateTextBox']);
       background-color: #ADD8E6
     }
 
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
 
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-
-    tr:nth-child(even) {
-        background-color: #dddddd;
-    }
 
 
   </style>

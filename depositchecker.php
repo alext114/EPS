@@ -1,9 +1,7 @@
 <?php
 include 'header.php';
-include 'manager.php';
-include 'dbh.php';
 
-$manager=new manager();
+//view not paid 
 $events= $manager->viewNotPaid($db);
  ?>
 

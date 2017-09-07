@@ -1,6 +1,6 @@
 <?php
 include 'header.php';
-include 'dbh.php';
+
 include 'admin.php';
 
 $admin= new admin();

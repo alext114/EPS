@@ -4,7 +4,10 @@
 
     public $eventID;
 
+    public function __construct(){
+    //  use Screen\Capture;
 
+    }
     public function checkAvailabilty($db, $wantsPartyRoom, $date){
     $systemDate=date_create();
     $newDate= date_create($date);
@@ -60,8 +63,15 @@
 
     }
 
-    function generateEventSheet(){
+    function generateEventSheet($url){
 
+
+      $screenCapture = new Capture($url);
+      $screenCapture->setTop(100);
+      $screenCapture->setLeft(100);
+      $screenCapture->setImageType('png');
+      $fileLocation = __DIR__;
+      $screenCapture->save($fileLocation); // Will automatically determine the extension type
     }
 
     function placeInQueue($submittedEvent){
@@ -92,7 +102,9 @@
       while ($row=$result->fetch_assoc()){
             $events[]= $row;
       }
+            $db->close();
       return $events;
+
     }
 
 
@@ -106,6 +118,7 @@
       while ($row=$result->fetch_assoc()){
             $events[]= $row;
       }
+            $db->close();
       return $events;
     }
 
@@ -115,6 +128,8 @@
 // https://developers.google.com/google-apps/calendar/quickstart/php
 // Change the scope to Google_Service_Calendar::CALENDAR and delete any stored
 // credentials.
+
+include 'quickstart.php';
 $query="SELECT * FROM `events` WHERE eventID='$eventID'";
 $result=$db->query($query);
 while ($row=$result->fetch_assoc()){

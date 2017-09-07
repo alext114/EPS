@@ -4,8 +4,8 @@ include 'dbh.php';
 include 'manager.php';
 include 'alert.php';
 $alert=new alert();
-$manager= new manager();
-
+session_start();
+$manager=new manager($_SESSION['username'], $_SESSION['theaterName']);
 
 //accept the event
 if(isset($_POST['acceptButton'])) {

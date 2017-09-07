@@ -4,12 +4,6 @@
             <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             <title>customersubmit</title>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"> </script>
-            <script>
-            jQuery(function($){
-               $("#phone").mask("999-999-9999");
-            });
-            </script>
             <style>
     body{
       background-color: 	#ffffe0
@@ -19,7 +13,7 @@
 
           </head>
           <body>
-            <form method="POST" action="customerSubmitConfirm.php">
+            <form method="POST" action="confirmation.php">
               <h1 style=" text-align: center;"></h1>
               <h1 style=" text-align: center;"><img style="width: 83px; height: 97px;"
 
@@ -28,11 +22,11 @@
               <br>
               <fieldset name="personalInfoFieldSet">Name:  <input required="required"
 
-                  name="nameTextBox" type="text" pattern="[A-Za-z\s\-]{0,}" title="Names can't have numbers!">
-                <p>E-Mail:   <input required="required" name="emailField" type="email">   <br>
+                  name="nameTextBox" type="text">
+                <p>E-Mail:   <input name="emailField" type="email">   <br>
                 </p>
-                <p>Phone Number:  <input required="required" name="phonenumberField" type="tel" id = "phone" pattern = "\d{3}[\-]\d{3}[\-]\d{4}" title = "Please enter your phone number in XXX-XXX-XXXX format, dashes included!"></p>
-                Child's Name (If Applicable):  <input name="childNameTextBox" type="text" pattern="[A-Za-z\s\-]{0,}" title="Names can't have numbers!"><legend>Personal
+                <p>Phone Number:  <input name="phonenumberField" type="tel"></p>
+                Child's Name (If Applicable):  <input name="childNameTextBox" type="text"><legend>Personal
                   Information</legend></fieldset>
               <br>
 
@@ -43,9 +37,9 @@
                 </select>
                 <br>
                 <br>
-                Movie:  <input required="required" name="movieTextBox" type="text"><br>
+                Movie:  <input name="movieTextBox" type="text"><br>
                 <br>
-                Date/Time Desired:  <input required="required" name="datetimeOptions" type="datetime-local"><legend>Theater
+                Date/Time Desired:  <input name="datetimeOptions" type="datetime-local"><legend>Theater
                   Information</legend></fieldset>
               &nbsp; <br>
               <br>
@@ -58,7 +52,7 @@
                 </select>
                 <br>
                 <br>
-                Number of People Attending:&nbsp;&nbsp;&nbsp; <input required="required" name="attendanceTextBox"
+                Number of People Attending:&nbsp;&nbsp;&nbsp; <input name="attendanceTextBox"
 
                   type="number"><br>
                 <br>

@@ -3,7 +3,15 @@
   class manager{
   //Variables being declared
     public $managerName;
+    public $managerTheater;
 
+    public function __construct($newManagerName, $newManagerTheater){
+
+
+      $this->managerName=$newManagerName;
+      $this->managerTheater=$newManagerTheater;
+
+    }
 
     public function viewPendingQueue($db){
       /*Displays the events in a queue available in a
@@ -31,17 +39,21 @@
           }
           //return the new array
           return $event;
+          $db->close();
         }
 
 
     }
-    function viewAccepted($db){
+    public function viewAccepted($db){
       /*Displays the events in a queue available in a
       	table. */
       	//connect to database
 
           //get tables for events
-          $queryEvents = "SELECT * FROM events ORDER BY eventDate";
+          //$queryEvents = "SELECT * FROM `events` where theaterName= $managerTheater ORDER BY recievedDeposit DESC, eventDate ASC";
+
+
+          $queryEvents = "SELECT * FROM `events` ORDER BY recievedDeposit DESC, eventDate ASC";
           $result = $db->query($queryEvents);
           $event=array($result->num_rows);
           $index=0;
@@ -60,6 +72,7 @@
 
 
           return $event;
+          $db->close();
 
 
 
@@ -67,6 +80,8 @@
     function viewNotPaid($db){
 
           //get tables for employee
+          //$queryEvents = "SELECT * FROM `events` where `recievedDeposit`= 0, theaterName='$managerTheater'";
+
           $queryEvents = "SELECT * FROM `events` where `recievedDeposit`= 0";
           $result = $db->query($queryEvents);
 
@@ -75,6 +90,7 @@
                 $events[]= $row;
           }
           return $events;
+          $db->close();
 
     }
     function deleteEvent($eventID){
@@ -103,27 +119,7 @@
         }
     }
 
-    function checkDeposit($eventID){
 
-          //get tables for event where id is equal to event id
-          //maybe change the * to single value
-          $queryEvents = "SELECT *
-                           FROM events where eventID='$eventID'";
-          $result = $db->prepare($queryEvents);
-          $result->execute();
-          $event = $result->fetchAll();
-          $result->closeCursor();
-
-          //if receivedDeposit = true then return true
-          if ($event['receivedDeposit'] == true){
-              return true;
-
-          }
-          else{
-            return false;
-          }
-
-    }
     public function addEntry($db,$submittedEvent){
 
 
@@ -157,36 +153,10 @@
           //info not available is null
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
           $queryEvents = "INSERT INTO events (`eventID`, `fullName`, `emailAddress`, `phoneNumber`, `eventDate`, `description`, `movie`, `eventTime`, `rate`, `numOfPeople`, `specialAttention`, `eventType`, `depositAmt`, `recievedDeposit`, `partyRoomBook`, `childName`, `isApproved`, `theaterName`)
           VALUES (null, '$fullName', '$emailAddress', '$phoneNumber', '$eventDate', '$description', '$movie', '$eventTime', null, '$numOfPeople', '$specialAttention', '$eventType', 0, 0, '$partyRoomBook', '$childName', 1, '$theater')";
           if ($db->query($queryEvents) === TRUE)
           {
-            $eventManager->addToCalendar($db,  )
             print '<script>alert("Event Booked!");</script>';
            //redirects to home.html
           print '<script>window.location.assign("home.php");</script>';
@@ -248,7 +218,7 @@
       `childName`='$childName' WHERE `eventID`= '$eventID'";
 
       $result=$db->query($query);
-
+      $db->close();
       if(!$result) {
         echo "Query was unable to be executed";
       } else {
@@ -259,16 +229,24 @@
 
     public function payDeposit($db, $eventID){
 
+      include 'eventManager.php';
+      $eventManager=new eventManager();
       //update recievedDeposit to 1 by eventID
       $query="UPDATE `events` SET `recievedDeposit`= 1 WHERE `eventID` = '$eventID'";
       $result=$db->query($query);
+
       //error handling
       if(!$result) {
         echo "Pay Deposit Failed. Unable to be executed";
+              $db->close();
       }
       else
       {
+
+        $eventManager->addToCalendar($db, $eventID);
+
         echo "Deposit Paid!";
+              $db->close();
       }
 
     }
@@ -278,7 +256,7 @@
       if(!$result) {
         echo "Query was unable to be executed";
       } else {
-        echo "The pending event was successfully removed from the database";
+        echo "The pending event was successfully approved!";
         print '<script>window.location.assign("pendingevents.php");</script>';
       }
 
@@ -291,8 +269,10 @@
       $result=$db->query("DELETE FROM events_queue WHERE eventID = '$eventID'");
       if(!$result) {
         echo "Query was unable to be executed";
+              $db->close();
       } else {
         echo "The pending event was successfully removed from the database";
+              $db->close();
         print '<script>window.location.assign("pendingevents.php");</script>';
       }
 
@@ -332,13 +312,18 @@
       $result=$db->query("INSERT INTO `events_queue` (eventID, fullName, emailAddress, phoneNumber, eventDate, movie, eventTime, rate, numOfPeople, specialAttention, eventType, depositAmt, recievedDeposit, partyRoomBook, childName, isApproved, theaterName, description) VALUES (null, '$fullName', '$emailAddress', '$phoneNumber', '$eventDate', '$movie', '$eventTime', $rate, $numOfPeople, '$specialAttention', '$eventType', 0, 0, $partyRoomBook, '$childName', 0, '$theaterName', '$description')");
       if(!$result) {
         echo "Query was unable to be executed";
+              $db->close();
 
       } else {
         print '<script>alert("The pending event was successfully pushed to the back of the queue");</script>';
-
+      $db->close();
         print '<script>window.location.assign("pendingevents.php");</script>';
       }
 
+    }
+
+    public function getManagerTheater(){
+      return $managerName;
     }
 
 

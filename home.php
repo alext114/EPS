@@ -1,6 +1,7 @@
 <?php
 include 'header.php';
 
+
  ?>
 
  <!DOCTYPE html>
@@ -43,7 +44,7 @@ include 'header.php';
 
    <!-- Header -->
    <div class="w3-container" style="margin-top:80px" id="showcase">
-     <h1 class="w3-jumbo"><b>What's in Store... </b><img style="width: 70px; height: 70px;" src="http://clipart-library.com/data_images/359309.png">
+     <h1 class="w3-jumbo"><b><?php $manager->getManagerTheater(); ?>What's in Store... </b><img style="width: 70px; height: 70px;" src="http://clipart-library.com/data_images/359309.png">
      </h1><hr style="width:50px;border:5px solid blue" class="w3-round">
    </div>
    <div class="googleCalendar">

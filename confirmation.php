@@ -11,12 +11,10 @@ if($obj->success == true)
     //passes test
 }
 else{
-  alert("ReCaptcha failed. Redirecting back to submission form...");
-  print '<script>window.location.assign("loginPage.html");</script>';
+  print '<script>alert("ReCaptcha failed. Redirecting back to submission form...");</script>';
+  print '<script>window.location.assign("submissionform.html");</script>';
 
 }
-
-
 
 ?>
 
@@ -82,7 +80,7 @@ else{
       <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
       <div style="text-align: right;">
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-        <button type="button" name="editButton" class="rejectButton" onclick="window.location.href='managersubmissionform.html';">Wait I Need to Edit!</button> &nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" name="editButton" class="rejectButton" onclick="window.location.submissionform.html';">Wait I Need to Edit!</button> &nbsp;&nbsp;&nbsp;&nbsp;
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
         <button type="submit" name="confirmButton" class="submitButton">Sounds
           Good!</button>

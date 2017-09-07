@@ -1,7 +1,5 @@
 <?php
 include 'header.php';
-include 'eventManager.php';
-include 'dbh.php';
 
 $eventManager=new eventManager();
 $events=$eventManager->search($db, $_GET['searchTextBox']);

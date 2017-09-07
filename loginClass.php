@@ -39,6 +39,11 @@
 		         and so on until the query is finished*/
 		         $table_password = $row["password"];
 
+						 /*the first theaterName row is passed on to $table_theaterName,
+						 and so on until the query is finished*/
+						 $table_theaterName = $row["theaterName"];
+
+
 		       }
 		       //checks if there are any matching fields
 		       if(($user_name == $table_users) && ($password == $table_password))
@@ -47,6 +52,9 @@
 		         if($password == $table_password)
 		         {
 		           $_SESSION['username'] = $user_name;
+							 //set theater to the successfull logins theater
+							 $_SESSION['theaterName']= $table_theaterName;
+							 print '<script>window.location.assign("home.php");</script>';
 
 		         }
 		       }

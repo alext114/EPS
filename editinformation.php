@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <?php
-include 'dbh.php';
-include 'manager.php';
-$manager= new manager();
+include 'header.php';
+
 $event=$manager->viewPendingQueue($db);
 
 ?>
