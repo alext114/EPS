@@ -56,17 +56,31 @@ body {background-color: 	#ffffe0}
           Date Desired:  <input required="required" name="eventDate" type="date">
           <br>
           <br>
-          Time Desired: <input required="required" name="eventTime" type="time"> <legend>Theater
+          Time Desired: <input id = "timeselect" required="required" name="eventTime" type="time"> <legend>Theater
             Information</legend></fieldset>
         &nbsp; <br>
         <br>
         <fieldset name="eventInfoFieldSet">Type of Event: 
-          <select name="eventType">
+          <select id = "eventselector" name="eventType">
             <option value="Fundraiser">Fundraiser</option>
             <option value="Walk-In">Walk-In</option>
             <option value="Rental">Rental</option>
             <option value="Private Screening">Private Screening</option>
+            <option value="Other">Other</option>
           </select>
+          <script>$('#eventselector').on('change', function () {
+var optionSelected = $("option:selected", this);
+var valueSelected = this.value;
+if(valueSelected === "Rental"){
+document.getElementById("timeselect").value = "10:00:00";
+document.getElementById("timeselect").readOnly = true;
+
+}
+else{
+document.getElementById("timeselect").value = null;
+document.getElementById("timeselect").readOnly = false;
+}
+});</script>
           <br>
           <br>
           Number of People Attending:  <input required="required" name="numOfPeople"
