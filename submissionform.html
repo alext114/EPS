@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+        <html>
+          <head>
+            <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            <title>customersubmit</title>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <style>
+    body{
+      background-color: 	#ffffe0
+    }
+  </style>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+
+          </head>
+          <body>
+            <form method="POST" action="confirmation.php">
+              <h1 style=" text-align: center;"></h1>
+              <h1 style=" text-align: center;"><img style="width: 83px; height: 97px;"
+
+                  src="http://clipart.coolclips.com/480/vectors/tf05182/CoolClips_vc015190.png">What's
+                Poppin'? <img style="width: 83px; height: 97px;" src="http://clipart.coolclips.com/480/vectors/tf05182/CoolClips_vc015190.png"></h1>
+              <br>
+              <fieldset name="personalInfoFieldSet">Name:  <input required="required"
+
+                  name="nameTextBox" type="text">
+                <p>E-Mail:   <input name="emailField" type="email">   <br>
+                </p>
+                <p>Phone Number:  <input name="phonenumberField" type="tel"></p>
+                Child's Name (If Applicable):  <input name="childNameTextBox" type="text"><legend>Personal
+                  Information</legend></fieldset>
+              <br>
+
+              <fieldset name="theaterFieldSet">Town of Theater:  
+                <select name="TheaterSelectionList">
+                  <option value="Teaneck Cinemas">Teaneck Cinemas </option>
+                  <option value="Sayville Cinemas">Sayville Cinemas</option>
+                </select>
+                <br>
+                <br>
+                Movie:  <input name="movieTextBox" type="text"><br>
+                <br>
+                Date Desired:  <input required="required" name="eventDate" type="date">
+                <br>
+                <br>
+                Time Desired: <input id = "timeselect" required="required" name="eventTime" type="time"><legend>Theater
+                  Information</legend></fieldset>
+              &nbsp; <br>
+              <br>
+              <fieldset name="eventInfoFieldSet">Type of Event: 
+                <select id = "eventselector" name="EventList">
+                  <option value="Walk-In">Walk-In</option>
+		  <option value="Fundraiser">Fundraiser</option>
+                  <option value="Rental">Rental</option>
+                  <option value="Private Screening">Private Screening</option>
+                  <option value="Other">Other</option>
+                </select>
+                <script>$('#eventselector').on('change', function () {
+   var optionSelected = $("option:selected", this);
+   var valueSelected = this.value;
+   if(valueSelected === "Rental" || valueSelected === "Private Screening" || valueSelected === "Fundraiser"){
+     document.getElementById("timeselect").value = "10:00:00";
+     document.getElementById("timeselect").readOnly = true;
+
+   }
+   else{
+     document.getElementById("timeselect").value = null;
+     document.getElementById("timeselect").readOnly = false;
+   }
+ });</script>
+                <br>
+                <br>
+                Number of People Attending:&nbsp;&nbsp;&nbsp; <input name="attendanceTextBox"
+
+                  type="number"><br>
+                <br>
+                Party Room: 
+                <select id="partyroomselector" name="partyRoomChecker">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+                <br>
+                <script>$('#partyroomselector').on('change', function () {
+   var optionSelected = $("option:selected", this);
+   var valueSelected = this.value;
+   if(valueSelected === "Yes"){
+     $("#partytimeIDHeader").show();
+     $("#partyroomTextID").show();
+   }
+   else{
+     $("#partytimeIDHeader").hide();
+     $("#partyroomTextID").hide();
+   }
+ });</script> <br>
+                <label id="partytimeIDHeader" name="partytimeLabel" style="display: none">Time
+                  Desired:</label>   <input id="partyroomTextID" name="partyRoomTimeBox"
+
+                  style="display: none" type="time"><br>
+                <legend>Event Information</legend></fieldset>
+              <br>
+              <br>
+              <fieldset name="additionalInfoFieldSet"><legend>Additional
+                  Information</legend> Brief Description: <br>
+                <textarea required="required" rows="3" cols="80" name="description"
+
+wrap="hard"></textarea> <br>
+                <br>
+                Special Attention:<br>
+                <textarea rows="3" cols="80" name="specialAttention"></textarea>
+                <br>
+                <br>
+                <div class="g-recaptcha" data-sitekey="6Lc_RS0UAAAAAAliM5C_DoF3rzN2aS3O1Ngj7Ebo"></div>
+
+              </fieldset>
+              <br>
+              <br>
+              <br>
+              <br>
+
+              <div style="text-align: right;">
+                <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
+                <input name="submitButton" class="submitButton" type="submit"></div>
+
+
+    </form>
+</body></html>
