@@ -14,6 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
 
  </script>
+
  <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -45,28 +46,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<label>Full name : </label>
 									<div class="form-text">
 										<i class="fa fa-user" aria-hidden="true"></i>
-										<input type="text" name="nameTextBox" placeholder="" required>
+										<input type="text" name="nameTextBox" placeholder="John Smith" pattern = "[A-Za-z\s\-]{0,}" title="Names can't have numbers!" required>
 									</div>
 								</div>
 								<div class="phone_email phone_email1">
 									<label>Email : </label>
 									<div class="form-text">
 										<i class="fa fa-envelope-o" aria-hidden="true"></i>
-										<input type="email" name="emailField" placeholder="" required>
+										<input type="email" name="emailField" placeholder="johnsmith@gmail.com" required>
 									</div>
 								</div>
 								<div class="phone_email">
 									<label>Phone number : </label>
 									<div class="form-text">
 										<i class="fa fa-phone" aria-hidden="true"></i>
-										<input type="tel" name="phonenumberField" placeholder="" required>
+										<input type="tel" name="phonenumberField" id = "phone" placeholder="XXX-XXX-XXXX Format Please!" pattern = "\d{3}[\-]\d{3}[\-]\d{4}" maxlength="12" title = "Please enter your phone number in XXX-XXX-XXXX format, dashes included!" required>
 									</div>
 								</div>
 								<div class="phone_email phone_email1">
 									<label>Child's Name: </label>
 									<div class="form-text">
 										<i class="fa fa-user" aria-hidden="true"></i>
-										<input type="text" name="childNameTextBox" placeholder="">
+										<input type="text" name="childNameTextBox" placeholder = "Johnny Smith" pattern = "[A-Za-z\s\-]{0,}" title="Names can't have numbers!" placeholder="">
 									</div>
 								</div>
 <div class = "clear"></div>
@@ -90,7 +91,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <label>Movie Desired: </label>
                     <div class="form-text">
                       <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                      <input   name="movieTextBox" type="text" value="" required>
+                      <input   name="movieTextBox" type="text" placeholder = "The Bee Movie" value="" required>
                     </div>
                   </div>
 </div>
@@ -203,7 +204,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <label>Brief Description: </label>
                     <div class="form-text">
                       <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                      <input   name="description" type="text" value="">
+                      <input   name="description" type="text" value="" placeholder = "Please Provide a Brief Description" required>
                     </div>
                   </div>
 
