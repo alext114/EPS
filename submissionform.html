@@ -1,125 +1,260 @@
-<!DOCTYPE html>
-        <html>
-          <head>
-            <meta content="text/html; charset=UTF-8" http-equiv="content-type">
-            <title>customersubmit</title>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <style>
-    body{
-      background-color: 	#ffffe0
-    }
-  </style>
-  <script src='https://www.google.com/recaptcha/api.js'></script>
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>What's Poppin Events</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Fare Order Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
 
-          </head>
-          <body>
-            <form method="POST" action="confirmation.php">
-              <h1 style=" text-align: center;"></h1>
-              <h1 style=" text-align: center;"><img style="width: 83px; height: 97px;"
+ </script>
+ <script src='https://www.google.com/recaptcha/api.js'></script>
 
-                  src="http://clipart.coolclips.com/480/vectors/tf05182/CoolClips_vc015190.png">What's
-                Poppin'? <img style="width: 83px; height: 97px;" src="http://clipart.coolclips.com/480/vectors/tf05182/CoolClips_vc015190.png"></h1>
-              <br>
-              <fieldset name="personalInfoFieldSet">Name:  <input required="required"
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Custom Theme files -->
+<!-- font-awesome-icons -->
+<link href="css/font-awesome.css" rel="stylesheet">
+<!-- //font-awesome-icons -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!--fonts-->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Niconne" rel="stylesheet">
+<!--//fonts-->
 
-                  name="nameTextBox" type="text">
-                <p>E-Mail:   <input name="emailField" type="email">   <br>
-                </p>
-                <p>Phone Number:  <input name="phonenumberField" type="tel"></p>
-                Child's Name (If Applicable):  <input name="childNameTextBox" type="text"><legend>Personal
-                  Information</legend></fieldset>
-              <br>
+<!--ZA WARUDO-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--//ZA WARUDO-->
 
-              <fieldset name="theaterFieldSet">Town of Theater:  
-                <select name="TheaterSelectionList">
-                  <option value="Teaneck Cinemas">Teaneck Cinemas </option>
-                  <option value="Sayville Cinemas">Sayville Cinemas</option>
-                </select>
-                <br>
-                <br>
-                Movie:  <input name="movieTextBox" type="text"><br>
-                <br>
-                Date Desired:  <input required="required" name="eventDate" type="date">
-                <br>
-                <br>
-                Time Desired: <input id = "timeselect" required="required" name="eventTime" type="time"><legend>Theater
-                  Information</legend></fieldset>
-              &nbsp; <br>
-              <br>
-              <fieldset name="eventInfoFieldSet">Type of Event: 
-                <select id = "eventselector" name="EventList">
-                  <option value="Fundraiser">Fundraiser</option>
-                  <option value="Walk-In">Walk-In</option>
-                  <option value="Rental">Rental</option>
-                  <option value="Private Screening">Private Screening</option>
-                  <option value="Other">Other</option>
-                </select>
-                <script>$('#eventselector').on('change', function () {
-   var optionSelected = $("option:selected", this);
-   var valueSelected = this.value;
-   if(valueSelected === "Rental"){
-     document.getElementById("timeselect").value = "10:00:00";
-     document.getElementById("timeselect").readOnly = true;
+</head>
+<body>
+<!--background-->
+<h1> Event Popper </h1>
+    <div class="bg-agile">
 
-   }
-   else{
-     document.getElementById("timeselect").value = null;
-     document.getElementById("timeselect").readOnly = false;
-   }
- });</script>
-                <br>
-                <br>
-                Number of People Attending:&nbsp;&nbsp;&nbsp; <input name="attendanceTextBox"
+	<div class="book-appointment">
+	<h2>Let's Get Poppin</h2>
+						<div class="book-form agileits-login">
+							<form action="#" method="post">
+								<div class="phone_email">
+									<label>Full name : </label>
+									<div class="form-text">
+										<i class="fa fa-user" aria-hidden="true"></i>
+										<input type="text" name="nameTextBox" placeholder="" required>
+									</div>
+								</div>
+								<div class="phone_email phone_email1">
+									<label>Email : </label>
+									<div class="form-text">
+										<i class="fa fa-envelope-o" aria-hidden="true"></i>
+										<input type="email" name="emailField" placeholder="" required>
+									</div>
+								</div>
+								<div class="phone_email">
+									<label>Phone number : </label>
+									<div class="form-text">
+										<i class="fa fa-phone" aria-hidden="true"></i>
+										<input type="tel" name="phonenumberField" placeholder="" required>
+									</div>
+								</div>
+								<div class="phone_email phone_email1">
+									<label>Child's Name: </label>
+									<div class="form-text">
+										<i class="fa fa-user" aria-hidden="true"></i>
+										<input type="text" name="childNameTextBox" placeholder="">
+									</div>
+								</div>
+<div class = "clear"></div>
+  <div class="book-form agileits-login">
+                  <div class="phone_email">
+                    <!-- start_section_room -->
+                    <label>Theater Name: </label>
+                    <div class="section_room">
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      <select name = "TheaterSelectionList" id="country" onchange="change_country(this.value)" class="frm-field required">
 
-                  type="number"><br>
-                <br>
-                Party Room: 
-                <select id="partyroomselector" name="partyRoomChecker">
-                  <option value="No">No</option>
-                  <option value="Yes">Yes</option>
-                </select>
-                <br>
-                <script>$('#partyroomselector').on('change', function () {
-   var optionSelected = $("option:selected", this);
-   var valueSelected = this.value;
-   if(valueSelected === "Yes"){
-     $("#partytimeIDHeader").show();
+                        <option value="Teaneck Cinemas">Teaneck Cinemas</option>
+                        <option value="Sayville Cinemas">Sayville Cinemas</option>
+
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="phone_email phone_email1">
+                    <!-- start_section_room -->
+                    <label>Movie Desired: </label>
+                    <div class="form-text">
+                      <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                      <input   name="movieTextBox" type="text" value="" required>
+                    </div>
+                  </div>
+</div>
+<div class="clear"></div>
+<div class="agileits_reservation_grid">
+									<div class="span1_of_1">
+										<label>Date: </label>
+										<div class="form-text">
+											<i class="fa fa-calendar" aria-hidden="true"></i>
+												<input id="datepicker" name="eventDate" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required>
+										</div>
+									</div>
+                </div>
+                  <div class = "clear"></div>
+                  <br>
+                  <div class="book-form agileits-login">
+                  									<div class="phone_email">
+                  										<label>Type of Event : </label>
+                  										<!-- start_section_room -->
+                  										<div class="form-text">
+                  											<i class="fa fa-user" aria-hidden="true"></i>
+                  											<select name = "eventselector" id="country1" onchange="change_country(this.value)" class="frm-field required sect">
+                                          <option value="Walk-In">Walk-In</option>
+                  		                    <option value="Fundraiser">Fundraiser</option>
+                                          <option value="Rental">Rental</option>
+                                          <option value="Private Screening">Private Screening</option>
+                                          <option value="Other">Other</option>
+                  											</select>
+                  										</div>
+                  									</div>
+                                    <script>$('#country1').on('change', function () {
+                                      var optionSelected = $("option:selected", this);
+                                      var valueSelected = this.value;
+                                      if(valueSelected === "Rental" || valueSelected === "Private Screening" || valueSelected === "Fundraiser"){
+                                        document.getElementById("timeselect").value = "10:00:00";
+                                        document.getElementById("timeselect").readOnly = true;
+
+                                      }
+                                      else{
+                                        document.getElementById("timeselect").value = null;
+                                        document.getElementById("timeselect").readOnly = false;
+                                      }
+                                    });</script>
+
+
+                                    <div class="phone_email phone_email1">
+                                      <!-- start_section_room -->
+                                      <label>Number of People Attending: </label>
+                                      <div class="section_room">
+                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                        <input   name="attendanceTextBox" type="number" value="" required>
+                                      </div>
+                                    </div>
+                  </div>
+
+                  <div class = "clear"></div>
+<div class="agileits_reservation_grid">
+                  <div class="span1_of_1">
+                    <!-- start_section_room -->
+                    <label>Time: </label>
+                    <div class="section_room">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                      <input  name="timeselect" id = "timeselect" type="time" value="" required>
+                    </div>
+                  </div>
+                </div>
+<div class = "clear"> </div>
+
+
+                  <!-- start_section_room -->
+                  <div class="phone_email">
+<label>Party Room: </label>
+<div class="form-text">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+
+                    <select name = "partyselector" id="country" onchange="change_country(this.value)" class="frm-field required sect">
+                      <option value="No">No</option>
+                      <option value="Yes">Yes</option>
+                    </select>
+                  </div>
+                </div>
+
+                  <script>$('select[name=partyselector]').on('change', function () {
+                     var optionSelected = $("option:selected", this);
+                     var valueSelected = this.value;
+                     if(valueSelected === "Yes"){
+                       $("#partytimeIDHeader").show();
      $("#partyroomTextID").show();
-   }
-   else{
-     $("#partytimeIDHeader").hide();
+
+                     }
+                     else{
+                       $("#partytimeIDHeader").hide();
      $("#partyroomTextID").hide();
-   }
- });</script> <br>
-                <label id="partytimeIDHeader" name="partytimeLabel" style="display: none">Time
-                  Desired:</label>   <input id="partyroomTextID" name="partyRoomTimeBox"
 
-                  style="display: none" type="time"><br>
-                <legend>Event Information</legend></fieldset>
-              <br>
-              <br>
-              <fieldset name="additionalInfoFieldSet"><legend>Additional
-                  Information</legend> Brief Description: <br>
-                <textarea required="required" rows="3" cols="80" name="description"
+                     }
+                   });</script>
 
-wrap="hard"></textarea> <br>
-                <br>
-                Special Attention:<br>
-                <textarea rows="3" cols="80" name="specialAttention"></textarea>
-                <br>
-                <br>
-                <div class="g-recaptcha" data-sitekey="6Lc_RS0UAAAAAAliM5C_DoF3rzN2aS3O1Ngj7Ebo"></div>
+                  <div class="phone_email phone_email1">
+                    <!-- start_section_room -->
+                    <label id = "partytimeIDHeader" style="display: none">Party Time: </label>
+                    <div class="section_room">
+                      <input id = "partyroomTextID" name="partyTimeTextBox" style="display: none" type="time" value="">
+                    </div>
+                  </div>
+                  <div class = "clear"></div>
+                  <div class="agileits_reservation_grid">
 
-              </fieldset>
-              <br>
-              <br>
-              <br>
-              <br>
+                  <div class="span1_of_1">
+                    <!-- start_section_room -->
+                    <label>Brief Description: </label>
+                    <div class="form-text">
+                      <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                      <input   name="description" type="text" value="">
+                    </div>
+                  </div>
 
-              <div style="text-align: right;">
-                <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-                <input name="submitButton" class="submitButton" type="submit"></div>
+                  <div class="span1_of_1">
+                    <!-- start_section_room -->
+                    <label>Special Attention: </label>
+                    <div class="form-text">
+                      <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                      <input   name="specialAttention" type="text" value="">
+                    </div>
+                  </div>
+                  <div class="clear"></div>
+                        <div class="book-form agileits-login">
+                        <div class="phone_email">
+      <div class="form-text">
+            <div class="g-recaptcha" data-sitekey="6Lc_RS0UAAAAAAliM5C_DoF3rzN2aS3O1Ngj7Ebo"></div>
+      </div>
+      </div>
 
 
-    </form>
-</body></html>
+
+                          <div class="phone_email phone_email1">
+                            <div class="form-text">
+                      <input type="submit" value="Let's Go!">
+      </div>
+      </div>
+</div>
+							</form>
+						</div>
+          </div>
+          <div class="clear"> </div>
+  </div>
+   <!--copyright-->
+   <div class="wthree-text">
+       </div>
+     </div>
+			<div class="copy w3ls">
+		       <p>&copy; 2017. Fare Order Form . All Rights Reserved  | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+	        </div>
+
+		<!--//copyright-->
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<!-- Calendar -->
+				<link rel="stylesheet" href="css/jquery-ui.css" />
+				<script src="js/jquery-ui.js"></script>
+				  <script>
+						  $(function() {
+							$( "#datepicker,#datepicker1,#datepicker2,#datepicker3" ).datepicker();
+						  });
+				  </script>
+			<!-- //Calendar -->
+
+</body>
+</html>
