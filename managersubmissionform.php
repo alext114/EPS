@@ -1,4 +1,4 @@
-<?php include 'header.php';
+﻿<?php include 'header.php';
  ?>
 <!DOCTYPE html><html>
   <head>
@@ -62,8 +62,8 @@ body {background-color: 	#ffffe0}
         <br>
         <fieldset name="eventInfoFieldSet">Type of Event: 
           <select id = "eventselector" name="eventType">
-            <option value="Fundraiser">Fundraiser</option>
             <option value="Walk-In">Walk-In</option>
+	    <option value="Fundraiser">Fundraiser</option>
             <option value="Rental">Rental</option>
             <option value="Private Screening">Private Screening</option>
             <option value="Other">Other</option>
@@ -71,7 +71,7 @@ body {background-color: 	#ffffe0}
           <script>$('#eventselector').on('change', function () {
 var optionSelected = $("option:selected", this);
 var valueSelected = this.value;
-if(valueSelected === "Rental"){
+if(valueSelected === "Rental" || valueSelected === "Private Screening" || valueSelected === "Fundraiser"){
 document.getElementById("timeselect").value = "10:00:00";
 document.getElementById("timeselect").readOnly = true;
 
