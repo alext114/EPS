@@ -1,4 +1,5 @@
 <?php
+  include_once 'alert.php';
 
   class manager{
   //Variables being declared
@@ -57,23 +58,30 @@
           $result = $db->query($queryEvents);
           $event=array($result->num_rows);
           $index=0;
+        if ($result->num_rows==0){
+            print '<script>alert("No More Accepted Events");</script>';
+
+            return $event = array();
+          }
+          else{
+          
+          
         while($row = $result->fetch_assoc())
         {
 
             // turn row into an array
+             $time= date_create($row['eventTime']);
 
             $event[$index]=array("eventID"=>$row['eventID'], "fullName"=>$row["fullName"], "emailAddress"=>$row["emailAddress"], "phoneNumber"=>$row["phoneNumber"], "eventDate"=>$row["eventDate"], "description"=>$row["description"], "movie"=>$row["movie"],
-            "eventTime"=>$row["eventTime"], "rate"=>$row["rate"], "recievedDeposit"=> $row['recievedDeposit']
+            "eventTime"=>date_format($time, 'H:i:sa'), "rate"=>$row["rate"], "depositAmt"=> $row['depositAmt']
             , "numOfPeople"=>$row["numOfPeople"], "specialAttention"=>$row["specialAttention"], "eventType"=>$row["eventType"], "partyRoomBook"=>$row["partyRoomBook"], "childName"=>$row["childName"], "theaterName"=>$row["theaterName"]);
             $index++;
 
           }
           //return the new array
-
-
           return $event;
           $db->close();
-
+}
 
 
     }
@@ -84,40 +92,38 @@
 
           $queryEvents = "SELECT * FROM `events` where `recievedDeposit`= 0";
           $result = $db->query($queryEvents);
+          $event=array($result->num_rows);
+          $index=0;
+  if ($result->num_rows==0){
+            print '<script>alert("All Events Have Deposit Paid!");</script>';
+
+            return $event = array();
+          }
+          else{
+
 
           while ($row=$result->fetch_assoc())
           {
-                $events[]= $row;
+            $event[$index]=array("eventID"=>$row['eventID'], "fullName"=>$row["fullName"], "emailAddress"=>$row["emailAddress"], "phoneNumber"=>$row["phoneNumber"], "eventDate"=>$row["eventDate"], "description"=>$row["description"], "movie"=>$row["movie"],
+            "eventTime"=>$row["eventTime"], "rate"=>$row["rate"], "recievedDeposit"=> $row['recievedDeposit']
+            , "numOfPeople"=>$row["numOfPeople"], "specialAttention"=>$row["specialAttention"], "eventType"=>$row["eventType"], "partyRoomBook"=>$row["partyRoomBook"], "childName"=>$row["childName"], "theaterName"=>$row["theaterName"]);
+            $index++;
           }
-          return $events;
+          return $event;
           $db->close();
+}
 
     }
-    function deleteEvent($eventID){
-        if (checkDeposit($eventID)==true){
+      public function deleteEvent($db, $eventID){
+
           //refund deposit
           //delete off google calendar
           $queryEvents = "DELETE FROM events
                           where eventID='$eventID'";
-          $result = $db->prepare($queryEvents);
-          $result->execute();
+          $result = $db->query($queryEvents);
 
           //alert send deletion email to customer
         }
-
-        else {
-          if (checkDeposit($eventID)==true){
-            //delete off google calendar
-            $queryEvents = "DELETE FROM events
-                            where eventID='$eventID'";
-            $result = $db->prepare($queryEvents);
-            $result->execute();
-
-            //alert send deletion email to customer
-          }
-
-        }
-    }
 
 
     public function addEntry($db,$submittedEvent){
@@ -140,11 +146,12 @@
         $eventType=$submittedEvent['eventType'];
         $theater=$submittedEvent['theaterName'];
 
-        include 'eventManager.php';
+         include 'eventManager.php';
+
         $eventManager=new eventManager();
 
         //Check if the date is available
-    //    $eventManager= new eventManager();
+
       //  $isAvailable=$eventManager->checkAvailabilty($db,$partyRoomBook, date_format($eventDate,"Y/m/d"));
 
 
@@ -154,18 +161,18 @@
 
 
           $queryEvents = "INSERT INTO events (`eventID`, `fullName`, `emailAddress`, `phoneNumber`, `eventDate`, `description`, `movie`, `eventTime`, `rate`, `numOfPeople`, `specialAttention`, `eventType`, `depositAmt`, `recievedDeposit`, `partyRoomBook`, `childName`, `isApproved`, `theaterName`)
-          VALUES (null, '$fullName', '$emailAddress', '$phoneNumber', '$eventDate', '$description', '$movie', '$eventTime', null, '$numOfPeople', '$specialAttention', '$eventType', 0, 0, '$partyRoomBook', '$childName', 1, '$theater')";
+          VALUES (null, '$fullName', '$emailAddress', '$phoneNumber', '$eventDate', '$description', '$movie', '$eventTime', 0, '$numOfPeople', '$specialAttention', '$eventType', 0, 0, '$partyRoomBook', '$childName', 1, '$theater')";
           if ($db->query($queryEvents) === TRUE)
           {
             print '<script>alert("Event Booked!");</script>';
            //redirects to home.html
-          print '<script>window.location.assign("home.php");</script>';
+          print '<script>window.location.assign("acceptedevents.php");</script>';
           }
           else {
               $error= "Error: " . $queryEvents . "<br>" . $db->error;
-              //print '<script>alert('$error');</script>';
+              print '<script>alert("Event was not booked");</script>';
               //redirects to home.html
-              print '<script>window.location.assign("home.php");</script>';
+              print '<script>window.location.assign("acceptedevents.php");</script>';
 
           }
           $db->close();
@@ -222,6 +229,7 @@
       if(!$result) {
         echo "Query was unable to be executed";
       } else {
+        //update google calendar here
         echo "Changes Saved!";
       }
 
@@ -229,10 +237,12 @@
 
     public function payDeposit($db, $eventID){
 
-      include 'eventManager.php';
+    include 'eventManager.php';
+
+       $alert= new alert();
       $eventManager=new eventManager();
       //update recievedDeposit to 1 by eventID
-      $query="UPDATE `events` SET `recievedDeposit`= 1 WHERE `eventID` = '$eventID'";
+      $query="UPDATE `events` SET `recievedDeposit`= 1, `depositAmt`= 50 WHERE `eventID` = '$eventID'";
       $result=$db->query($query);
 
       //error handling
@@ -244,14 +254,60 @@
       {
 
         $eventManager->addToCalendar($db, $eventID);
-
-        echo "Deposit Paid!";
+        $alert->depositPaidEmail($db, $eventID);
+        //echo "Deposit Paid!";
               $db->close();
       }
 
     }
 
-    public function acceptEvent(){
+
+public function waiveDeposit($db, $eventID){
+
+      include 'eventManager.php';
+
+
+       $alert= new alert();
+      $eventManager=new eventManager();
+      //update recievedDeposit to 1 by eventID
+      $query="UPDATE `events` SET `recievedDeposit`= 1, `depositAmt`= 0 WHERE `eventID` = '$eventID'";
+      $result=$db->query($query);
+
+      //error handling
+      if(!$result) {
+        echo "waive Deposit Failed. Unable to be executed";
+              $db->close();
+      }
+      else
+      {
+
+        $eventManager->addToCalendar($db, $eventID);
+        $alert->waiveEmail($db, $eventID);
+        //echo "Deposit Paid!";
+              $db->close();
+      }
+
+    }
+
+
+
+
+
+    public function acceptEvent($db, $eventID){
+      //send accept email
+
+      $alert=new alert();
+
+   
+    $db->query("INSERT INTO events (`fullName`, `emailAddress`, `phoneNumber`, `eventDate`, `description`,
+        `movie`, `eventTime`, `rate`, `numOfPeople`, `specialAttention`, `eventType`, `depositAmt`, `recievedDeposit`,
+         `partyRoomBook`, `childName`, `isApproved`, `theaterName`) SELECT `fullName`, `emailAddress`, `phoneNumber`, `eventDate`, `description`,
+           `movie`, `eventTime`, `rate`, `numOfPeople`, `specialAttention`, `eventType`, `depositAmt`, `recievedDeposit`,
+            `partyRoomBook`, `childName`, `isApproved`, `theaterName` FROM events_queue WHERE eventID = '$eventID'");
+// move into other table
+// send email
+ $alert->acceptEmail($db, $eventID);
+//then delete from previous trable
       $result=$db->query("DELETE FROM events_queue WHERE eventID = '$eventID'");
       if(!$result) {
         echo "Query was unable to be executed";
@@ -265,6 +321,7 @@
 
     public function rejectEvent($db, $eventID){
       /*create mail message*/
+
       //remove from database
       $result=$db->query("DELETE FROM events_queue WHERE eventID = '$eventID'");
       if(!$result) {
@@ -280,9 +337,10 @@
 
     public function pushEvent($db, $eventID){
       /*create mail message*/
+
       //remove event from the top of the queue
 
-      $result=$db->query("DELETE FROM events_queue WHERE eventID = '$eventID'");
+      $result=$db->query("SELECT * FROM events_queue WHERE eventID = '$eventID'");
       //make into an array
       while($row = $result->fetch_assoc())
       {
@@ -293,7 +351,6 @@
 
 
       }
-
       //insert at the bottom of the queue
       $fullName = $event['fullName'];
       $emailAddress = $event['emailAddress'];
@@ -309,6 +366,9 @@
       $childName = $event['childName'];
       $theaterName = $event['theaterName'];
       $description = $event['description'];
+//DELETE EVENT FROM QUEUE      
+$db->query("DELETE FROM events_queue WHERE eventID = '$eventID'");
+
       $result=$db->query("INSERT INTO `events_queue` (eventID, fullName, emailAddress, phoneNumber, eventDate, movie, eventTime, rate, numOfPeople, specialAttention, eventType, depositAmt, recievedDeposit, partyRoomBook, childName, isApproved, theaterName, description) VALUES (null, '$fullName', '$emailAddress', '$phoneNumber', '$eventDate', '$movie', '$eventTime', $rate, $numOfPeople, '$specialAttention', '$eventType', 0, 0, $partyRoomBook, '$childName', 0, '$theaterName', '$description')");
       if(!$result) {
         echo "Query was unable to be executed";
@@ -323,7 +383,7 @@
     }
 
     public function getManagerTheater(){
-      return $managerName;
+      //return $managerName;
     }
 
 

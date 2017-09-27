@@ -1,9 +1,17 @@
 <?php
+
+session_start();
+
 include 'dbh.php';
 include 'manager.php';
 include 'eventManager.php';
 
-session_start();
+
+if(!isset($_SESSION['username'])){
+echo 'Not Logged In!';
+print '<script>window.location.assign("index.html");</script>';
+}
+
 $manager=new manager($_SESSION['username'], $_SESSION['theaterName']);
 
 ?>
@@ -14,6 +22,7 @@ $manager=new manager($_SESSION['username'], $_SESSION['theaterName']);
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" href="ButtonReferences.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}

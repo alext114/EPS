@@ -1,4 +1,4 @@
-﻿<?php include 'header.php';
+<?php include 'header.php';
  ?>
 <!DOCTYPE html><html>
   <head>
@@ -32,7 +32,8 @@ body {background-color: 	#ffffe0}
         Poppin'? <img style="width: 83px; height: 97px;" src="http://clipart.coolclips.com/480/vectors/tf05182/CoolClips_vc015190.png"></h1>
       <br>
       <form method="POST" action="managerSubmissionConfirm.php">
-        <fieldset name="personalInfoFieldSet">Name:  <input required="required"
+        <fieldset name="personalInfoFieldSet">Name:  <input required="required"
+
             name="fullName" type="text" pattern = "[A-Za-z\s\-]{0,}" title="Names can't have numbers!">
           <p>E-Mail:   <input required="required" name="emailAddress" type="email">
               <br>
@@ -45,7 +46,7 @@ body {background-color: 	#ffffe0}
         <p><br>
         </p>
         <fieldset name="theaterFieldSet">Theater:
-          <select name="theater">
+          <select name="theaterName">
             <option value="Teaneck Cinemas">Teaneck Cinemas</option>
             <option value="Sayville Cinemas">Sayville Cinemas</option>
           </select>
@@ -62,8 +63,8 @@ body {background-color: 	#ffffe0}
         <br>
         <fieldset name="eventInfoFieldSet">Type of Event: 
           <select id = "eventselector" name="eventType">
+            <option value="Fundraiser">Fundraiser</option>
             <option value="Walk-In">Walk-In</option>
-	    <option value="Fundraiser">Fundraiser</option>
             <option value="Rental">Rental</option>
             <option value="Private Screening">Private Screening</option>
             <option value="Other">Other</option>
@@ -71,7 +72,7 @@ body {background-color: 	#ffffe0}
           <script>$('#eventselector').on('change', function () {
 var optionSelected = $("option:selected", this);
 var valueSelected = this.value;
-if(valueSelected === "Rental" || valueSelected === "Private Screening" || valueSelected === "Fundraiser"){
+if(valueSelected === "Rental"){
 document.getElementById("timeselect").value = "10:00:00";
 document.getElementById("timeselect").readOnly = true;
 
@@ -83,11 +84,12 @@ document.getElementById("timeselect").readOnly = false;
 });</script>
           <br>
           <br>
-          Number of People Attending:  <input required="required" name="numOfPeople"
+          Number of People Attending:  <input required="required" name="numOfPeople"
+
             type="number"><br>
           <br>
           Party Room: 
-          <select id="partyroomselector" name="partyRoomChecker">
+          <select id="partyroomselector" name="partyRoomBook">
             <option value="">Select</option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
@@ -106,7 +108,8 @@ $("#partyroomTextID").hide();
 }
 });</script> <br>
           <label id="partytimeIDHeader" name="partytimeLabel" style="display: none">Time
-            Desired:</label>   <input id="partyroomTextID" name="partyRoomTimeBox"
+            Desired:</label>   <input id="partyroomTextID" name="partyRoomTimeBox"
+
             style="display: none" type="time"><br>
           <legend>Event Information</legend></fieldset>
         <br>
@@ -122,7 +125,7 @@ $("#partyroomTextID").hide();
         <br>
         <br>
         <br>
-        <div style="text-align: right;">
+        <div style="text-align: center;">
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
           <input name="submitButton" class="submitButton" type="submit"></div>
 </form>
@@ -149,27 +152,6 @@ $("#partyroomTextID").hide();
 </div>
 
 <!-- W3.CSS Container -->
-
-<script>
-// Script to open and close sidebar
-function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-}
-
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-}
-
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-</script>
 
 
 

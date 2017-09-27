@@ -41,33 +41,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="book-appointment">
 	<h2>Let's Get Poppin</h2>
 						<div class="book-form agileits-login">
-							<form action="#" method="post">
+							<form action="confirmationpage.php" method="post">
 								<div class="phone_email">
 									<label>Full name : </label>
 									<div class="form-text">
 										<i class="fa fa-user" aria-hidden="true"></i>
-										<input type="text" name="nameTextBox" placeholder="John Smith" pattern = "[A-Za-z\s\-]{0,}" title="Names can't have numbers!" required>
+										<input type="text" name="fullName" placeholder="John Smith" pattern = "[A-Za-z\s\-]{0,}" title="Names can't have numbers!" required>
 									</div>
 								</div>
 								<div class="phone_email phone_email1">
 									<label>Email : </label>
 									<div class="form-text">
 										<i class="fa fa-envelope-o" aria-hidden="true"></i>
-										<input type="email" name="emailField" placeholder="johnsmith@gmail.com" required>
+										<input type="email" name="emailAddress" placeholder="johnsmith@gmail.com" required>
 									</div>
 								</div>
 								<div class="phone_email">
 									<label>Phone number : </label>
 									<div class="form-text">
 										<i class="fa fa-phone" aria-hidden="true"></i>
-										<input type="tel" name="phonenumberField" id = "phone" placeholder="XXX-XXX-XXXX Format Please!" pattern = "\d{3}[\-]\d{3}[\-]\d{4}" maxlength="12" title = "Please enter your phone number in XXX-XXX-XXXX format, dashes included!" required>
+										<input type="tel" name="phoneNumber" id = "phone" placeholder="XXX-XXX-XXXX" pattern = "\d{3}[\-]\d{3}[\-]\d{4}" maxlength="12" title = "Please enter your phone number in XXX-XXX-XXXX format, dashes included!" required>
 									</div>
 								</div>
 								<div class="phone_email phone_email1">
 									<label>Child's Name: </label>
 									<div class="form-text">
 										<i class="fa fa-user" aria-hidden="true"></i>
-										<input type="text" name="childNameTextBox" placeholder = "Johnny Smith" pattern = "[A-Za-z\s\-]{0,}" title="Names can't have numbers!" placeholder="">
+										<input type="text" name="childName" placeholder = "Johnny Smith" pattern = "[A-Za-z\s\-]{0,}" title="Names can't have numbers!" placeholder="">
 									</div>
 								</div>
 <div class = "clear"></div>
@@ -77,9 +77,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <label>Theater Name: </label>
                     <div class="section_room">
                       <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      <select name = "TheaterSelectionList" id="country" onchange="change_country(this.value)" class="frm-field required">
+                      <select name = "theaterName" id="country" onchange="change_country(this.value)" class="frm-field required">
 
-                        <option value="Teaneck Cinemas">Teaneck Cinemas</option>
+                        <option value="Teaneck Cinemas" selected="selected">Teaneck Cinemas</option>
                         <option value="Sayville Cinemas">Sayville Cinemas</option>
 
                       </select>
@@ -91,7 +91,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <label>Movie Desired: </label>
                     <div class="form-text">
                       <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                      <input   name="movieTextBox" type="text" placeholder = "The Bee Movie" value="" required>
+                      <input   name="movie" type="text" placeholder = "The Bee Movie" value="" required>
                     </div>
                   </div>
 </div>
@@ -113,7 +113,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                   										<!-- start_section_room -->
                   										<div class="form-text">
                   											<i class="fa fa-user" aria-hidden="true"></i>
-                  											<select name = "eventselector" id="country1" onchange="change_country(this.value)" class="frm-field required sect">
+                  											<select name = "eventType" id="country1" onchange="change_country(this.value)" class="frm-field required sect">
                                           <option value="Walk-In">Walk-In</option>
                   		                    <option value="Fundraiser">Fundraiser</option>
                                           <option value="Rental">Rental</option>
@@ -142,7 +142,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                       <label>Number of People Attending: </label>
                                       <div class="section_room">
                                         <i class="fa fa-users" aria-hidden="true"></i>
-                                        <input   name="attendanceTextBox" type="number" placeholder = "1,2, buckle my shoe" value="" required>
+                                        <input   name="attendance" type="number" placeholder = "" value="" required>
                                       </div>
                                     </div>
                   </div>
@@ -154,7 +154,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <label>Time: </label>
                     <div class="section_room">
                     <i class="fa fa-clock-o" aria-hidden="true"></i>
-                      <input  name="timeselect" id = "timeselect" type="time" value="" required>
+                      <input  name="eventTime" id = "timeselect" type="time" value="" required>
                     </div>
                   </div>
                 </div>
@@ -167,7 +167,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="form-text">
                     <i class="fa fa-phone" aria-hidden="true"></i>
 
-                    <select name = "partyselector" id="country" onchange="change_country(this.value)" class="frm-field required sect">
+                    <select name = "partyRoomBook" id="country" onchange="change_country(this.value)" class="frm-field required sect">
                       <option value="No">No</option>
                       <option value="Yes">Yes</option>
                     </select>

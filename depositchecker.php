@@ -25,9 +25,9 @@ $events= $manager->viewNotPaid($db);
 
   <body>
     <div class="w3-main" style="margin-left:340px;margin-right:40px">
-    <h2 style="text-align: center;"><img style="width: 76px; height: 122px;" src="http://clipart-library.com/image_gallery/335689.png">Haven't
-      Paid Deposit Yet <img style="width: 76px; height: 122px;" src="http://clipart-library.com/image_gallery/335689.png">
-    </h2>
+   <div style="text-align: center;">
+        <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Unpaid Deposits<img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
+      </div>
     <p> </p>
     <br>
     <form method="POST" action="depositCheckerConfirm.php">
@@ -80,12 +80,12 @@ $events= $manager->viewNotPaid($db);
       <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
       <div style="text-align: center;"><img style="width: 119px; height: 88px;"
 
-          src="http://clipart-library.com/data_images/405781.png"><br>
+          img src="brokeguy.png"><br>
         <br>
-        <button type="submit" name="emailButton" class="editButton">Email Customer!</button>
-        <button type="submit" name="payDepositButton" class="editButton">Pay Deposit</button>
-
-      </div>
+        <button type="submit" name="emailButton" class="pushButton">Email Customer!</button>
+        <button type="submit" name="waiveDepositButton" class="rejectButton">Waive Deposit</button><br><br>
+         <button type="submit" name="payDepositButton" class="submitButton">Pay Deposit</button>
+</div>
         </div>
     </form>
     <br>

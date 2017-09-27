@@ -4,6 +4,8 @@ include 'header.php';
 include 'admin.php';
 
 $admin= new admin();
+
+$managers=$admin->getManagers($db);
 ?>
 
 <!DOCTYPE html>
@@ -30,11 +32,11 @@ $admin= new admin();
 
 
         Select Username:&nbsp;
-        <?php $managers=$admin->getManagers($db); ?>
+        
 
         <select name="managerSelection">
         <?php  foreach($managers as $manager): ?>
-          <option value=<?php echo $manager['username']; ?>>
+          <option value=<?php echo $manager['userID']; ?>>
             <?php echo $manager['username']; ?>
           </option>
 

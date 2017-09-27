@@ -4,6 +4,8 @@ include 'header.php';
 //create manager and get an array of all the events
 
 $event=$manager->viewAccepted($db);
+
+
 ?>
 
 
@@ -28,15 +30,22 @@ $event=$manager->viewAccepted($db);
   </head>
   <body onload="check()">
     <div class="w3-main" style="margin-left:340px;margin-right:40px">
-    <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-    <button type="button" id="prevButton" class="prevButton" onclick="prevEvent()">Previous
+
+      <div style="text-align: center;">
+        <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Accepted Events<img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
+      </div>
+    <div align = 'center' >
+    <button align= 'left' type="button" id="prevButton" class="prevButton" onclick="prevEvent()">Previous
       Entry</button> 
-    <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-    <button type="button" id="nextButton" class="nextButton" onclick="nextEvent()">
+
+    <button align= 'right' type="button" id="nextButton" class="nextButton" onclick="nextEvent()">
       Next Entry</button>
+
+    </div>
     <form method="post" id="editForm"name="editForm" action="editAcceptedEvents.php?">
       <div style="text-align: left;"><br>
-        <fieldset name="personalInfoFieldSet"> <strong>Name:</strong>  <label
+        <fieldset name="personalInfoFieldSet"> <strong>Name:</strong>  <label
+
             id="fullName"> </label>
           <p style="text-align: left;"><strong>E-Mail: </strong>  <label id="emailAddress"></label>
               <br>
@@ -53,24 +62,32 @@ $event=$manager->viewAccepted($db);
       <p><strong>Movie:</strong>  <label id="movie"></label>   <br>
       </p>
       <p><strong>Date Desired:</strong>  <label id="eventDate"></label></p>
-      <strong>Time:</strong><label id="eventTime">  </fieldset>
+      <strong>Time:</strong> &nbsp; <label id="eventTime">  </fieldset>
     <br>
     <fieldset name="eventinfoFieldSet"><legend><strong>Event Information</strong></legend>
 
       <strong>Event Type:</strong>  <label id="eventType"></label>
       <p><strong>People Attending:</strong> <label id="numOfPeople"></label><br>
       </p>
+
+      <div align='left'>
+        <strong>Deposit Paid:</strong> &nbsp;
+        <label id='depositPaid'></label>
+      </div>
+
       <p><strong>Party Room:</strong>  <label id="partyRoomBook" form="partyRoomConfirmationLabel"></label></p>
       <label id="partyRoomTimeHeaderID" style="display: none"><strong>Party
-          Room Time:</strong> </label>   <label id="partyRoomTime" form="partyRoomTimeLabel"
+          Room Time:</strong> </label>   <label id="partyRoomTime" form="partyRoomTimeLabel"
+
         style="display: none"></label>
         <br>
-        <div align='left'>
-          <strong>Deposit Paid:</strong>
-          <label id='depositPaid'></label>
-        </div>
+
       </fieldset>
+
     <script>
+    /*
+    script for partyRoomTime bring back when needed. sorry slu
+
           function check(){
           var confirm = $('#partyRoomBook').text();
    if(confirm === "Yes"){
@@ -82,6 +99,7 @@ $event=$manager->viewAccepted($db);
      $("#partyRoomTime").hide();
    }
 };
+       */
         </script> <br>
 
     <fieldset name="additionalInfoFieldSet"><legend><strong>Additional
@@ -89,18 +107,35 @@ $event=$manager->viewAccepted($db);
       <label id="description"></label> <br>
       <br>
       <strong>Special Attention:<br>
-      </strong>&nbsp;<br>
+      </strong>
+
       <label id="specialAttention"></label></fieldset>
     <br>
     <br>
-    <div style="text-align: center;">
-      <link rel="stylesheet" type="text/css" href="editinformation.php">
-      <input type="hidden" name="eventID" name="eventID" value="">
 
-      <a href="#" class="editButton" onclick="setValue();">Edit Information</a></div>
-        <br>
+      <br>
+
+    <div style="text-align: center;">
+
+
+
+
+
+      <link rel="stylesheet" type="text/css" href="editinformation.php">
+      <input type="hidden" name="eventID" name="eventID" value=''>
+
+      <a href="#" class="editButton" onclick="editEvent();">Edit Information</a></div>
+
+
         <br>
 </form>
+<div align='center'>
+  <form method="post" id="finalizeForm" name="finalizeForm" action="finalizeEvent.php?">
+          <a href="#" class="editButton" onclick="finalizeEvent();">Finalize Event</a>
+    <input type="hidden" name="eventID" value=''>
+</form>
+<br>
+</div>
 
     <script>
 
@@ -108,6 +143,26 @@ $event=$manager->viewAccepted($db);
      var index=0;
     //pass php array to javascript
     var acceptedEvent= <?php echo json_encode($event); ?>;
+
+    if (acceptedEvent[0]['fullName'] == "undefined"){
+
+  //change content nothing
+    document.getElementById("fullName").innerHTML = "";
+    document.getElementById("emailAddress").innerHTML = "";
+    document.getElementById("phoneNumber").innerHTML = "";
+    document.getElementById("childName").innerHTML = "";
+    document.getElementById("theater").innerHTML = "";
+    document.getElementById("movie").innerHTML = "";
+    document.getElementById("eventDate").innerHTML = "";
+    document.getElementById("eventTime").innerHTML = "";
+    document.getElementById("eventType").innerHTML = "";
+    document.getElementById("numOfPeople").innerHTML = "";
+    document.getElementById("partyRoomBook").innerHTML ="";
+    document.getElementById("partyRoomTime").innerHTML = "";
+    document.getElementById("description").innerHTML = "";
+    document.getElementById("specialAttention").innerHTML = "";
+    document.getElementById("depositPaid").innerHTML = "";
+}
     //change content to top of array
     document.getElementById("fullName").innerHTML = acceptedEvent[index]['fullName'];
     document.getElementById("emailAddress").innerHTML = acceptedEvent[index]['emailAddress'];
@@ -123,7 +178,7 @@ $event=$manager->viewAccepted($db);
     document.getElementById("partyRoomTime").innerHTML = acceptedEvent[index]['partyRoomTime'];
     document.getElementById("description").innerHTML = acceptedEvent[index]['description'];
     document.getElementById("specialAttention").innerHTML = acceptedEvent[index]['specialAttention'];
-    document.getElementById("depositPaid").innerHTML = acceptedEvent[index]['recievedDeposit'];
+    document.getElementById("depositPaid").innerHTML = acceptedEvent[index]['depositAmt'];
 
 
       function nextEvent(){
@@ -190,11 +245,15 @@ $event=$manager->viewAccepted($db);
 
       }
 
-      function setValue(){
+      function editEvent(){
         document.editForm.eventID.value = acceptedEvent[index]['eventID'];
         document.forms["editForm"].submit();
       }
 
+      function finalizeEvent(){
+        document.finalizeForm.eventID.value = acceptedEvent[index]['eventID'];
+        document.forms["finalizeForm"].submit();
+      }
     </script>
   </div>
   </body>

@@ -4,6 +4,19 @@ include 'manager.php';
 session_start();
 $manager=new manager($_SESSION['username'], $_SESSION['theaterName']);
 
+
+//delete event
+if(isset($_POST['deleteEventButton'])) {
+$manager->deleteEvent($db, $_POST['eventID']);
+
+print '<script>alert("Event Deleted, make sure a refund is given");</script>';
+print '<script>window.location.assign("acceptedevents.php");</script>';
+
+
+}
+
+
+
 if(isset($_POST['saveChangesButton'])) {
   //checkAvailabilty?
 

@@ -37,19 +37,20 @@ include 'header.php';
 
 
  <!-- Overlay effect when opening sidebar on small screens -->
- <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+ <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay">
+</div>
 
  <!-- !PAGE CONTENT! -->
  <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
    <!-- Header -->
    <div class="w3-container" style="margin-top:80px" id="showcase">
-     <h1 class="w3-jumbo"><b><?php $manager->getManagerTheater(); ?>What's in Store... </b><img style="width: 70px; height: 70px;" src="http://clipart-library.com/data_images/359309.png">
+     <h1 class="w3-jumbo"><b><?php $manager->getManagerTheater(); ?>What's in Store... </b>
      </h1><hr style="width:50px;border:5px solid blue" class="w3-round">
    </div>
    <div class="googleCalendar">
    <!-- Photo grid (modal) -->
-   <iframe src="https://calendar.google.com/calendar/embed?src=33fk84kf0rdcqb7frkm8f1ocl0%40group.calendar.google.com&ctz=America/New_York" align="center" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+  <iframe src="https://calendar.google.com/calendar/embed?src=33fk84kf0rdcqb7frkm8f1ocl0%40group.calendar.google.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
  </div>
 

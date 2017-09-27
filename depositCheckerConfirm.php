@@ -3,11 +3,34 @@ include 'dbh.php';
 include 'manager.php';
 session_start();
 $manager=new manager($_SESSION['username'], $_SESSION['theaterName']);
+//Pay Deposit Button
 if(isset($_POST['payDepositButton'])) {
 
   if(isset($_POST['select'])){
     $manager->payDeposit($db, $_POST['select']);
     print '<script>alert("Depost Paid!");</script>';
+    print '<script>window.location.assign("depositchecker.php");</script>';
+
+  }
+  else{
+    print '<script>alert("Please select an option!");</script>';
+    print '<script>window.location.assign("depositchecker.php");</script>';
+
+
+  }
+
+}
+
+
+
+
+
+//Waive Deposit Button
+if(isset($_POST['waiveDepositButton'])) {
+
+  if(isset($_POST['select'])){
+    $manager->waiveDeposit($db, $_POST['select']);
+    print '<script>alert("Depost Waived!");</script>';
     print '<script>window.location.assign("depositchecker.php");</script>';
 
   }

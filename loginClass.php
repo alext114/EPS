@@ -63,7 +63,7 @@
 		       {
 		         print '<script>alert("Incorrect Password!");</script>';
 		         //redirects to managerlogin.php
-		         print '<script>window.location.assign("loginPage.html");</script>';
+		         print '<script>window.location.assign("index.html");</script>';
 		       }
 		   }
 		   //if table does not exist or no existing username in table
@@ -71,7 +71,7 @@
 		   {
 		     print '<script>alert("Incorrect Username!");</script>';
 		     //redirects to managerlogin.php
-		    	print '<script>window.location.assign("loginPage.html");</script>';
+		    	print '<script>window.location.assign("index.html");</script>';
 		   }
 
 		}

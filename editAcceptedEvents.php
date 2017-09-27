@@ -94,8 +94,9 @@ $event=$manager->editEvent($db, $editEvent);
       <br>
       <div style="text-align: right;">
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-        <button type="button" name="deleteEventButton"  onclick="confirm('Are you sure you want to delete this Event? (Warning: If there was a deposit, refund will have to be given!)')" class="deleteButton">
+        <button type="submit" name="deleteEventButton"  onclick="confirm('Are you sure you want to delete this Event? (Warning: If there was a deposit, refund will have to be given!)')" class="deleteButton">
           Delete Event</button> </div>
+<br>
     </form>
   </body>
 </html>

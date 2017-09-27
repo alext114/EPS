@@ -20,8 +20,7 @@ $event=$manager->viewPendingQueue($db)?>
     <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
     <div style="text-align: center;">
-      <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Event
-        Popper System<img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
+      <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png">Pending Events<img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
     </div>
     <h2 style="text-align: center;"></h2>
     <form method="POST" action="pendingeventsConfirm.php">
@@ -84,12 +83,15 @@ $event=$manager->viewPendingQueue($db)?>
         <textarea rows="3" cols="80" name="messageTextField"></textarea></div>
       <br>
       <br>
-      <div style="text-align: center;">
+      <div align= "center">
 
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
           <input type="submit" name="acceptButton" class="submitButton" value="Accept"> 
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
           <input type="submit" name="rejectButton" class="rejectButton" value="Reject">
+        </div>
+<br><br>
+         <div align="center">
           <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
           <input type="submit" name="pushButton" class="pushButton" value="Push!">
       </div>
@@ -97,9 +99,7 @@ $event=$manager->viewPendingQueue($db)?>
 
     <br>
     <br>
-    <div style="text-align: left;">
-      <a href="editinformation.php" class="editButton">Edit Information</a></div>
-      <br>
+    
     </div>
   </body>
 </html>

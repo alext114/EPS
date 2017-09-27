@@ -29,13 +29,14 @@
     }
 
 
-    public function deleteManager($db,$usermame){
+    public function deleteManager($db,$userID){
 
-      $query="DELETE FROM `users` WHERE `username`= '$username'";
-      if ($db->query($query) === TRUE)
+      $query="DELETE FROM `users` WHERE `userID`= '$userID'";
+      $result=$db->query($query);
+      if ( $result == true)
       {
         print '<script>alert("Manager Deleted!");</script>';
-       //redirects to home.html
+       //redirects to accountmanage.html
     print '<script>window.location.assign("accountmanage.php");</script>';
       }
       else {
@@ -51,11 +52,14 @@
 
     public function getManagers($db){
       $managers= array();
-      $query = "SELECT username FROM users";
-      $result = $db->query($query);
-
+      $query= "SELECT username, userID FROM users";
+          $result = $db->query($query);
+          $managers=array($result->num_rows);
+          $index=0;
       while ($row=$result->fetch_assoc()){
-            $managers[]= $row;
+            $managers[$index] = array ("userID"=> $row['userID'], "username"=>$row['username']);
+
+            $index++;
       }
       return $managers;
     }

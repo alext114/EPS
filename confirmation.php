@@ -9,6 +9,9 @@ $obj = json_decode($response);
 if($obj->success == true)
 {
     //passes test
+    $_SESSION['customerInfo']= array(
+      "fullName"=>$_POST["fullName"], "emailAddress"=>$_POST["emailAddress"], "phoneNumber"=>$_POST["phoneNumber"], "eventDate"=>$_POST["eventDate"], "description"=>$_POST["description"], "movie"=>$_POST["movie"], "eventTime"=>$_POST["eventTime"], "rate"=>''
+    , "numOfPeople"=>$_POST["attendance"], "specialAttention"=>$_POST["specialAttention"], "eventType"=>$_POST["eventType"], "partyRoomBook"=>$_POST["partyRoomBook"], "childName"=>$_POST["childName"], "theaterName"=>$_POST["theaterName"]);
 }
 else{
   print '<script>alert("ReCaptcha failed. Redirecting back to submission form...");</script>';
@@ -76,11 +79,11 @@ else{
             <label form="specialneedsLabel"><?php  echo $_POST['specialAttention'];?></label></fieldset>
       <h2>You should receive an e-mail from a representative as soon as
         possible.</h2>
-      <h3>Thanks for booking with <label form="theaternameLabel"><?php echo $_POST['theater']?></label>! </h3>
+      <h3>Thanks for booking with <label form="theaternameLabel"><?php echo $_POST['theaterName']?></label>! </h3>
       <h2 style="text-align: center;"><img style="width: 64px; height: 79px;" src="http://images.clipartpanda.com/movie-clipart-popcorn3.png"></h2>
       <div style="text-align: right;">
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-        <button type="button" name="editButton" class="rejectButton" onclick="window.location.submissionform.html';">Wait I Need to Edit!</button> &nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" name="editButton" class="rejectButton" onclick="window.location.assign('submissionform.html');">Wait I Need to Edit!</button> &nbsp;&nbsp;&nbsp;&nbsp;
         <link rel="stylesheet" type="text/css" href="ButtonReferences.css">
         <button type="submit" name="confirmButton" class="submitButton">Sounds
           Good!</button>
