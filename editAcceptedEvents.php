@@ -38,7 +38,7 @@ $event=$manager->editEvent($db, $editEvent);
         </p>
         <p>Phone Number:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp; &nbsp; <input name="phoneNumber" value="<?php echo $event['fullName']; ?>" type="tel"></p>
+          &nbsp;&nbsp;&nbsp; &nbsp; <input name="phoneNumber" value="<?php echo $event['phoneNumber']; ?>" type="tel"></p>
         Child's Name (If Applicable):&nbsp; &nbsp;&nbsp; <input name="childName" type="text" value="<?php echo $event['childName']; ?>">
         <legend>Personal Information</legend></fieldset>
       <p><br>

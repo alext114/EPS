@@ -1,261 +1,210 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html >
 <head>
-<title>What's Poppin Events</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Fare Order Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+  <meta charset="UTF-8">
+  <title>What's Poppin Events</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
- </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
- <script src='https://www.google.com/recaptcha/api.js'></script>
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!-- Custom Theme files -->
-<!-- font-awesome-icons -->
-<link href="css/font-awesome.css" rel="stylesheet">
-<!-- //font-awesome-icons -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
-<!--fonts-->
-<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-<link href="//fonts.googleapis.com/css?family=Niconne" rel="stylesheet">
-<!--//fonts-->
+      <link rel="stylesheet" href="css/formstyle.css">
+      <script src='https://www.google.com/recaptcha/api.js'></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!--ZA WARUDO-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!--//ZA WARUDO-->
 
 </head>
+
 <body>
-<!--background-->
-<h1> Event Popper </h1>
-    <div class="bg-agile">
 
-	<div class="book-appointment">
-	<h2>Let's Get Poppin</h2>
-						<div class="book-form agileits-login">
-							<form action="confirmationpage.php" method="post">
-								<div class="phone_email">
-									<label>Full name : </label>
-									<div class="form-text">
-										<i class="fa fa-user" aria-hidden="true"></i>
-										<input type="text" name="fullName" placeholder="John Smith" pattern = "[A-Za-z\s\-]{0,}" title="Names can't have numbers!" required>
-									</div>
-								</div>
-								<div class="phone_email phone_email1">
-									<label>Email : </label>
-									<div class="form-text">
-										<i class="fa fa-envelope-o" aria-hidden="true"></i>
-										<input type="email" name="emailAddress" placeholder="johnsmith@gmail.com" required>
-									</div>
-								</div>
-								<div class="phone_email">
-									<label>Phone number : </label>
-									<div class="form-text">
-										<i class="fa fa-phone" aria-hidden="true"></i>
-										<input type="tel" name="phoneNumber" id = "phone" placeholder="XXX-XXX-XXXX" pattern = "\d{3}[\-]\d{3}[\-]\d{4}" maxlength="12" title = "Please enter your phone number in XXX-XXX-XXXX format, dashes included!" required>
-									</div>
-								</div>
-								<div class="phone_email phone_email1">
-									<label>Child's Name: </label>
-									<div class="form-text">
-										<i class="fa fa-user" aria-hidden="true"></i>
-										<input type="text" name="childName" placeholder = "Johnny Smith" pattern = "[A-Za-z\s\-]{0,}" title="Names can't have numbers!" placeholder="">
-									</div>
-								</div>
-<div class = "clear"></div>
-  <div class="book-form agileits-login">
-                  <div class="phone_email">
-                    <!-- start_section_room -->
-                    <label>Theater Name: </label>
-                    <div class="section_room">
-                      <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      <select name = "theaterName" id="country" onchange="change_country(this.value)" class="frm-field required">
-
-                        <option value="Teaneck Cinemas" selected="selected">Teaneck Cinemas</option>
-                        <option value="Sayville Cinemas">Sayville Cinemas</option>
-
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="phone_email phone_email1">
-                    <!-- start_section_room -->
-                    <label>Movie Desired: </label>
-                    <div class="form-text">
-                      <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                      <input   name="movie" type="text" placeholder = "The Bee Movie" value="" required>
-                    </div>
-                  </div>
+<div class="container">
+  <div align="center">
+  <h2>Let's Get Poppin</h2>
 </div>
-<div class="clear"></div>
-<div class="agileits_reservation_grid">
-									<div class="span1_of_1">
-										<label>Date: </label>
-										<div class="form-text">
-											<i class="fa fa-calendar" aria-hidden="true"></i>
-												<input id="datepicker" name="eventDate" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required>
-										</div>
-									</div>
-                </div>
-                  <div class = "clear"></div>
-                  <br>
-                  <div class="book-form agileits-login">
-                  									<div class="phone_email">
-                  										<label>Type of Event : </label>
-                  										<!-- start_section_room -->
-                  										<div class="form-text">
-                  											<i class="fa fa-user" aria-hidden="true"></i>
-                  											<select name = "eventType" id="country1" onchange="change_country(this.value)" class="frm-field required sect">
-                                          <option value="Walk-In">Walk-In</option>
-                  		                    <option value="Fundraiser">Fundraiser</option>
-                                          <option value="Rental">Rental</option>
-                                          <option value="Private Screening">Private Screening</option>
-                                          <option value="Other">Other</option>
-                  											</select>
-                  										</div>
-                  									</div>
-                                    <script>$('#country1').on('change', function () {
-                                      var optionSelected = $("option:selected", this);
-                                      var valueSelected = this.value;
-                                      if(valueSelected === "Rental" || valueSelected === "Private Screening" || valueSelected === "Fundraiser"){
-                                        document.getElementById("timeselect").value = "10:00:00";
-                                        document.getElementById("timeselect").readOnly = true;
+<form action="confirmationpage.php" method="post">
+    <div class="row">
 
-                                      }
-                                      else{
-                                        document.getElementById("timeselect").value = null;
-                                        document.getElementById("timeselect").readOnly = false;
-                                      }
-                                    });</script>
-
-
-                                    <div class="phone_email phone_email1">
-                                      <!-- start_section_room -->
-                                      <label>Number of People Attending: </label>
-                                      <div class="section_room">
-                                        <i class="fa fa-users" aria-hidden="true"></i>
-                                        <input   name="attendance" type="number" placeholder = "" value="" required>
-                                      </div>
-                                    </div>
-                  </div>
-
-                  <div class = "clear"></div>
-<div class="agileits_reservation_grid">
-                  <div class="span1_of_1">
-                    <!-- start_section_room -->
-                    <label>Time: </label>
-                    <div class="section_room">
-                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                      <input  name="eventTime" id = "timeselect" type="time" value="" required>
-                    </div>
-                  </div>
-                </div>
-<div class = "clear"> </div>
-
-
-                  <!-- start_section_room -->
-                  <div class="phone_email">
-<label>Party Room: </label>
-<div class="form-text">
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-
-                    <select name = "partyRoomBook" id="country" onchange="change_country(this.value)" class="frm-field required sect">
-                      <option value="No">No</option>
-                      <option value="Yes">Yes</option>
-                    </select>
-                  </div>
-                </div>
-
-                  <script>$('select[name=partyselector]').on('change', function () {
-                     var optionSelected = $("option:selected", this);
-                     var valueSelected = this.value;
-                     if(valueSelected === "Yes"){
-                       $("#partytimeIDHeader").show();
-     $("#partyroomTextID").show();
-
-                     }
-                     else{
-                       $("#partytimeIDHeader").hide();
-     $("#partyroomTextID").hide();
-
-                     }
-                   });</script>
-
-                  <div class="phone_email phone_email1">
-                    <!-- start_section_room -->
-                    <label id = "partytimeIDHeader" style="display: none">Party Time: </label>
-                    <div class="section_room">
-                      <input id = "partyroomTextID" name="partyTimeTextBox" style="display: none" type="time" value="">
-                    </div>
-                  </div>
-                  <div class = "clear"></div>
-                  <div class="agileits_reservation_grid">
-
-                  <div class="span1_of_1">
-                    <!-- start_section_room -->
-                    <label>Brief Description: </label>
-                    <div class="form-text">
-                      <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                      <input   name="description" type="text" value="" placeholder = "Please Provide a Brief Description" required>
-                    </div>
-                  </div>
-
-                  <div class="span1_of_1">
-                    <!-- start_section_room -->
-                    <label>Special Attention: </label>
-                    <div class="form-text">
-                      <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                      <input   name="specialAttention" type="text" placeholder = "Optional, We're Happy to Accomodate Your Needs!" value="">
-                    </div>
-                  </div>
-                  <div class="clear"></div>
-                        <div class="book-form agileits-login">
-                        <div class="phone_email">
-      <div class="form-text">
-            <div class="g-recaptcha" data-sitekey="6Lc_RS0UAAAAAAliM5C_DoF3rzN2aS3O1Ngj7Ebo"></div>
+      <h4>Personal Information</h4>
+      <div class="input-group input-group-icon">
+        <input required name="fullName" type="text" placeholder="Full Name">
+        <div class="input-icon"><i class="fa fa-user"></i></div>
       </div>
+      <div class="input-group input-group-icon">
+        <input required name="emailAddress" type="email" placeholder="Email Address">
+        <div class="input-icon"><i class="fa fa-envelope"></i></div>
       </div>
+      <div class="input-group input-group-icon">
+        <input required="required" name="phoneNumber" type="tel" id = "phone" pattern = "\d{3}[\-]\d{3}[\-]\d{4}" placeholder="XXX-XXX-XXXX" title = "Please enter your phone number in XXX-XXX-XXXX format, dashes included!"></td>
+        <div class="input-icon"><i class="fa fa-phone"></i></div>
+      </div>
+      <div class="input-group input-group-icon">
+        <input name="childName" type="text" placeholder="Child's Name"/>
+        <div class="input-icon"><i class="fa fa-user"></i></div>
+      </div>
+    </div>
+    <div class="row">
 
 
+        <h4>Theater Information</h4>
 
-                          <div class="phone_email phone_email1">
-                            <div class="form-text">
-                      <input type="submit" value="Let's Go!">
-      </div>
-      </div>
+
+            <div class="row">
+
+                <!--Header Here -->
+                <div class="col-half">
+
+                <div class="input-group input-group-icon">
+                  <input   name="movie" type="text" placeholder = "Ex... The Bee Movie" value="" required>
+                  <div class="input-icon"><i class="fa fa-film"></i></div>
+
+              </div>
 </div>
-							</form>
-						</div>
-          </div>
-          <div class="clear"> </div>
+
+            <select name="theaterName">
+            <option value="Teaneck Cinemas" selected>Teaneck Cinemas</option>
+            <option value="Sayville Cinemas">Sayville Cinemas</option>
+            </select>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+    </div>
+    <h4>Event Information</h4>
+
+
+
+
+
+    <div class="row">
+
+
+
+        <h5>Type of Event</h5>
+        <select name = "eventType" id="country1" onchange="change_country(this.value)">
+                                                  <option selected>--Select--</option>
+                                                  <option value="Rental">Rental</option>
+                                                  <option value="Walk-In">Walk-In</option>
+                                                  <option value="Fundraiser">Fundraiser</option>
+                                                  <option value="Private Screening">Private Screening</option>
+                                                  <option value="Other">Other</option>
+        </select>
+
+
+        <script>$('#country1').on('change', function () {
+        var optionSelected = $("option:selected", this);
+        var valueSelected = this.value;
+        if(valueSelected === "Rental" || valueSelected === "Private Screening"){
+        document.getElementById("timeselect").value = "10:00:00";
+        document.getElementById("timeselect").readOnly = true;
+
+        }
+        else{
+        document.getElementById("timeselect").value = null;
+        document.getElementById("timeselect").readOnly = false;
+        }
+        });
+        </script>
+
+      <div class="col-half">
+
+      <div class="input-group input-group-icon">
+        <input   name="attendance" type="number" placeholder = "Number of People (Adults Included)" value="" required>
+        <div class="input-icon"><i class="fa fa-users	"></i></div>
+
+    </div>
+</div>
+
+<div class="row">
+
+  <div class="col-half">
+    <h5>Date</h5>
+    <div class="input-group input-group-icon">
+      <input id="datepicker" name="eventDate" type="date" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required>
+      <div class="input-icon"><i class="fa fa-calendar"></i></div>
+
+    </div>
   </div>
-   <!--copyright-->
-   <div class="wthree-text">
-       </div>
-     </div>
-			<div class="copy w3ls">
-		       <p>&copy; 2017. Fare Order Form . All Rights Reserved  | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-	        </div>
+  <div class="col-half">
+    <h5>Time</h5>
+    <div class="input-group input-group-icon">
+      <input  name="eventTime" id = "timeselect" type="time" value="" required>
+      <div class="input-icon"><i class="fa fa-clock-o"></i></div>
 
-		<!--//copyright-->
-		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-		<!-- Calendar -->
-				<link rel="stylesheet" href="css/jquery-ui.css" />
-				<script src="js/jquery-ui.js"></script>
-				  <script>
-						  $(function() {
-							$( "#datepicker,#datepicker1,#datepicker2,#datepicker3" ).datepicker();
-						  });
-				  </script>
-			<!-- //Calendar -->
+    </div>
+  </div>
+</div>
+
+
+
+
+</div>
+<div class="row">
+  <h5>Party Room?*</h5>
+        <div class="input-group">
+          <select name = "partyRoomBook" id="country" onchange="change_country(this.value)" class="frm-field required sect">
+                 <option selected value="No">No</option>
+                 <option value="Yes">Yes</option>
+               </select>
+               <h6> *Note: Party Room has an extra fee*</h6>
+
+        </div>
+
+    </div>
+<div class="row">
+
+        <div class="input-group">
+          <input   name="description" type="text" value="" placeholder = "Please Provide a Brief Description" required>
+
+        </div>
+
+    </div>
+    <div class="row">
+
+            <div class="input-group">
+              <input   name="specialAttention" type="text" placeholder = "Optional, We're Happy to Accomodate Your Needs!" value="">
+
+            </div>
+
+        </div>
+    <div style="color: black;" class="row">
+      <h4>Terms and Conditions</h4>
+      <label style="font-size: 12px;">All movies start promptly at agreed show time. Party rental rates include up to 27 people
+        TOTAL. Additional guests can receive popcorn and soda for an added charge of $7 per guest ($8 for 3D films).
+<br>
+<br>
+Please Note: Films are scheduled through our distributors on a weekly basis and we
+cannot guarantee availability of any film. We will do our best to accommodate your party
+requests but we cannot be held accountable for distributors’ changes.
+<br></br>
+YOUR EVENT IS NOT OFFICAL UNTIL IT IS ACCEPTED BY THE THEATER AND THE DEPOSIT (MINIMUM $50) HAS BEEN PAID.
+<br><br>
+We reserve the right
+to cancel all events with 48 hours notice by refunding the full amount of the deposit.
+Upon cancellation, deposits may be refunded up until one week before the event.
+<br><br>
+</label>
+    </div>
+
+    <div align="center">
+      <div class="g-recaptcha" data-sitekey="6LdWmTAUAAAAAGBViUWcdTiNG4bxNkN1tNGWKrH9"></div>
+      <br>
+</div>
+<div>
+              <input type="submit" value="Let's Go!">
+</div>
+  </form>
+</div>
+
 
 </body>
 </html>
+<!--

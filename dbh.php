@@ -1,12 +1,17 @@
 <?php
 
+/*
 $servername = "teaneckcinemascom.startlogicmysql.com";
 $username = "teaneckcinemas";
 $password = "503cedarlane";
 $database="sapeps_database";
 
-
+*/
 //connect to database using mysqli
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$database="eps_database";
 
 // Create connection
 $db = new mysqli($servername, $username, $password, $database);

@@ -1,6 +1,6 @@
 <?php
 include 'dbh.php';
-include 'manager.php';
+
 include 'eventManager.php';
 session_start();
 

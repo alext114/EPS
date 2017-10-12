@@ -4,7 +4,7 @@ session_start();
 
 //Captcha test
 $captcha=$_POST['g-recaptcha-response'];
-$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6Lc_RS0UAAAAAMG8688ihS3DuN_5Q4TDY6BXjPdO&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
+$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LdWmTAUAAAAALo1rWnpAh6_4WSs_hG0img9IKuW&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
 $obj = json_decode($response);
 if($obj->success == true)
 {
@@ -14,7 +14,6 @@ if($obj->success == true)
       "rate"=>'', "numOfPeople"=>$_POST["attendance"], "specialAttention"=>$_POST["specialAttention"],
       "eventType"=>$_POST["eventType"], "partyRoomBook"=>$_POST["partyRoomBook"], "childName"=>$_POST["childName"], "theaterName"=>$_POST["theaterName"]);
 
-  print '<script>alert("passed");</script>';
 
 }
 else{
@@ -24,195 +23,213 @@ else{
 }
 ?>
 
-
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html >
 <head>
-<title>What's Poppin Events</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Fare Order Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!-- Custom Theme files -->
-<!-- font-awesome-icons -->
-<link href="css/font-awesome.css" rel="stylesheet">
-<!-- //font-awesome-icons -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
-<!--fonts-->
-<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-<link href="//fonts.googleapis.com/css?family=Niconne" rel="stylesheet">
-<!--//fonts-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<!--ZA WARUDO-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!--//ZA WARUDO-->
+  <title>What's Poppin Events</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="css/formstyle.css">
+      <script src='https://www.google.com/recaptcha/api.js'></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 </head>
+
 <body>
-<!--background-->
-<h1> Event Popper </h1>
-    <div class="bg-agile">
-	<div class="book-appointment">
-	<h2>Great! Please Take a Moment to Review Your Information</h2>
-						<div class="book-form agileits-login">
-							<form action="customerSubmitProcessing.php" method="post">
-								<div class="phone_email">
-									<label>Full name : </label>
-									<div class="form-text">
 
-										<label form="nameLabel"><?php  echo $_POST['fullName'];  ?></label>
-									</div>
-								</div>
-								<div class="phone_email phone_email1">
-									<label>Email : </label>
-									<div class="form-text">
+<div class="container">
+  <div align="center">
+  <h2>Let's Get Poppin</h2>
+</div>
+<form action="customerSubmitProcessing.php" method="post">
+    <div style="color: black;"class="row">
 
-										<label form="emailLabel"><?php  echo $_POST['emailAddress'];?></label>
-									</div>
-								</div>
-								<div class="phone_email">
-									<label>Phone number : </label>
-									<div class="form-text">
+      <h4>Personal Information</h4>
+      <div class="input-group" >
+        <label>Full Name: <?php  echo $_POST['fullName'];  ?></label>
 
-										<label form="numberLabel"><?php  echo $_POST['phoneNumber'];  ?></label>
-									</div>
-								</div>
-								<div class="phone_email phone_email1">
-									<label>Child's Name (If Applicable): </label>
-									<div class="form-text">
+      </div>
+      <div class="input-group">
+        <label>Email Address: <?php  echo $_POST['emailAddress'];  ?></label>
 
-                    <label form="childNameLabel"><?php  echo $_POST['childName'];?></label> <legend></legend>
-									</div>
-								</div>
-								<div class="clear"></div>
-								<div class="agileits_reservation_grid">
-                  <div class="phone_email">
-                    <!-- start_section_room -->
-                    <label>Theater Name: </label>
-                    <div class="form-text">
+      </div>
+      <div class="input-group">
+        <label>Phone Number: <?php  echo $_POST['phoneNumber'];  ?></label>
 
-                      <label form="theaterNameLabel"><?php  echo $_POST['theaterName'];?></label>
-                    </div>
-                  </div>
+      </div>
+      <div class="input-group">
+        <label>Child Name (If applicable): <?php  echo $_POST['childName'];  ?></label>
 
-                  <div class="phone_email phone_email1">
-                    <!-- start_section_room -->
-                    <label>Movie Desired: </label>
-                    <div class="form-text">
-
-                      <label form="movieNameLabel"><?php  echo $_POST['movie'];?></label>
-                    </div>
-                  </div>
-
-									<div class="phone_email">
-										<label>Date : </label>
-										<div class="form-text">
-
-											<label form="eventdateLabel"><?php  echo $_POST['eventDate'];?></label>
-
-										</div>
-									</div>
-
-                  <div class="phone_email phone_email1">
-                    <!-- start_section_room -->
-                    <label>Time: </label>
-                    <div class="form-text">
-                      <label form="timeLabel"><?php  echo $_POST['eventTime'];?>
-                    </div>
-                  </div>
-
-									<div class="phone_email">
-										<label>Type of Event : </label>
-										<!-- start_section_room -->
-										<div class="form-text">
-
-											<label form="eventTypeLabel"><?php  echo $_POST['eventType'];?></label>
-										</div>
-									</div>
-
-                  <div class="phone_email phone_email1">
-                    <!-- start_section_room -->
-                    <label>Number of People Attending: </label>
-                    <div class="form-text">
-
-                      <label form="numberAttendingLabel"><?php  echo $_POST['numOfPeople'];?></label>
-                    </div>
-                  </div>
-
-                  <div class="phone_email">
-
-                    <!-- start_section_room -->
-                    <div class="form-text">
-
-                      <label>Party Room: </label>
-                      <label form="partyRoomConfirmationLabel"><?php  echo $_POST['partyRoomBook'];?></label>
-                    </div>
-                  </div>
-
-                  <div class="phone_email phone_email1">
-                    <!-- start_section_room -->
-                    <label id = "partytimeIDHeader">Party Time: </label>
-                    <div class="form-text">
-                      <input id = "partyroomTextID" name="partyTimeTextBox" style="display: none" type="time" value="">
-                    </div>
-                  </div>
-
-                  <div class="span1_of_1">
-                    <!-- start_section_room -->
-                    <label>Brief Description: </label>
-                    <div class="form-text">
-
-                      <label form="descLabel"><?php  echo $_POST['description'];?></label><br>
-                    </div>
-                  </div>
-
-                  <div class="span1_of_1">
-                    <!-- start_section_room -->
-                    <label>Special Attention: </label>
-                    <div class="form-text">
-
-                      <label form="specialneedsLabel"><?php  echo $_POST['specialAttention'];?></label>
-                    </div>
-                  </div>
-
-									<div class="clear"></div>
-								</div>
-												<div class="wthree-text">
-
-												<div class="clearfix"> </div>
-											</div>
+      </div>
+    </div>
+    <div style="color: black;" class="row">
 
 
-     <button type="button" name="editButton" class="abortButton" onclick="window.location.assign('submissionform.html');">Wait I Need to Edit!</button> &nbsp;&nbsp;&nbsp;&nbsp;
-<link rel="stylesheet" type="text/css" href="ButtonReferences.css">
-								<input type="submit" value="Sounds Good!">
-							</form>
-						</div>
+        <h4>Theater Information</h4>
 
-		</div>
-   </div>
-   <!--copyright-->
-			<div class="copy w3ls">
-		       <p>&copy; 2017. Fare Order Form . All Rights Reserved  | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-	        </div>
-		<!--//copyright-->
-		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-		<!-- Calendar -->
-				<link rel="stylesheet" href="css/jquery-ui.css" />
-				<script src="js/jquery-ui.js"></script>
-				  <script>
-						  $(function() {
-							$( "#datepicker,#datepicker1,#datepicker2,#datepicker3" ).datepicker();
-						  });
-				  </script>
-			<!-- //Calendar -->
+
+            <div class="row">
+
+                <!--Header Here -->
+                <div class="col-half">
+
+                <div class="input-group">
+                  <label>Movie: <?php  echo $_POST['movie'];  ?></label>
+
+
+
+              </div>
+</div>
+
+                <!--Header Here -->
+                <div class="col-half">
+
+                <div class="input-group">
+                  <label>Theater: <?php  echo $_POST['theaterName'];  ?></label>
+
+
+
+              </div>
+</div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+    </div>
+    <h4>Event Information</h4>
+
+
+
+
+
+    <div style="color: black;" class="row">
+
+        <!--Header Here -->
+        <div class="col-half">
+
+        <div class="input-group">
+          <label>Event Type: <?php  echo $_POST['eventType'];  ?></label>
+
+
+      </div>
+</div>
+
+      <div class="col-half">
+
+      <div class="input-group">
+        <label>Number of People: <?php  echo $_POST['attendance'];  ?></label>
+
+
+    </div>
+</div>
+
+<div style="color: black;" class="row">
+
+  <div class="col-half">
+
+    <div class="input-group">
+      <label>Date: <?php  echo $_POST['eventDate'];  ?></label>
+
+
+    </div>
+  </div>
+  <div class="col-half">
+    <div class="input-group">
+      <label>Time: <?php  echo $_POST['eventTime'];  ?></label>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+</div>
+<div style="color: black;" class="row">
+  <div class="col-half">
+    <div class="input-group">
+      <label>Party Room?: <?php  echo $_POST['partyRoomBook'];  ?></label>
+
+           <h6> *Note: Party Room has an extra fee*</h6>
+
+    </div>
+  </div>
+
+
+    </div>
+<div style="color: black;" class="row">
+  <div class="input-group">
+    <label>Description: <?php  echo $_POST['description'];  ?></label>
+
+        </div>
+
+    </div>
+    <div style="color: black;" class="row">
+      <div class="input-group">
+        <label>Special Attention: <?php  echo $_POST['specialAttention'];  ?></label>
+            </div>
+
+        </div>
+    <div style="color: black;" class="row">
+      <h4>Terms and Conditions</h4>
+      <label style="font-size: 12px;">All movies start promptly at agreed show time. Party rental rates include up to 27 people
+        TOTAL. Additional guests can receive popcorn and soda for an added charge of $7 per guest ($8 for 3D films).
+<br>
+<br>
+Please Note: Films are scheduled through our distributors on a weekly basis and we
+cannot guarantee availability of any film. We will do our best to accommodate your party
+requests but we cannot be held accountable for distributors’ changes.
+<br></br>
+YOUR EVENT IS NOT OFFICAL UNTIL IT IS ACCEPTED BY THE THEATER AND THE DEPOSIT ($50) HAS BEEN PAID.
+<br><br>
+We reserve the right
+to cancel all events with 48 hours notice by refunding the full amount of the deposit.
+Upon cancellation, deposits may be refunded up until one week before the event.
+<br><br>
+</label>
+    </div>
+
+<div>
+
+</div>
+    <div class="row">
+
+      <div class="col-half">
+        <div class="input-group">
+
+          <input type="button" value="Wait I Need to Edit!" name="abortButton" onclick="window.location.assign('submissionform.html');">
+</div>
+
+      </div>
+      <div class="col-half">
+        <div class="input-group">
+          <input type="submit" value="Sounds Good!">
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </form>
+</div>
+
 
 </body>
 </html>
+<!--

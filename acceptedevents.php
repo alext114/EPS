@@ -202,7 +202,7 @@ $event=$manager->viewAccepted($db);
             document.getElementById("partyRoomTime").innerHTML = acceptedEvent[index]['partyRoomTime'];
             document.getElementById("description").innerHTML = acceptedEvent[index]['description'];
             document.getElementById("specialAttention").innerHTML = acceptedEvent[index]['specialAttention'];
-            document.getElementById("depositPaid").innerHTML = acceptedEvent[index]['recievedDeposit'];
+            document.getElementById("depositPaid").innerHTML = acceptedEvent[index]['depositAmt'];
 
 
 
@@ -238,7 +238,7 @@ $event=$manager->viewAccepted($db);
             document.getElementById("partyRoomTime").innerHTML = acceptedEvent[index]['partyRoomTime'];
             document.getElementById("description").innerHTML = acceptedEvent[index]['description'];
             document.getElementById("specialAttention").innerHTML = acceptedEvent[index]['specialAttention'];
-            document.getElementById("depositPaid").innerHTML = acceptedEvent[index]['recievedDeposit'];
+            document.getElementById("depositPaid").innerHTML = acceptedEvent[index]['depositAmt'];
 
 
         }
